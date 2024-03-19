@@ -1,0 +1,26 @@
+body {
+    height: 100vh;
+    width: auto;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#embedding-chart {
+    width: 1000px;
+    height: 750px;
+    position: relative;
+}
+
+#tooltip {
+    position: absolute;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
