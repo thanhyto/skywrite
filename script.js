@@ -114,44 +114,53 @@ var yAxis = d3.axisLeft().scale(y);
 svg.append("g")
   .attr("class","myYaxis")
   .attr("transform", `translate(${marginLeft},0)`)
+const restartButton = document.getElementById("restart");
+const endAnimationButton = document.getElementById("end");
+
 
 // Function to update data
 function updateData(dataset) {
   pointsData = []; // Reset pointsData
+  svg.selectAll("circle").remove(); // Remove old data
+  svg.selectAll("path").remove(); // Remove old path
+  svg.selectAll("transition").remove(); // Remove old transition
   let color;
-  if (dataset === 'noise') {
+  if (dataset === "noise") {
     for (var i = 0; i < noise.length; i++) {
       let xVal = noise[i]["2d"][0];
       let yVal = noise[i]["2d"][1];
-      color='red';
+      color = "red";
       pointsData.push({ x: xVal, y: yVal });
     }
-  } else if (dataset === 'anchor') {
+  } else {
     for (var i = 0; i < anchor.length; i++) {
       let xVal = anchor[i][0];
       let yVal = anchor[i][1];
-      color='blue';
+      color = "blue";
       pointsData.push({ x: xVal, y: yVal });
     }
   }
   // Find the minimum and maximum of x and y in pointsData
-  let xMin = d3.min(pointsData, function(d) { return d.x; });
-  let xMax = d3.max(pointsData, function(d) { return d.x; });
-  let yMin = d3.min(pointsData, function(d) { return d.y; });
-  let yMax = d3.max(pointsData, function(d) { return d.y; });
+  let xMin = d3.min(pointsData, function (d) {
+    return d.x;
+  });
+  let xMax = d3.max(pointsData, function (d) {
+    return d.x;
+  });
+  let yMin = d3.min(pointsData, function (d) {
+    return d.y;
+  });
+  let yMax = d3.max(pointsData, function (d) {
+    return d.y;
+  });
 
   // Scale
   // x-scale
-  x.domain([xMin-2, xMax+2]);
-  svg.selectAll(".myXaxis").transition()
-    .duration(3000)
-    .call(xAxis);
+  x.domain([xMin - 2, xMax + 2]);
+  svg.selectAll(".myXaxis").transition().duration(3000).call(xAxis);
   // y-scale
-  y.domain([yMin-2, yMax+2])
-  svg.selectAll(".myYaxis")
-    .transition()
-    .duration(3000)
-    .call(yAxis);
+  y.domain([yMin - 2, yMax + 2]);
+  svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
 
   //   // Add x axis
   // svg
@@ -166,47 +175,85 @@ function updateData(dataset) {
   // .transition()
   // .duration(3000)
   // .call(d3.axisLeft(y));
-    
-  // Create a update selection: bind to the new data
-  var u = svg.selectAll(".lineTest")
-   .data([pointsData], function(d){ return d.x });
+  // // Add points
+  // Add points
+  svg
+    .append("g")
+    .selectAll("circle")
+    .data(pointsData)
+    .enter()
+    .append("circle")
+    .attr("cx", (d) => x(d.x))
+    .attr("cy", (d) => y(d.y))
+    .attr("r", 5)
+    .attr("fill", "blue");
 
- // Updata the line
- u
-   .enter()
-   .append("path")
-   .attr("class","lineTest")
-   .merge(u)
-   .transition()
-   .duration(3000)
-   .attr("d", d3.line()
-     .x(function(d) { return x(d.x); })
-     .y(function(d) { return y(d.y); }))
-     .attr("fill", "none")
-     .attr("stroke", color)
-     .attr("stroke-width", 2.5)
+  // Create a line using curveCardinalClosed to go through all the circles
+  var path = svg
+    .append("path")
+    .datum(pointsData)
+    .attr(
+      "d",
+      d3
+        .line()
+        .x(function (d) {
+          return x(d.x);
+        })
+        .y(function (d) {
+          return y(d.y);
+        })
+        .curve(d3.curveCardinalClosed)
+    )
+    .attr("fill", "none")
+    .attr("stroke-width", 2)
+    .attr("stroke", color);
 
-  // draw();
-  // Return updated pointsData
+  // Create a repeating animation for the line
+  const length = path.node().getTotalLength();
+  function repeat() {
+    path
+      .attr("stroke-dasharray", length + " " + length)
+      .attr("stroke-dashoffset", length)
+      .transition()
+      .ease(d3.easeLinear)
+      .attr("stroke-dashoffset", 0)
+      .duration(4000)
+      .on("end", () => setTimeout(repeat, 1000));
+  }
+
+  repeat();
+  let isEnded = false;
+  
+  // End animation button
+  document.getElementById('end').addEventListener("click", function () {
+    if (!isEnded) {
+      // Jump to the end of the transition
+      path.interrupt().attr("stroke-dasharray", length + "," + length)
+        .attr("stroke-dashoffset", 0); // Draw all paths immediately
+      isEnded = true;
+    }
+  });
+
+  // Log and return the updated pointsData
   console.log(pointsData);
   return pointsData;
 }
-
+// updateData('noise');
 
 
 // const length = path.node().getTotalLength();
 
-// // function repeat(){
-// //     path.attr("stroke-dasharray", length + " " +length)
-// //         .attr("stroke-dashoffset", length)
-// //             .transition()
-// //             .ease(d3.easeLinear)
-// //             .attr("stroke-dashoffset",0)
-// //             .duration(6000)
-// //             .on("end", () => setTimeout(repeat,1000));
-// // }
+// function repeat(){
+//     path.attr("stroke-dasharray", length + " " +length)
+//         .attr("stroke-dashoffset", length)
+//             .transition()
+//             .ease(d3.easeLinear)
+//             .attr("stroke-dashoffset",0)
+//             .duration(6000)
+//             .on("end", () => setTimeout(repeat,1000));
+// }
 
-// // repeat();
+// repeat();
 
 // // Select the buttons
 // // const playPauseButton = document.getElementById("pause-play");
@@ -216,7 +263,7 @@ function updateData(dataset) {
 // let isEnded = false;
 // let isPlay = false;
 
-// // Define the transition
+// Define the transition
 // const transition = svg
 //   .transition()
 //   .duration(length)
