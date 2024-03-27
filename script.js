@@ -114,7 +114,8 @@ var yAxis = d3.axisLeft().scale(y);
 svg.append("g")
   .attr("class","myYaxis")
   .attr("transform", `translate(${marginLeft},0)`)
-const restartButton = document.getElementById("restart");
+
+// Select the buttons
 const endAnimationButton = document.getElementById("end");
 
 
