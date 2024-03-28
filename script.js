@@ -101,6 +101,26 @@ const svg = d3.create("svg").attr("width", width).attr("height", height);
 svg.append('g')
   .attr('transform', 'translate(' + marginLeft + ',' + marginTop + ')');
 
+// Create tooltip
+var Tooltip = d3.select("#embedding-chart")
+  .append("div")
+  .style("opacity", 0)
+  .attr("class", "tooltip")
+  .style("background-color", "white")
+  .style("border", "solid")
+  .style("border-width", "2px")
+  .style("border-radius", "5px")
+  .style("padding", "5px")
+
+// Change tooltip when user hover/move/leave a cell
+const mouseover = function(d){
+  Tooltip
+    .style("opacity", 1)
+  d3.select(this)
+    .style("stroke", "black")
+    .style("opacity", 1)
+}
+
 // Initialise a X axis:
 var x = d3.scaleLinear().range([marginLeft, width - marginRight]);
 var xAxis = d3.axisBottom().scale(x);
@@ -163,20 +183,6 @@ function updateData(dataset) {
   y.domain([yMin - 2, yMax + 2]);
   svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
 
-  //   // Add x axis
-  // svg
-  // .append("g")
-  // .transition()
-  // .duration(3000)
-  // .call(d3.axisBottom(x));
-
-  // // Add y axis
-  // svg
-  // .append("g")
-  // .transition()
-  // .duration(3000)
-  // .call(d3.axisLeft(y));
-  // // Add points
   // Add points
   svg
     .append("g")
@@ -187,7 +193,7 @@ function updateData(dataset) {
     .attr("cx", (d) => x(d.x))
     .attr("cy", (d) => y(d.y))
     .attr("r", 5)
-    .attr("fill", "blue");
+    .attr("fill", "black");
 
   // Create a line using curveCardinalClosed to go through all the circles
   var path = svg
@@ -239,7 +245,7 @@ function updateData(dataset) {
   console.log(pointsData);
   return pointsData;
 }
-// updateData('noise');
+updateData('anchor');
 
 
 // const length = path.node().getTotalLength();

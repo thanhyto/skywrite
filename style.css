@@ -4,7 +4,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -17,18 +17,23 @@ body {
 #tooltip {
     position: absolute;
     padding: 10px;
-    background-color: white;
+    background-color: #f3f4f8;
     border: 1px solid #ccc;
     border-radius: 5px;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s;
 }
-
+.animate{
+    margin-left: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: space-around;
+}
 button {
     /* Variables */
     --button_radius: 0.75em;
-    --button_color: #e8e8e8;
+    --button_color: #f3f4f8;
     --button_outline_color: #000000;
     font-size: 17px;
     font-weight: bold;
@@ -36,6 +41,7 @@ button {
     border-radius: var(--button_radius);
     background: var(--button_outline_color);
     padding: 0;
+    margin: 1em;
 }
 
 .button_top {
