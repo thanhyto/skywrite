@@ -11,19 +11,17 @@ body {
 #embedding-chart {
     width: 1000px;
     height: 750px;
-    position: relative;
+    /* position: relative; */
 }
 
 #tooltip {
     position: absolute;
-    padding: 10px;
-    background-color: #f3f4f8;
+    background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s;
+    padding: 5px;
+    display: none; /* Initially hide the tooltip */
 }
+
 .animate{
     margin-left: 2em;
     display: flex;

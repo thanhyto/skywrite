@@ -75,69 +75,52 @@ let noise = [
   { Index: 153, "2d": [1.0302779675, 3.1154475212] },
   { Index: 154, "2d": [1.0370776653, 3.2160513401] },
 ];
-let anchor = [[1.1564289331,3.9473571777],
-[0.3654969931,4.6220097542],
-[-0.7347941399,6.1391057968],
-[-0.6038991809,6.381316185],
-[-1.1921800375,7.7880439758],
-[-0.6463442445,8.120721817],
-[0.242925182,9.072265625],
-[0.9760932326,8.1429328918],
-[1.7330358028,9.0753545761],
-[2.6323876381,8.886305809],
-[3.1945421696,8.1107673645],
-[3.4778985977,7.5250849724],
-[1.7011258602,4.1184844971]
+let anchor = [
+  [1.1564289331, 3.9473571777],
+  [0.3654969931, 4.6220097542],
+  [-0.7347941399, 6.1391057968],
+  [-0.6038991809, 6.381316185],
+  [-1.1921800375, 7.7880439758],
+  [-0.6463442445, 8.120721817],
+  [0.242925182, 9.072265625],
+  [0.9760932326, 8.1429328918],
+  [1.7330358028, 9.0753545761],
+  [2.6323876381, 8.886305809],
+  [3.1945421696, 8.1107673645],
+  [3.4778985977, 7.5250849724],
+  [1.7011258602, 4.1184844971],
 ];
 
 // Initialize an empty variable to hold pointsData
 let pointsData = [];
 
 // Initialize container in HTML and SVG for data
-const container = document.getElementById('embedding-chart');
+const container = document.getElementById("embedding-chart");
 
 // Create SVG container
 const svg = d3.create("svg").attr("width", width).attr("height", height);
-svg.append('g')
-  .attr('transform', 'translate(' + marginLeft + ',' + marginTop + ')');
-
-// Create tooltip
-var Tooltip = d3.select("#embedding-chart")
-  .append("div")
-  .style("opacity", 0)
-  .attr("class", "tooltip")
-  .style("background-color", "white")
-  .style("border", "solid")
-  .style("border-width", "2px")
-  .style("border-radius", "5px")
-  .style("padding", "5px")
-
-// Change tooltip when user hover/move/leave a cell
-const mouseover = function(d){
-  Tooltip
-    .style("opacity", 1)
-  d3.select(this)
-    .style("stroke", "black")
-    .style("opacity", 1)
-}
+svg
+  .append("g")
+  .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
 
 // Initialise a X axis:
 var x = d3.scaleLinear().range([marginLeft, width - marginRight]);
 var xAxis = d3.axisBottom().scale(x);
-svg.append("g")
+svg
+  .append("g")
   .attr("transform", `translate(0, ${height - marginBottom})`)
-  .attr("class","myXaxis")
+  .attr("class", "myXaxis");
 
 // Initialize an Y axis
 var y = d3.scaleLinear().range([height - marginBottom, marginTop]);
 var yAxis = d3.axisLeft().scale(y);
-svg.append("g")
-  .attr("class","myYaxis")
-  .attr("transform", `translate(${marginLeft},0)`)
+svg
+  .append("g")
+  .attr("class", "myYaxis")
+  .attr("transform", `translate(${marginLeft},0)`);
 
 // Select the buttons
 const endAnimationButton = document.getElementById("end");
-
 
 // Function to update data
 function updateData(dataset) {
@@ -145,6 +128,18 @@ function updateData(dataset) {
   svg.selectAll("circle").remove(); // Remove old data
   svg.selectAll("path").remove(); // Remove old path
   svg.selectAll("transition").remove(); // Remove old transition
+
+  // // Change tooltip when user hover/move/leave a cell
+  // const mouseover = function (d) {
+  //   Tooltip.style("opacity", 1);
+  //   d3.select(this).style("stroke", "black").style("opacity", 1);
+  // };
+
+  // const mouseleave = function (d) {
+  //   Tooltip.style("opacity", 0);
+  //   d3.select(this).style("stroke", "none").style("opacity", 0.8);
+  // };
+
   let color;
   if (dataset === "noise") {
     for (var i = 0; i < noise.length; i++) {
@@ -193,7 +188,27 @@ function updateData(dataset) {
     .attr("cx", (d) => x(d.x))
     .attr("cy", (d) => y(d.y))
     .attr("r", 5)
-    .attr("fill", "black");
+    .attr("fill", "black")
+    .on("mouseover", function (){
+      d3.select(this).attr("r", 8)
+        .attr("fill","purple");
+    })
+    .on("mousemove", function (event, d) {
+      // Get the tooltip element
+      var tooltip = d3.select("#tooltip");
+
+      // Set tooltip content and position
+      tooltip.html("x: " + d.x + "<br>y: " + d.y)
+            .style("left", (event.pageX + 10) + "px")
+            .style("top", (event.pageY - 10) + "px")
+            .style("display", "block"); // Show the tooltip
+      
+  })
+    .on("mouseleave", function() {
+      // Hide the tooltip
+      d3.select("#tooltip").style("display", "none")
+      d3.select(this).attr("r", 5).attr("fill", "black");
+    });
 
   // Create a line using curveCardinalClosed to go through all the circles
   var path = svg
@@ -230,12 +245,14 @@ function updateData(dataset) {
 
   repeat();
   let isEnded = false;
-  
+
   // End animation button
-  document.getElementById('end').addEventListener("click", function () {
+  document.getElementById("end").addEventListener("click", function () {
     if (!isEnded) {
       // Jump to the end of the transition
-      path.interrupt().attr("stroke-dasharray", length + "," + length)
+      path
+        .interrupt()
+        .attr("stroke-dasharray", length + "," + length)
         .attr("stroke-dashoffset", 0); // Draw all paths immediately
       isEnded = true;
     }
@@ -245,8 +262,7 @@ function updateData(dataset) {
   console.log(pointsData);
   return pointsData;
 }
-updateData('anchor');
-
+updateData("anchor");
 
 // const length = path.node().getTotalLength();
 
@@ -282,7 +298,6 @@ updateData('anchor');
 //       return i(t);
 //     };
 //   });
-
 
 // // Restart button
 // restartButton.addEventListener("click", function () {
