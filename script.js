@@ -256,41 +256,50 @@ function updateData(dataset) {
       isEnded = true;
     }
   });
-// Create Delaunay triangles
-const delaunay = d3.Delaunay.from(pointsData, (d) => x(d.x), (d) => y(d.y));
-const voronoi = delaunay.voronoi([marginLeft, marginTop, width - marginRight, height - marginBottom]);
+  // Create Delaunay triangles
+  const delaunay = d3.Delaunay.from(
+    pointsData,
+    (d) => x(d.x),
+    (d) => y(d.y)
+  );
+  const voronoi = delaunay.voronoi([
+    marginLeft,
+    marginTop,
+    width - marginRight,
+    height - marginBottom,
+  ]);
 
-svg
-  .append("g")
-  .attr("class", "delaunay-triangles")
-  .selectAll("path")
-  .data(delaunay.trianglePolygons())
-  .enter()
-  .append("path")
-  .attr("d", (d) => `M${d.join("L")}Z`)
-  .attr("fill", "none")
-  .attr("stroke", "lightgray")
-  .attr("stroke-width", 0.5)
-  .lower();
+  svg
+    .append("g")
+    .attr("class", "delaunay-triangles")
+    .selectAll("path")
+    .data(delaunay.trianglePolygons())
+    .enter()
+    .append("path")
+    .attr("d", (d) => `M${d.join("L")}Z`)
+    .attr("fill", "none")
+    .attr("stroke", "lightgray")
+    .attr("stroke-width", 0.5)
+    .lower();
 
-svg
-  .append("g")
-  .attr("class", "voronoi-cells")
-  .selectAll("path")
-  .data(pointsData)
-  .enter()
-  .append("path")
-  .attr("d", (d, i) => voronoi.renderCell(i))
-  .attr("fill", "none")
-  .attr("stroke", "lightgray")
-  .attr("stroke-width", 0.5)
-  .on("mouseover", function () {
-    d3.select(this).attr("fill", "lightblue");
-  })
-  .on("mouseleave", function () {
-    d3.select(this).attr("fill", "none");
-  })
-  .lower();
+  svg
+    .append("g")
+    .attr("class", "voronoi-cells")
+    .selectAll("path")
+    .data(pointsData)
+    .enter()
+    .append("path")
+    .attr("d", (d, i) => voronoi.renderCell(i))
+    .attr("fill", "none")
+    .attr("stroke", "lightgray")
+    .attr("stroke-width", 0.5)
+    .on("mouseover", function () {
+      d3.select(this).attr("fill", "lightblue");
+    })
+    .on("mouseleave", function () {
+      d3.select(this).attr("fill", "none");
+    })
+    .lower();
 
   // Log and return the updated pointsData
   console.log(pointsData);
@@ -298,7 +307,6 @@ svg
 }
 
 updateData("anchor");
-
 
 // Append the SVG element to the container
 container.appendChild(svg.node());
