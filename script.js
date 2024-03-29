@@ -148,7 +148,7 @@ function updateData(dataset) {
       let pointClass = noise[i]["Index"];
 
       color = "red";
-      pointsData.push({ x: xVal, y: yVal, class: pointClass});
+      pointsData.push({ x: xVal, y: yVal, class: pointClass });
     }
   } else {
     for (var i = 0; i < anchor.length; i++) {
@@ -156,7 +156,7 @@ function updateData(dataset) {
       let yVal = anchor[i][1];
       let pointClass = i;
       color = "blue";
-      pointsData.push({ x: xVal, y: yVal, class: pointClass});
+      pointsData.push({ x: xVal, y: yVal, class: pointClass });
     }
   }
   // Find the minimum and maximum of x and y in pointsData
@@ -181,15 +181,14 @@ function updateData(dataset) {
   y.domain([yMin - 2, yMax + 2]);
   svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
 
-  function mouseleave(event, d){
-    var element = d3.selectAll(".point.a"+d.class)
-      // Hide the tooltip
-      d3.select("#tooltip").style("display", "none");
-      element.attr("r", 5).attr("fill", "black");
-    
+  function mouseleave(event, d) {
+    var element = d3.selectAll(".point.a" + d.class);
+    // Hide the tooltip
+    d3.select("#tooltip").style("display", "none");
+    element.attr("r", 5).attr("fill", "black");
   }
-  function mouseover(event,d){
-    var element = d3.selectAll(".point.a"+d.class)
+  function mouseover(event, d) {
+    var element = d3.selectAll(".point.a" + d.class);
     // Get the tooltip element
     var tooltip = d3.select("#tooltip");
 
@@ -199,7 +198,7 @@ function updateData(dataset) {
       .style("left", event.pageX + 10 + "px")
       .style("top", event.pageY - 10 + "px")
       .style("display", "block"); // Show the tooltip
-    
+
     element.attr("r", 8).attr("fill", "purple");
   }
   // Add points
@@ -213,7 +212,9 @@ function updateData(dataset) {
     .attr("cy", (d) => y(d.y))
     .attr("r", 5)
     .attr("fill", "black")
-    .attr("class", function(d,i) {return "point a" + d.class})
+    .attr("class", function (d, i) {
+      return "point a" + d.class;
+    });
 
   // Create a line using curveCardinalClosed to go through all the circles
   var path = svg
@@ -268,6 +269,11 @@ function updateData(dataset) {
     (d) => x(d.x),
     (d) => y(d.y)
   );
+
+  console.log(delaunay);
+  let triangles = delaunay.triangles;
+  console.log(triangles);
+
   // Create voronoi cells
   const voronoi = delaunay.voronoi([
     marginLeft,
@@ -275,6 +281,10 @@ function updateData(dataset) {
     width - marginRight,
     height - marginBottom,
   ]);
+  console.log(voronoi);
+  let voronoiTriangles = voronoi.triangles;
+  console.log(voronoiTriangles);
+
   // Append Delaunay triangles
   svg
     .append("g")
@@ -285,11 +295,11 @@ function updateData(dataset) {
     .append("path")
     .attr("d", (d) => `M${d.join("L")}Z`)
     .attr("fill", d3.interpolateRgb("red", "blue")(1))
-    .attr("stroke", "lightgray")
+    .attr("stroke", "green")
     .attr("stroke-width", 0.5)
-    .attr("fill-opacity", 0.5)
+    .attr("fill-opacity", 0.2)
     .lower();
-  
+
   // Append Voronoi cells
   svg
     .append("g")
@@ -300,12 +310,13 @@ function updateData(dataset) {
     .attr("d", (d, i) => voronoi.renderCell(i))
     .attr("fill", "none")
     .attr("stroke", "orange")
-    .attr("class", function(d,i) {return "voronoi-cells "  + d.class})
+    .attr("class", function (d, i) {
+      return "voronoi-cells " + d.class;
+    })
     .style("pointer-events", "all")
     .attr("stroke-width", 0.5)
     .on("mouseover", mouseover)
     .on("mouseleave", mouseleave);
-
 }
 
 updateData("anchor");
