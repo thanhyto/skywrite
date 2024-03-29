@@ -293,10 +293,31 @@ function updateData(dataset) {
     .append("path")
     .attr("d", (d) => `M${d.join("L")}Z`)
     .attr("fill", "none")
-    // .attr("stroke", "green")
+    .attr("stroke", "none")
     .attr("stroke-width", 0.5)
     .attr("fill-opacity", 0.2)
     .lower();
+
+  // Add an event listener to the checkbox to listen for changes
+  document.getElementById("delaunay_checkbox").addEventListener("change", function() {
+  // Select all paths representing Delaunay triangles
+      // Check the state of the checkbox and set stroke color accordingly
+      if(this.checked){
+        svg.selectAll(".delaunay-triangles path")
+        .attr("d", (d) => `M${d.join("L")}Z`)
+        .attr("fill", "none")
+        .attr("stroke", "orange")
+        .attr("stroke-width", 0.5)
+        .attr("fill-opacity", 0.2)
+      } else {
+        svg.selectAll(".delaunay-triangles path")
+        .attr("d", (d) => `M${d.join("L")}Z`)
+        .attr("fill", "none")
+        .attr("stroke", "none")
+        .attr("stroke-width", 0.5)
+        .attr("fill-opacity", 0.2);
+      }
+    });
 
   // Append Voronoi cells
   svg
