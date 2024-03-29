@@ -270,10 +270,6 @@ function updateData(dataset) {
     (d) => y(d.y)
   );
 
-  // console.log(delaunay);
-  const triangles = delaunay.trianglePolygons();
-  // console.log(triangles);
-
   // Create voronoi cells
   const voronoi = delaunay.voronoi([
     marginLeft,
@@ -323,21 +319,31 @@ function updateData(dataset) {
   svg
     .append("g")
     .selectAll("path")
+    .attr("class", function (d, i) {
+      return "voronoi-cells " + d.class;
+    })
     .data(pointsData)
     .enter()
     .append("path")
     .attr("d", (d, i) => voronoi.renderCell(i))
     .attr("fill", "none")
-    // .attr("stroke", "orange")
-    .attr("class", function (d, i) {
-      return "voronoi-cells " + d.class;
-    })
     .style("pointer-events", "all")
     .attr("stroke-width", 0.5)
     .on("mouseover", mouseover)
     .on("mouseleave", mouseleave);
-}
 
+  // // Add an event listener to the checkbox to listen for changes
+  // document.getElementById("voronoi_checkbox").addEventListener("change", function() {
+  //   // Select all paths representing Voronoi cells
+  //   const voronoiCells = svg.selectAll(".voronoi-cells path");
+  //   // Check the state of the checkbox and set visibility accordingly
+  //   if(this.checked){
+  //     voronoiCells.attr("visibility", "visible");
+  //   } else {
+  //     voronoiCells.attr("visibility", "hidden");
+  //   }
+  // });
+}
 updateData("anchor");
 
 // Append the SVG element to the container
