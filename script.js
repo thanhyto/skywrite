@@ -270,9 +270,9 @@ function updateData(dataset) {
     (d) => y(d.y)
   );
 
-  console.log(delaunay);
-  let triangles = delaunay.triangles;
-  console.log(triangles);
+  // console.log(delaunay);
+  const triangles = delaunay.trianglePolygons();
+  // console.log(triangles);
 
   // Create voronoi cells
   const voronoi = delaunay.voronoi([
@@ -281,9 +281,7 @@ function updateData(dataset) {
     width - marginRight,
     height - marginBottom,
   ]);
-  console.log(voronoi);
-  let voronoiTriangles = voronoi.triangles;
-  console.log(voronoiTriangles);
+  // console.log(voronoi);
 
   // Append Delaunay triangles
   svg
