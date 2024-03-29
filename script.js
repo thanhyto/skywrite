@@ -292,8 +292,8 @@ function updateData(dataset) {
     .enter()
     .append("path")
     .attr("d", (d) => `M${d.join("L")}Z`)
-    .attr("fill", d3.interpolateRgb("red", "blue")(1))
-    .attr("stroke", "green")
+    .attr("fill", "none")
+    // .attr("stroke", "green")
     .attr("stroke-width", 0.5)
     .attr("fill-opacity", 0.2)
     .lower();
@@ -307,7 +307,7 @@ function updateData(dataset) {
     .append("path")
     .attr("d", (d, i) => voronoi.renderCell(i))
     .attr("fill", "none")
-    .attr("stroke", "orange")
+    // .attr("stroke", "orange")
     .attr("class", function (d, i) {
       return "voronoi-cells " + d.class;
     })

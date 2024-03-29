@@ -4,13 +4,14 @@ body {
     margin: 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
 #embedding-chart {
     width: 1000px;
     height: 750px;
+    margin-left: 3em;
     /* position: relative; */
 }
 
@@ -27,6 +28,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: space-around;
+    background-color: #f3f4f8;
+    height: 100%;
+    width: 300px;    
+    padding: 0em 3em;
 }
 button {
     /* Variables */
