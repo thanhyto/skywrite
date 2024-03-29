@@ -284,9 +284,11 @@ function updateData(dataset) {
     .enter()
     .append("path")
     .attr("d", (d) => `M${d.join("L")}Z`)
-    .attr("fill", "none")
+    .attr("fill", d3.interpolateRgb("red", "blue")(1))
     .attr("stroke", "lightgray")
-    .attr("stroke-width", 0.5);
+    .attr("stroke-width", 0.5)
+    .attr("fill-opacity", 0.5)
+    .lower();
   
   // Append Voronoi cells
   svg
