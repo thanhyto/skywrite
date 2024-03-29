@@ -145,15 +145,18 @@ function updateData(dataset) {
     for (var i = 0; i < noise.length; i++) {
       let xVal = noise[i]["2d"][0];
       let yVal = noise[i]["2d"][1];
+      let pointClass = noise[i]["Index"];
+
       color = "red";
-      pointsData.push({ x: xVal, y: yVal });
+      pointsData.push({ x: xVal, y: yVal, class: pointClass});
     }
   } else {
     for (var i = 0; i < anchor.length; i++) {
       let xVal = anchor[i][0];
       let yVal = anchor[i][1];
+      let pointClass = i;
       color = "blue";
-      pointsData.push({ x: xVal, y: yVal });
+      pointsData.push({ x: xVal, y: yVal, class: pointClass});
     }
   }
   // Find the minimum and maximum of x and y in pointsData
@@ -178,6 +181,28 @@ function updateData(dataset) {
   y.domain([yMin - 2, yMax + 2]);
   svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
 
+  function mouseleave(event, d){
+    var element = d3.selectAll(".point.a"+d.class)
+      // Hide the tooltip
+      d3.select("#tooltip").style("display", "none");
+      element.attr("r", 5).attr("fill", "black");
+      // d3.select(this).attr("r", 5).attr("fill", "black");
+    
+  }
+  function mouseover(event,d){
+    var element = d3.selectAll(".point.a"+d.class)
+    // Get the tooltip element
+    var tooltip = d3.select("#tooltip");
+
+    // Set tooltip content and position
+    tooltip
+      .html("x: " + d.x + "<br>y: " + d.y)
+      .style("left", event.pageX + 10 + "px")
+      .style("top", event.pageY - 10 + "px")
+      .style("display", "block"); // Show the tooltip
+    
+    element.attr("r", 8).attr("fill", "purple");
+  }
   // Add points
   svg
     .append("g")
@@ -189,25 +214,9 @@ function updateData(dataset) {
     .attr("cy", (d) => y(d.y))
     .attr("r", 5)
     .attr("fill", "black")
-    .on("mouseover", function () {
-      d3.select(this).attr("r", 8).attr("fill", "purple");
-    })
-    .on("mousemove", function (event, d) {
-      // Get the tooltip element
-      var tooltip = d3.select("#tooltip");
-
-      // Set tooltip content and position
-      tooltip
-        .html("x: " + d.x + "<br>y: " + d.y)
-        .style("left", event.pageX + 10 + "px")
-        .style("top", event.pageY - 10 + "px")
-        .style("display", "block"); // Show the tooltip
-    })
-    .on("mouseleave", function () {
-      // Hide the tooltip
-      d3.select("#tooltip").style("display", "none");
-      d3.select(this).attr("r", 5).attr("fill", "black");
-    });
+    .attr("class", function(d,i) {return "point a" + d.class})
+    // .on("mouseover", mouseover)
+    // .on("mouseleave", mouseleave);
 
   // Create a line using curveCardinalClosed to go through all the circles
   var path = svg
@@ -279,27 +288,23 @@ function updateData(dataset) {
     .attr("d", (d) => `M${d.join("L")}Z`)
     .attr("fill", "none")
     .attr("stroke", "lightgray")
-    .attr("stroke-width", 0.5)
-    .lower();
+    .attr("stroke-width", 0.5);
+  
 
   svg
     .append("g")
-    .attr("class", "voronoi-cells")
     .selectAll("path")
     .data(pointsData)
     .enter()
     .append("path")
     .attr("d", (d, i) => voronoi.renderCell(i))
     .attr("fill", "none")
-    .attr("stroke", "lightgray")
+    .attr("stroke", "orange")
+    .attr("class", function(d,i) {return "voronoi-cells "  + d.class})
+    .style("pointer-events", "all")
     .attr("stroke-width", 0.5)
-    .on("mouseover", function () {
-      d3.select(this).attr("fill", "lightblue");
-    })
-    .on("mouseleave", function () {
-      d3.select(this).attr("fill", "none");
-    })
-    .lower();
+    .on("mouseover", mouseover)
+    .on("mouseleave", mouseleave);
 
   // Log and return the updated pointsData
   console.log(pointsData);
