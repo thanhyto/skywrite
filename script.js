@@ -186,7 +186,6 @@ function updateData(dataset) {
       // Hide the tooltip
       d3.select("#tooltip").style("display", "none");
       element.attr("r", 5).attr("fill", "black");
-      // d3.select(this).attr("r", 5).attr("fill", "black");
     
   }
   function mouseover(event,d){
@@ -215,8 +214,6 @@ function updateData(dataset) {
     .attr("r", 5)
     .attr("fill", "black")
     .attr("class", function(d,i) {return "point a" + d.class})
-    // .on("mouseover", mouseover)
-    // .on("mouseleave", mouseleave);
 
   // Create a line using curveCardinalClosed to go through all the circles
   var path = svg
@@ -271,13 +268,14 @@ function updateData(dataset) {
     (d) => x(d.x),
     (d) => y(d.y)
   );
+  // Create voronoi cells
   const voronoi = delaunay.voronoi([
     marginLeft,
     marginTop,
     width - marginRight,
     height - marginBottom,
   ]);
-
+  // Append Delaunay triangles
   svg
     .append("g")
     .attr("class", "delaunay-triangles")
@@ -290,7 +288,7 @@ function updateData(dataset) {
     .attr("stroke", "lightgray")
     .attr("stroke-width", 0.5);
   
-
+  // Append Voronoi cells
   svg
     .append("g")
     .selectAll("path")
@@ -306,9 +304,6 @@ function updateData(dataset) {
     .on("mouseover", mouseover)
     .on("mouseleave", mouseleave);
 
-  // Log and return the updated pointsData
-  console.log(pointsData);
-  return pointsData;
 }
 
 updateData("anchor");
