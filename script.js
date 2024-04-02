@@ -318,31 +318,30 @@ function updateData(dataset) {
   // Append Voronoi cells
   svg
     .append("g")
+    .attr("class", "voronoi-cells")
     .selectAll("path")
-    .attr("class", function (d, i) {
-      return "voronoi-cells " + d.class;
-    })
     .data(pointsData)
     .enter()
     .append("path")
     .attr("d", (d, i) => voronoi.renderCell(i))
     .attr("fill", "none")
+    .attr("stroke", "black")
     .style("pointer-events", "all")
     .attr("stroke-width", 0.5)
     .on("mouseover", mouseover)
+    .attr("visibility", "hidden")
     .on("mouseleave", mouseleave);
-
-  // // Add an event listener to the checkbox to listen for changes
-  // document.getElementById("voronoi_checkbox").addEventListener("change", function() {
-  //   // Select all paths representing Voronoi cells
-  //   const voronoiCells = svg.selectAll(".voronoi-cells path");
-  //   // Check the state of the checkbox and set visibility accordingly
-  //   if(this.checked){
-  //     voronoiCells.attr("visibility", "visible");
-  //   } else {
-  //     voronoiCells.attr("visibility", "hidden");
-  //   }
-  // });
+    
+  document.getElementById("voronoi_checkbox").addEventListener("change", function() {
+    if(this.checked){
+      d3.selectAll(".voronoi-cells path")
+      .attr("visibility", "visible")
+    }
+    else{
+      d3.selectAll(".voronoi-cells path")
+      .attr("visibility", "hidden")
+    }
+  });
 }
 updateData("anchor");
 
