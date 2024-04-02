@@ -128,26 +128,14 @@ function updateData(dataset) {
   svg.selectAll("circle").remove(); // Remove old data
   svg.selectAll("path").remove(); // Remove old path
   svg.selectAll("transition").remove(); // Remove old transition
+  document.getElementById("delaunay_checkbox").checked = false;
+  document.getElementById("voronoi_checkbox").checked = false;
 
-  // // Change tooltip when user hover/move/leave a cell
-  // const mouseover = function (d) {
-  //   Tooltip.style("opacity", 1);
-  //   d3.select(this).style("stroke", "black").style("opacity", 1);
-  // };
-
-  // const mouseleave = function (d) {
-  //   Tooltip.style("opacity", 0);
-  //   d3.select(this).style("stroke", "none").style("opacity", 0.8);
-  // };
-
-  let color;
   if (dataset === "noise") {
     for (var i = 0; i < noise.length; i++) {
       let xVal = noise[i]["2d"][0];
       let yVal = noise[i]["2d"][1];
       let pointClass = noise[i]["Index"];
-
-      color = "red";
       pointsData.push({ x: xVal, y: yVal, class: pointClass });
     }
   } else {
@@ -155,7 +143,7 @@ function updateData(dataset) {
       let xVal = anchor[i][0];
       let yVal = anchor[i][1];
       let pointClass = i;
-      color = "blue";
+
       pointsData.push({ x: xVal, y: yVal, class: pointClass });
     }
   }
@@ -296,23 +284,26 @@ function updateData(dataset) {
     .lower();
 
   // Add an event listener to the checkbox to listen for changes
-  document.getElementById("delaunay_checkbox").addEventListener("change", function() {
-  // Select all paths representing Delaunay triangles
+  document
+    .getElementById("delaunay_checkbox")
+    .addEventListener("change", function () {
+      // Select all paths representing Delaunay triangles
       // Check the state of the checkbox and set stroke color accordingly
-      if(this.checked){
-        svg.selectAll(".delaunay-triangles path")
-        .attr("d", (d) => `M${d.join("L")}Z`)
-        .attr("fill", "none")
-        .attr("stroke", "orange")
-        .attr("stroke-width", 0.5)
-        .attr("fill-opacity", 0.2)
+      resetZoom();
+      if (this.checked) {
+        svg
+          .selectAll(".delaunay-triangles path")
+          .attr("d", (d) => `M${d.join("L")}Z`)
+          .attr("fill", "none")
+          .attr("stroke", "#777777")
+          .attr("stroke-width", 0.5);
       } else {
-        svg.selectAll(".delaunay-triangles path")
-        .attr("d", (d) => `M${d.join("L")}Z`)
-        .attr("fill", "none")
-        .attr("stroke", "none")
-        .attr("stroke-width", 0.5)
-        .attr("fill-opacity", 0.2);
+        svg
+          .selectAll(".delaunay-triangles path")
+          .attr("d", (d) => `M${d.join("L")}Z`)
+          .attr("fill", "none")
+          .attr("stroke", "none")
+          .attr("stroke-width", 0.5);
       }
     });
 
@@ -326,27 +317,87 @@ function updateData(dataset) {
     .append("path")
     .attr("d", (d, i) => voronoi.renderCell(i))
     .attr("fill", "none")
-    .attr("stroke", "#3b3b3b")
+    .attr("stroke", "blue")
     .style("pointer-events", "all")
-    .attr("stroke-width", 0.5)
+    .attr("stroke-width", 0.7)
     .on("mouseover", mouseover)
     .attr("visibility", "hidden")
     .on("mouseleave", mouseleave);
-    
-  document.getElementById("voronoi_checkbox").addEventListener("change", function() {
-    if(this.checked){
-      d3.selectAll(".voronoi-cells path")
-      .attr("visibility", "visible")
-    }
-    else{
-      d3.selectAll(".voronoi-cells path")
-      .attr("visibility", "hidden")
-    }
-  });
-  document.getElementById("clear").addEventListener("click", function() {
+
+  document
+    .getElementById("voronoi_checkbox")
+    .addEventListener("change", function () {
+      // resetZoom();
+      if (this.checked) {
+        d3.selectAll(".voronoi-cells path").attr("visibility", "visible");
+      } else {
+        d3.selectAll(".voronoi-cells path").attr("visibility", "hidden");
+      }
+    });
+
+  document.getElementById("clear").addEventListener("click", function () {
     svg.select(".curve-line").remove();
+   
+  });
+  // Create a zoom handler
+  const zoomHandler = d3
+    .zoom()
+    .scaleExtent([0.5, 10]) // set the range of allowed zoom scale
+    .on("zoom", zoomed); // call zoomed function on zoom event
+
+  // Apply zoom handler to SVG container
+  svg.call(zoomHandler);
+
+  // Function to handle zooming
+  function zoomed(event) {
+    // Get current transform state
+    svg.select(".curve-line").remove();
+    d3.selectAll(".voronoi-cells path").attr("visibility", "hidden");
+    d3.selectAll(".delanauy-triangles path").attr("visibility", "hidden");
+    const { transform } = event;
+
+    // Update axes based on current transform
+    svg.select(".myXaxis").call(xAxis.scale(transform.rescaleX(x)));
+    svg.select(".myYaxis").call(yAxis.scale(transform.rescaleY(y)));
+
+    // Update points and Voronoi cells based on current transform
+    svg
+      .selectAll(".point")
+      .attr("cx", (d) => transform.applyX(x(d.x)))
+      .attr("cy", (d) => transform.applyY(y(d.y)));
+
+    
+    // Update Voronoi cells based on current transform
+  svg.selectAll(".voronoi-cells path").attr("d", (d, i) => {
+    const cellPoints = voronoi.renderCell(i);
+    const transformedPoints = cellPoints.map((point) => {
+      const [x, y] = point;
+      const [newX, newY] = transform.apply([x, y]);
+      return [newX, newY];
+    });
+    return "M" + transformedPoints.join("L") + "Z";
+  });
+
+  // Update Delaunay triangles based on current transform
+  svg.selectAll(".delaunay-triangles path").attr("d", (d) => {
+    const transformedPoints = d.map((point) => transform.apply(point));
+    return "M" + transformedPoints.join("L") + "Z";
+  });
+
+  }
+
+  // Function to reset zoom
+  function resetZoom() {
+    svg.transition().duration(750).call(zoomHandler.transform, d3.zoomIdentity);
+  }
+
+  // Add reset zoom button event listener
+  document.getElementById("reset_zoom").addEventListener("click", function(){
+    svg.select(".curve-line").remove();
+    resetZoom();
   });
 }
+
 updateData("anchor");
 
 // Append the SVG element to the container

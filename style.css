@@ -37,14 +37,16 @@ body {
     width: 300px;    
     padding: 0em 3em;
 }
-h2{
-    text-align: center;
+#control{
+    font-weight: bold;
+    font-size:1.5em;
+    margin-top: 2em;
 }
 .options {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 button {
     /* Variables */
