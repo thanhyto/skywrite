@@ -47,6 +47,8 @@ body {
     flex-direction: row;
     align-items: center;
     margin-bottom: 1em;
+    flex-wrap: wrap;
+    align-items: stretch;
 }
 button {
     /* Variables */
