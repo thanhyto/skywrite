@@ -81,6 +81,3 @@ button:active .button_top {
     /* Push the button downwards when pressed */
     transform: translateY(0);
 }
-.voronoi-cells {
-    visibility: visible;
-}

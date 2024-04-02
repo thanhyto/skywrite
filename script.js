@@ -185,7 +185,7 @@ function updateData(dataset) {
     var element = d3.selectAll(".point.a" + d.class);
     // Hide the tooltip
     d3.select("#tooltip").style("display", "none");
-    element.attr("r", 5).attr("fill", "black");
+    element.attr("r", 3).attr("fill", "blue");
   }
   function mouseover(event, d) {
     var element = d3.selectAll(".point.a" + d.class);
@@ -199,7 +199,7 @@ function updateData(dataset) {
       .style("top", event.pageY - 10 + "px")
       .style("display", "block"); // Show the tooltip
 
-    element.attr("r", 8).attr("fill", "purple");
+    element.attr("r", 8).attr("fill", "#3b3b3b");
   }
   // Add points
   svg
@@ -210,8 +210,8 @@ function updateData(dataset) {
     .append("circle")
     .attr("cx", (d) => x(d.x))
     .attr("cy", (d) => y(d.y))
-    .attr("r", 5)
-    .attr("fill", "black")
+    .attr("r", 3)
+    .attr("fill", "blue")
     .attr("class", function (d, i) {
       return "point a" + d.class;
     });
@@ -219,6 +219,7 @@ function updateData(dataset) {
   // Create a line using curveCardinalClosed to go through all the circles
   var path = svg
     .append("path")
+    .attr("class", "curve-line")
     .datum(pointsData)
     .attr(
       "d",
@@ -234,7 +235,7 @@ function updateData(dataset) {
     )
     .attr("fill", "none")
     .attr("stroke-width", 2)
-    .attr("stroke", color);
+    .attr("stroke", "#777777");
 
   // Create a repeating animation for the line
   const length = path.node().getTotalLength();
@@ -325,7 +326,7 @@ function updateData(dataset) {
     .append("path")
     .attr("d", (d, i) => voronoi.renderCell(i))
     .attr("fill", "none")
-    .attr("stroke", "black")
+    .attr("stroke", "#3b3b3b")
     .style("pointer-events", "all")
     .attr("stroke-width", 0.5)
     .on("mouseover", mouseover)
@@ -341,6 +342,9 @@ function updateData(dataset) {
       d3.selectAll(".voronoi-cells path")
       .attr("visibility", "hidden")
     }
+  });
+  document.getElementById("clear").addEventListener("click", function() {
+    svg.select(".curve-line").remove();
   });
 }
 updateData("anchor");
