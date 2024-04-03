@@ -289,7 +289,7 @@ function updateData(dataset) {
     .addEventListener("change", function () {
       // Select all paths representing Delaunay triangles
       // Check the state of the checkbox and set stroke color accordingly
-      resetZoom();
+      // resetZoom();
       if (this.checked) {
         svg
           .selectAll(".delaunay-triangles path")
@@ -354,6 +354,7 @@ function updateData(dataset) {
     svg.select(".curve-line").remove();
     d3.selectAll(".voronoi-cells path").attr("visibility", "hidden");
     d3.selectAll(".delanauy-triangles path").attr("visibility", "hidden");
+
     const { transform } = event;
 
     // Update axes based on current transform
@@ -388,7 +389,7 @@ function updateData(dataset) {
 
   // Function to reset zoom
   function resetZoom() {
-    svg.transition().duration(750).call(zoomHandler.transform, d3.zoomIdentity);
+    svg.transition().duration(0).call(zoomHandler.transform, d3.zoomIdentity);
   }
 
   // Add reset zoom button event listener
