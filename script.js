@@ -391,12 +391,6 @@ function updateData(dataset) {
   // function resetZoom() {
   //   svg.transition().duration(0).call(zoomHandler.transform, d3.zoomIdentity);
   // }
-
-  // Add reset zoom button event listener
-  // document.getElementById("reset_zoom").addEventListener("click", function(){
-  //   svg.select(".curve-line").remove();
-  //   // resetZoom();
-  // });
 }
 
 updateData("anchor");
