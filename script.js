@@ -339,63 +339,63 @@ function updateData(dataset) {
     svg.select(".curve-line").remove();
    
   });
-  // Create a zoom handler
-  const zoomHandler = d3
-    .zoom()
-    .scaleExtent([0.5, 10]) // set the range of allowed zoom scale
-    .on("zoom", zoomed); // call zoomed function on zoom event
+  // // Create a zoom handler
+  // const zoomHandler = d3
+  //   .zoom()
+  //   .scaleExtent([0.5, 10]) // set the range of allowed zoom scale
+  //   .on("zoom", zoomed); // call zoomed function on zoom event
 
-  // Apply zoom handler to SVG container
-  svg.call(zoomHandler);
+  // // Apply zoom handler to SVG container
+  // svg.call(zoomHandler);
 
-  // Function to handle zooming
-  function zoomed(event) {
-    // Get current transform state
-    svg.select(".curve-line").remove();
-    d3.selectAll(".voronoi-cells path").attr("visibility", "hidden");
-    d3.selectAll(".delanauy-triangles path").attr("visibility", "hidden");
+  // // Function to handle zooming
+  // function zoomed(event) {
+  //   // Get current transform state
+  //   svg.select(".curve-line").remove();
+  //   d3.selectAll(".voronoi-cells path").attr("visibility", "hidden");
+  //   d3.selectAll(".delanauy-triangles path").attr("visibility", "hidden");
 
-    const { transform } = event;
+  //   const { transform } = event;
 
-    // Update axes based on current transform
-    svg.select(".myXaxis").call(xAxis.scale(transform.rescaleX(x)));
-    svg.select(".myYaxis").call(yAxis.scale(transform.rescaleY(y)));
+  //   // Update axes based on current transform
+  //   svg.select(".myXaxis").call(xAxis.scale(transform.rescaleX(x)));
+  //   svg.select(".myYaxis").call(yAxis.scale(transform.rescaleY(y)));
 
-    // Update points and Voronoi cells based on current transform
-    svg
-      .selectAll(".point")
-      .attr("cx", (d) => transform.applyX(x(d.x)))
-      .attr("cy", (d) => transform.applyY(y(d.y)));
+  //   // Update points and Voronoi cells based on current transform
+  //   svg
+  //     .selectAll(".point")
+  //     .attr("cx", (d) => transform.applyX(x(d.x)))
+  //     .attr("cy", (d) => transform.applyY(y(d.y)));
 
     
-    // Update Voronoi cells based on current transform
-  svg.selectAll(".voronoi-cells path").attr("d", (d, i) => {
-    const cellPoints = voronoi.renderCell(i);
-    const transformedPoints = cellPoints.map((point) => {
-      const [x, y] = point;
-      const [newX, newY] = transform.apply([x, y]);
-      return [newX, newY];
-    });
-    return "M" + transformedPoints.join("L") + "Z";
-  });
+  //   // Update Voronoi cells based on current transform
+  // svg.selectAll(".voronoi-cells path").attr("d", (d, i) => {
+  //   const cellPoints = voronoi.renderCell(i);
+  //   const transformedPoints = cellPoints.map((point) => {
+  //     const [x, y] = point;
+  //     const [newX, newY] = transform.apply([x, y]);
+  //     return [newX, newY];
+  //   });
+  //   return "M" + transformedPoints.join("L") + "Z";
+  // });
 
-  // Update Delaunay triangles based on current transform
-  svg.selectAll(".delaunay-triangles path").attr("d", (d) => {
-    const transformedPoints = d.map((point) => transform.apply(point));
-    return "M" + transformedPoints.join("L") + "Z";
-  });
+  // // Update Delaunay triangles based on current transform
+  // svg.selectAll(".delaunay-triangles path").attr("d", (d) => {
+  //   const transformedPoints = d.map((point) => transform.apply(point));
+  //   return "M" + transformedPoints.join("L") + "Z";
+  // });
 
-  }
+  // }
 
-  // Function to reset zoom
-  function resetZoom() {
-    svg.transition().duration(0).call(zoomHandler.transform, d3.zoomIdentity);
-  }
+  // // Function to reset zoom
+  // function resetZoom() {
+  //   svg.transition().duration(0).call(zoomHandler.transform, d3.zoomIdentity);
+  // }
 
   // Add reset zoom button event listener
   document.getElementById("reset_zoom").addEventListener("click", function(){
     svg.select(".curve-line").remove();
-    resetZoom();
+    // resetZoom();
   });
 }
 
