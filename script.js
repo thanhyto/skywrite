@@ -393,10 +393,10 @@ function updateData(dataset) {
   // }
 
   // Add reset zoom button event listener
-  document.getElementById("reset_zoom").addEventListener("click", function(){
-    svg.select(".curve-line").remove();
-    // resetZoom();
-  });
+  // document.getElementById("reset_zoom").addEventListener("click", function(){
+  //   svg.select(".curve-line").remove();
+  //   // resetZoom();
+  // });
 }
 
 updateData("anchor");
