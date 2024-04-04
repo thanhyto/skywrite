@@ -367,7 +367,8 @@ function updateData(dataset) {
   //     .attr("cx", (d) => transform.applyX(x(d.x)))
   //     .attr("cy", (d) => transform.applyY(y(d.y)));
 
-    
+  // Maybe delete all cells and triangles and redraw them
+
   //   // Update Voronoi cells based on current transform
   // svg.selectAll(".voronoi-cells path").attr("d", (d, i) => {
   //   const cellPoints = voronoi.renderCell(i);
