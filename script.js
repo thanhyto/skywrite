@@ -103,6 +103,8 @@ svg
   .append("g")
   .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
 
+// TODO: ADD CLIP PATH TO AVOID OVERFLOW WHEN TRANFORMING DATA LATER
+
 // Initialise a X axis:
 var x = d3.scaleLinear().range([marginLeft, width - marginRight]);
 var xAxis = d3.axisBottom().scale(x);
