@@ -278,34 +278,25 @@ function updateData(dataset) {
     .append("path")
     .attr("d", (d) => `M${d.join("L")}Z`)
     .attr("fill", "none")
-    .attr("stroke", "none")
+    .attr("stroke", "gray")
     .attr("stroke-width", 0.5)
-    .attr("fill-opacity", 0.2)
-    .lower();
+    .attr("visibility", "hidden");
 
   // Add an event listener to the checkbox to listen for changes
   document
-    .getElementById("delaunay_checkbox")
-    .addEventListener("change", function () {
-      // Select all paths representing Delaunay triangles
-      // Check the state of the checkbox and set stroke color accordingly
-      // resetZoom();
-      if (this.checked) {
-        svg
-          .selectAll(".delaunay-triangles path")
-          .attr("d", (d) => `M${d.join("L")}Z`)
-          .attr("fill", "none")
-          .attr("stroke", "#777777")
-          .attr("stroke-width", 0.5);
-      } else {
-        svg
-          .selectAll(".delaunay-triangles path")
-          .attr("d", (d) => `M${d.join("L")}Z`)
-          .attr("fill", "none")
-          .attr("stroke", "none")
-          .attr("stroke-width", 0.5);
-      }
-    });
+  .getElementById("delaunay_checkbox")
+  .addEventListener("change", function () {
+    if (this.checked) {
+      d3
+        .selectAll(".delaunay-triangles path")
+        .attr("visibility", "visible"); // Change visibility to visible
+    } else {
+      d3
+        .selectAll(".delaunay-triangles path")
+        .attr("visibility", "hidden");
+    }
+  });
+
 
   // Append Voronoi cells
   svg
@@ -352,7 +343,7 @@ function updateData(dataset) {
   function zoomed(event) {
     // Get current transform state
     svg.select(".curve-line").remove();
-    d3.selectAll(".voronoi-cells path").attr("visibility", "hidden");
+    // d3.selectAll(".voronoi-cells path").attr("visibility", "hidden");
     d3.selectAll(".delanauy-triangles path").attr("visibility", "hidden");
 
     const { transform } = event;
@@ -367,24 +358,20 @@ function updateData(dataset) {
       .attr("cx", (d) => transform.applyX(x(d.x)))
       .attr("cy", (d) => transform.applyY(y(d.y)));
 
+    
+    // Update Delaunay triangles based on current transform
+    svg.selectAll(".delaunay-triangles path").attr("d", function(d) {
+      const transformedPoints = d.map((point) => transform.apply(point));
+      return "M" + transformedPoints.join("L") + "Z";
+    });
+
     // Update Voronoi cells based on current transform
-  // svg.selectAll(".voronoi-cells path").attr("d", (d, i) => {
-  //   const cellPoints = voronoi.renderCell(i);
-  //   const transformedPoints = cellPoints.map((point) => {
-  //     const [x, y] = point;
-  //     const [newX, newY] = transform.apply([x, y]);
-  //     return [newX, newY];
-  //   });
-  //   return "M" + transformedPoints.join("L") + "Z";
-  // });
-
-  // Update Delaunay triangles based on current transform
-  svg.selectAll(".delaunay-triangles path").attr("d", (d) => {
-    const transformedPoints = d.map((point) => transform.apply(point));
-    return "M" + transformedPoints.join("L") + "Z";
-  });
-
-  }
+    svg.selectAll(".voronoi-cells path").attr("d", function(d, i) {
+      const cell = voronoi.cellPolygon(i);
+      const transformedPoints = cell.map(point => transform.apply(point));
+      return "M" + transformedPoints.join("L") + "Z";
+    });
+}
 
   // Function to reset zoom
   function resetZoom() {
