@@ -103,7 +103,17 @@ svg
   .append("g")
   .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
 
-// TODO: ADD CLIP PATH TO AVOID OVERFLOW WHEN TRANFORMING DATA LATER
+// Append a clipPath element to the SVG
+svg.append("defs").append("clipPath")
+    .attr("id", "clip")
+    .append("rect")
+    .attr("width", width - marginLeft - marginRight)
+    .attr("height", height - marginTop - marginBottom);
+
+// Append a group element to the SVG and apply the clip path
+const chartGroup = svg.append("g")
+    .attr("clip-path", "url(#clip)")
+    .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
 
 // Initialise a X axis:
 var x = d3.scaleLinear().range([marginLeft, width - marginRight]);
@@ -119,7 +129,7 @@ var yAxis = d3.axisLeft().scale(y);
 svg
   .append("g")
   .attr("class", "myYaxis")
-  .attr("transform", `translate(${marginLeft+15},0)`);
+  .attr("transform", `translate(${marginLeft},0)`);
 
 // Select the buttons
 const endAnimationButton = document.getElementById("end");
@@ -192,7 +202,7 @@ function updateData(dataset) {
     element.attr("r", 8).attr("fill", "#3b3b3b");
   }
   // Add points
-  svg
+  chartGroup
     .append("g")
     .selectAll("circle")
     .data(pointsData)
@@ -207,7 +217,7 @@ function updateData(dataset) {
     });
 
   // Create a line using curveCardinalClosed to go through all the circles
-  var path = svg
+  var path = chartGroup
     .append("path")
     .attr("class", "curve-line")
     .datum(pointsData)
@@ -271,7 +281,7 @@ function updateData(dataset) {
   // console.log(voronoi);
 
   // Append Delaunay triangles
-  svg
+  chartGroup
     .append("g")
     .attr("class", "delaunay-triangles")
     .selectAll("path")
@@ -301,7 +311,7 @@ function updateData(dataset) {
 
 
   // Append Voronoi cells
-  svg
+  chartGroup
     .append("g")
     .attr("class", "voronoi-cells")
     .selectAll("path")
