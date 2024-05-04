@@ -102,7 +102,7 @@ async function initData(dataset) {
     
 
     // Function to update data
-    function updateData(dataset) {
+    function updateData(dataset, str_name) {
       console.log("CURR DATA: ",dataset);
       pointsData = []; // Reset pointsData
       svg.selectAll("circle").remove(); // Remove old data
@@ -111,13 +111,18 @@ async function initData(dataset) {
       document.getElementById("delaunay_checkbox").checked = false;
       document.getElementById("voronoi_checkbox").checked = false;
       
-      if (dataset === "noise") {
+      if (str_name === 'noise') {
         for (var i = 0; i < dataset.length; i++) {
           let xVal = dataset[i]['embed_2d'][0];
           let yVal = dataset[i]['embed_2d'][1];
           let pointClass = dataset[i]['Index'];
-          let quote = dataset[i]['quote']
-          pointsData.push({ x: xVal, y: yVal, class: pointClass, string: quote});
+          let quote = dataset[i]['quote'];
+          // console.log(pointClass);
+          if (pointClass < 99){ 
+            pointsData.push({ x: xVal, y: yVal, class: pointClass, string: quote, color: 'red'});
+          }else{
+            pointsData.push({ x: xVal, y: yVal, class: pointClass, string: quote, color: 'blue'});
+          }
         }
       } else {
         console.log("anchorpoints pls: ");
@@ -127,7 +132,7 @@ async function initData(dataset) {
           let quote = dataset[i]['quote']
           let pointClass = i;
 
-          pointsData.push({ x: xVal, y: yVal, class: pointClass, string: quote});
+          pointsData.push({ x: xVal, y: yVal, class: pointClass, string: quote, color: 'red'});
         }
         console.log("points data: ",pointsData);
       }
@@ -161,10 +166,11 @@ async function initData(dataset) {
       svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
 
       function mouseleave(event, d) {
+        
         var element = d3.selectAll(".point.a" + d.class);
         // Hide the tooltip
         d3.select("#tooltip").style("display", "none");
-        element.attr("r", 3).attr("fill", "blue");
+        element.attr("r", 3).attr("fill", (d) => d.color);
       }
       function mouseover(event, d) {
         var element = d3.selectAll(".point.a" + d.class);
@@ -191,7 +197,7 @@ async function initData(dataset) {
         .attr("cx", (d) => x(d.x))
         .attr("cy", (d) => y(d.y))
         .attr("r", 3)
-        .attr("fill", "blue")
+        .attr("fill", (d) => d.color)
         .attr("class", function (d, i) {
           return "point a" + d.class;
         });
@@ -390,8 +396,8 @@ async function initData(dataset) {
     //   console.error("SVG is not properly initialized.");
     // }
     
-
-    updateData(data);
+    //data = actual data, dataset === name of dataset
+    updateData(data, dataset);
     
   }
   
