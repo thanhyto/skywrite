@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.js"></script>
     <title>Skywrite</title>
 </head>
 <body>
@@ -16,10 +15,10 @@
     <div class="animate">
         <span id="control">Dataset</span>
         <div class="options">
-            <button onClick="updateData('anchor')" id="anchor"><span class="button_top">Anchor points</span></button>
-            <button onClick="updateData('noise')" id="noise"><span class="button_top">Noise</span></button> 
-            <button onClick="updateData('quotes')" id="quote"><span class="button_top">Quotes</span></button>
-         </div> 
+            <button onClick="initData('anchor')" id="anchor"><span class="button_top">Anchor points</span></button>
+            <button onClick="initData('noise')" id="noise"><span class="button_top">Noise</span></button>
+
+        </div>
         <span id="control">Animate</span>
         <div class="options">
             <button id="end"><span class="button_top">End animation</span></button>
@@ -35,6 +34,7 @@
         </div>
 
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.js"></script>
     <script src="script.js"></script>
 
     <!-- <script type="module" src="script2.js"></script> -->
