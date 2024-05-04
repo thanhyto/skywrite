@@ -6,7 +6,7 @@
 // Chart dimensions
 const marginTop = 50;
 const marginBottom = 50;
-const marginLeft = 40;
+const marginLeft = 20;
 const marginRight = 20;
 const width = 1000;
 const height = 750;
