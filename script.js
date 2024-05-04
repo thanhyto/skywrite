@@ -8,8 +8,8 @@ const marginTop = 50;
 const marginBottom = 50;
 const marginLeft = 40;
 const marginRight = 20;
-const width = 1000;
-const height = 750;
+let width = window.innerWidth - marginLeft - marginRight - (window.innerWidth * .2);
+let height = window.innerHeight - marginTop - marginBottom - (window.innerHeight * .2);
 
 // Asynchronously load PATHS data
 async function loadPathsData() {
@@ -39,6 +39,54 @@ async function loadAnchorPointsData() {
              }));
 }
 
+function resizeChart() {
+  // Update width and height based on the window size
+  width = window.innerWidth - marginLeft - marginRight;
+  height = window.innerHeight - marginTop - marginBottom;
+
+  // Update the SVG dimensions
+  d3.select('svg')
+    .attr('width', window.innerWidth)
+    .attr('height', window.innerHeight);
+
+  // Update the scales with the new dimensions
+  x.range([marginLeft, width - marginRight]);
+  y.range([height - marginBottom, marginTop]);
+
+  // Update the axes
+  d3.select('.myXaxis').attr('transform', `translate(0, ${height - marginBottom})`);
+  d3.select('.myYaxis').attr('transform', `translate(${marginLeft},0)`);
+
+  // Reapply the axes
+  svg.select('.myXaxis').call(xAxis);
+  svg.select('.myYaxis').call(yAxis);
+
+  // Adjust the clip path to the new size
+  d3.select('#clip rect')
+    .attr('width', width - marginLeft - marginRight)
+    .attr('height', height - marginTop - marginBottom);
+
+  // Adjust the positions of all points and paths based on the new scales
+  d3.selectAll('.point')
+    .attr('cx', d => x(d.x))
+    .attr('cy', d => y(d.y));
+
+  d3.selectAll('.curve-line')
+    .attr('d', d3
+      .line()
+      .x(d => x(d.x))
+      .y(d => y(d.y))
+      .curve(d3.curveCardinalClosed)
+    );
+
+  d3.selectAll('.delaunay-triangles path').attr('d', function(d) {
+    return `M${d.map(point => `${x(point[0])},${y(point[1])}`).join('L')}Z`;
+  });
+
+  d3.selectAll('.voronoi-cells path').attr('d', (d, i) => voronoi.renderCell(i));
+}
+
+window.addEventListener('resize', resizeChart);
 
 async function initData(dataset) {
   const container = document.getElementById("embedding-chart");
@@ -60,40 +108,37 @@ async function initData(dataset) {
     console.log("anchor loaded:", data); // Log after loading anchor
     // Further processing and visualization setup
 
-    // Create SVG container
-    const svg = d3.create("svg").attr("width", width).attr("height", height);
-    svg
-      .append("g")
-      .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+     // Further processing and visualization setup
+     const svg = d3.create("svg")
+     .attr("width", window.innerWidth)
+     .attr("height", window.innerHeight);
 
-    // Append a clipPath element to the SVG
-    svg.append("defs").append("clipPath")
-        .attr("id", "clip")
-        .append("rect")
-        .attr("width", width - marginLeft - marginRight)
-        .attr("height", height - marginTop - marginBottom);
+   svg.append("g")
+     .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
 
-    // Append a group element to the SVG and apply the clip path
-    const chartGroup = svg.append("g")
-        .attr("clip-path", "url(#clip)")
-        .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+   svg.append("defs").append("clipPath")
+     .attr("id", "clip")
+     .append("rect")
+     .attr("width", width - marginLeft - marginRight)
+     .attr("height", height - marginTop - marginBottom);
 
-    // Initialise a X axis:
-    var x = d3.scaleLinear().range([marginLeft, width - marginRight]);
-    var xAxis = d3.axisBottom().scale(x);
-    svg
-      .append("g")
-      .attr("transform", `translate(0, ${height - marginBottom})`)
-      .attr("class", "myXaxis");
+   const chartGroup = svg.append("g")
+     .attr("clip-path", "url(#clip)")
+     .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
 
-    // Initialize an Y axis
-    var y = d3.scaleLinear().range([height - marginBottom, marginTop]);
-    var yAxis = d3.axisLeft().scale(y);
-    svg
-      .append("g")
-      .attr("class", "myYaxis")
-      .attr("transform", `translate(${marginLeft},0)`);
+   var x = d3.scaleLinear().range([marginLeft, width - marginRight]);
+   var xAxis = d3.axisBottom().scale(x);
 
+   svg.append("g")
+     .attr("transform", `translate(0, ${height - marginBottom})`)
+     .attr("class", "myXaxis");
+
+   var y = d3.scaleLinear().range([height - marginBottom, marginTop]);
+   var yAxis = d3.axisLeft().scale(y);
+
+   svg.append("g")
+     .attr("class", "myYaxis")
+     .attr("transform", `translate(${marginLeft},0)`);
     // Select the buttons
     const endAnimationButton = document.getElementById("end");
 
