@@ -1,8 +1,3 @@
-//TODO: I think everytime this file accesses data
-// I need to do the data.then(data => ) thing... 
-// IM BAD AT JAVASCRIPT I NEED HELP THAHN
-
-
 // Chart dimensions
 const marginTop = 50;
 const marginBottom = 50;
@@ -10,6 +5,40 @@ const marginLeft = 40;
 const marginRight = 20;
 const width = 1000;
 const height = 750;
+
+// Create SVG container
+const svg = d3.create("svg").attr("width", width).attr("height", height);
+svg
+  .append("g")
+  .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+
+// Append a clipPath element to the SVG
+svg.append("defs").append("clipPath")
+    .attr("id", "clip")
+    .append("rect")
+    .attr("width", width - marginLeft - marginRight)
+    .attr("height", height - marginTop - marginBottom);
+
+// Append a group element to the SVG and apply the clip path
+const chartGroup = svg.append("g")
+    .attr("clip-path", "url(#clip)")
+    .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+
+// Initialise a X axis:
+var x = d3.scaleLinear().range([marginLeft, width - marginRight]);
+var xAxis = d3.axisBottom().scale(x);
+svg
+  .append("g")
+  .attr("transform", `translate(0, ${height - marginBottom})`)
+  .attr("class", "myXaxis");
+
+// Initialize an Y axis
+var y = d3.scaleLinear().range([height - marginBottom, marginTop]);
+var yAxis = d3.axisLeft().scale(y);
+svg
+  .append("g")
+  .attr("class", "myYaxis")
+  .attr("transform", `translate(${marginLeft},0)`);
 
 // Asynchronously load PATHS data
 async function loadPathsData() {
@@ -39,67 +68,76 @@ async function loadAnchorPointsData() {
              }));
 }
 
+async function loadQuotesData(){
+  const response = await fetch('./data/quotes_scaled.jsonl');
+  const data = await response.text();
+  return data.split('\n')
+            .filter(line => line.trime())
+            .map(JSON.parse)
+            .map(item => ({
+              x: item["x"],
+              y: item["y"],
+              quote: item["quote"],
+              author: item["author"],
+              color: 'blue'
+            }))
+}
 
+async function loadHeartData(){
+  const response = await fetch('./data/heart_scaled.jsonl');
+  const data = await response.text();
+  return data.split('\n')
+            .filter(line => line.trime())
+            .map(JSON.parse)
+            .map(item => ({
+              x: item.x,
+              y: item.y,
+              color: 'red'
+            }))
+}
+function mouseleave(event, d) {
+        
+  var element = d3.selectAll(".point.a" + d.class);
+  // Hide the tooltip
+  d3.select("#tooltip").style("display", "none");
+  element.attr("r", 3).attr("fill", (d) => d.color);
+}
+function mouseover(event, d) {
+  var element = d3.selectAll(".point.a" + d.class);
+  // Get the tooltip element
+  var tooltip = d3.select("#tooltip");
+
+  // Set tooltip content and position
+  tooltip
+    .html("x: " + d.x + "<br>y: " + d.y
+    + "<br>Sentence: " + d.string)
+    .style("left", event.pageX + 10 + "px")
+    .style("top", event.pageY - 10 + "px")
+    .style("display", "block"); // Show the tooltip
+
+  element.attr("r", 8).attr("fill", "#3b3b3b");
+}
 async function initData(dataset) {
   const container = document.getElementById("embedding-chart");
   container.innerHTML = "";
   let data;
+  let heart, quotes;
   try {
     if(dataset  === "noise"){
       data = await loadPathsData(); // Load PATHS data asynchronously
+
+    }
+    else if(dataset === "quotes"){
+      heart = await loadHeartData();
+      quotes = await loadQuotesData();
+      data = quotes.concat(heart);
 
     }
     else{
       data = await loadAnchorPointsData(); // Load Anchorpoints data asynchronously
     }
    
-
-
-
-    console.log("noise loaded:", data); // Log after loading noise
-    console.log("anchor loaded:", data); // Log after loading anchor
-    // Further processing and visualization setup
-
-    // Create SVG container
-    const svg = d3.create("svg").attr("width", width).attr("height", height);
-    svg
-      .append("g")
-      .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
-
-    // Append a clipPath element to the SVG
-    svg.append("defs").append("clipPath")
-        .attr("id", "clip")
-        .append("rect")
-        .attr("width", width - marginLeft - marginRight)
-        .attr("height", height - marginTop - marginBottom);
-
-    // Append a group element to the SVG and apply the clip path
-    const chartGroup = svg.append("g")
-        .attr("clip-path", "url(#clip)")
-        .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
-
-    // Initialise a X axis:
-    var x = d3.scaleLinear().range([marginLeft, width - marginRight]);
-    var xAxis = d3.axisBottom().scale(x);
-    svg
-      .append("g")
-      .attr("transform", `translate(0, ${height - marginBottom})`)
-      .attr("class", "myXaxis");
-
-    // Initialize an Y axis
-    var y = d3.scaleLinear().range([height - marginBottom, marginTop]);
-    var yAxis = d3.axisLeft().scale(y);
-    svg
-      .append("g")
-      .attr("class", "myYaxis")
-      .attr("transform", `translate(${marginLeft},0)`);
-
-    // Select the buttons
-    const endAnimationButton = document.getElementById("end");
-
-
-
-    
+    console.log('load data', data)
 
     // Function to update data
     function updateData(dataset, str_name) {
@@ -165,28 +203,7 @@ async function initData(dataset) {
       y.domain([yMin - 2, yMax + 2]);
       svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
 
-      function mouseleave(event, d) {
-        
-        var element = d3.selectAll(".point.a" + d.class);
-        // Hide the tooltip
-        d3.select("#tooltip").style("display", "none");
-        element.attr("r", 3).attr("fill", (d) => d.color);
-      }
-      function mouseover(event, d) {
-        var element = d3.selectAll(".point.a" + d.class);
-        // Get the tooltip element
-        var tooltip = d3.select("#tooltip");
-
-        // Set tooltip content and position
-        tooltip
-          .html("x: " + d.x + "<br>y: " + d.y
-          + "<br>Sentence: " + d.string)
-          .style("left", event.pageX + 10 + "px")
-          .style("top", event.pageY - 10 + "px")
-          .style("display", "block"); // Show the tooltip
-
-        element.attr("r", 8).attr("fill", "#3b3b3b");
-      }
+      
       // Add points
       chartGroup
         .append("g")

@@ -25,6 +25,7 @@ body {
     border: 1px solid #ccc;
     padding: 5px;
     display: none; /* Initially hide the tooltip */
+    max-block-size: 150px;
 }
 
 .animate{
