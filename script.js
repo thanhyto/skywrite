@@ -446,14 +446,7 @@ async function initData(dataset) {
       console.error("Error loading data:", error);
     }
 
-    // // Add the SVG node to the container, making sure it's not null or undefined
-    // if (svg) {
-    //   container.appendChild(svg.node());
-    // } else {
-    //   console.error("SVG is not properly initialized.");
-    // }
     
-    //data = actual data, dataset === name of dataset
     updateData(data, dataset);
     
   }
