@@ -3,8 +3,8 @@ const marginTop = 50;
 const marginBottom = 50;
 const marginLeft = 40;
 const marginRight = 20;
-const width = 1000;
-const height = 750;
+let width = window.innerWidth - marginLeft - marginRight - (window.innerWidth * .2);
+let height = window.innerHeight - marginTop - marginBottom - (window.innerHeight * .2);
 
 // Create SVG container
 const svg = d3.create("svg").attr("width", width).attr("height", height);
@@ -68,6 +68,54 @@ async function loadAnchorPointsData() {
              }));
 }
 
+function resizeChart() {
+  // Update width and height based on the window size
+  width = window.innerWidth - marginLeft - marginRight;
+  height = window.innerHeight - marginTop - marginBottom;
+
+  // Update the SVG dimensions
+  d3.select('svg')
+    .attr('width', window.innerWidth)
+    .attr('height', window.innerHeight);
+
+  // Update the scales with the new dimensions
+  x.range([marginLeft, width - marginRight]);
+  y.range([height - marginBottom, marginTop]);
+
+  // Update the axes
+  d3.select('.myXaxis').attr('transform', `translate(0, ${height - marginBottom})`);
+  d3.select('.myYaxis').attr('transform', `translate(${marginLeft},0)`);
+
+  // Reapply the axes
+  svg.select('.myXaxis').call(xAxis);
+  svg.select('.myYaxis').call(yAxis);
+
+  // Adjust the clip path to the new size
+  d3.select('#clip rect')
+    .attr('width', width - marginLeft - marginRight)
+    .attr('height', height - marginTop - marginBottom);
+
+  // Adjust the positions of all points and paths based on the new scales
+  d3.selectAll('.point')
+    .attr('cx', d => x(d.x))
+    .attr('cy', d => y(d.y));
+
+  d3.selectAll('.curve-line')
+    .attr('d', d3
+      .line()
+      .x(d => x(d.x))
+      .y(d => y(d.y))
+      .curve(d3.curveCardinalClosed)
+    );
+
+  d3.selectAll('.delaunay-triangles path').attr('d', function(d) {
+    return `M${d.map(point => `${x(point[0])},${y(point[1])}`).join('L')}Z`;
+  });
+
+  d3.selectAll('.voronoi-cells path').attr('d', (d, i) => voronoi.renderCell(i));
+}
+
+window.addEventListener('resize', resizeChart);
 async function loadQuotesData(){
   const response = await fetch('./data/quotes_scaled.jsonl');
   const data = await response.text();
@@ -136,8 +184,14 @@ async function initData(name) {
     else{
       data = await loadAnchorPointsData(); // Load Anchorpoints data asynchronously
     }
-   
+
+
+
+
+    
+
     console.log('load data', data)
+
 
     // Function to update data
     function updateData(data, str_name) {
@@ -379,37 +433,49 @@ async function initData(name) {
 
       // Function to handle zooming
       function zoomed(event) {
-        // Get current transform state
-        svg.select(".curve-line").remove();
-        // d3.selectAll(".voronoi-cells path").attr("visibility", "hidden");
-        d3.selectAll(".delanauy-triangles path").attr("visibility", "hidden");
-
         const { transform } = event;
-
-        // Update axes based on current transform
+      
+        // Adjust axes based on the current transform
         svg.select(".myXaxis").call(xAxis.scale(transform.rescaleX(x)));
         svg.select(".myYaxis").call(yAxis.scale(transform.rescaleY(y)));
-
-        // Update points and Voronoi cells based on current transform
-        svg
+      
+        // Define base and maximum/minimum sizes for the points
+        const baseRadius = 3; // Adjust the base radius as needed
+        const maxRadius = 50; // Set an upper limit for point size when zoomed in
+        const minRadius = 1; // Set a lower limit for point size when zoomed out
+      
+        // Calculate the scaled radius based on zoom level
+        const scaledRadius = Math.min(maxRadius, Math.max(minRadius, baseRadius * transform.k));
+      
+        // Adjust the circle sizes dynamically based on the zoom scale
+       // Adjust the circle sizes dynamically based on the zoom scale
+          svg
           .selectAll(".point")
-          .attr("cx", (d) => transform.applyX(x(d.x)))
-          .attr("cy", (d) => transform.applyY(y(d.y)));
+          .attr("cx", d => transform.applyX(x(d.x)))
+          .attr("cy", d => transform.applyY(y(d.y)))
+          .attr("r", scaledRadius);
 
-        
+        // Update the path of the curve/line to fit the zoom level
+        svg.select(".curve-line")
+          .attr("d", d3.line()
+            .x(d => transform.applyX(x(d.x)))
+            .y(d => transform.applyY(y(d.y)))
+            .curve(d3.curveCardinalClosed)
+          );
         // Update Delaunay triangles based on current transform
         svg.selectAll(".delaunay-triangles path").attr("d", function(d) {
-          const transformedPoints = d.map((point) => transform.apply(point));
+          const transformedPoints = d.map(point => transform.apply(point));
           return "M" + transformedPoints.join("L") + "Z";
         });
-
+      
         // Update Voronoi cells based on current transform
         svg.selectAll(".voronoi-cells path").attr("d", function(d, i) {
           const cell = voronoi.cellPolygon(i);
           const transformedPoints = cell.map(point => transform.apply(point));
           return "M" + transformedPoints.join("L") + "Z";
         });
-    }
+      }
+      
 
       // Function to reset zoom
       function resetZoom() {
@@ -429,12 +495,6 @@ async function initData(name) {
       console.error("Error loading data:", error);
     }
 
-    // // Add the SVG node to the container, making sure it's not null or undefined
-    // if (svg) {
-    //   container.appendChild(svg.node());
-    // } else {
-    //   console.error("SVG is not properly initialized.");
-    // }
     
     //data = actual data, dataset === name of dataset
     updateData(data, name);
