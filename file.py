@@ -11,12 +11,7 @@ def jsonl_to_list_of_dicts(file_path):
             list_of_dicts.append(data)
     return list_of_dicts
 
-def add_color_blue(list_of_dicts):
-    for item in list_of_dicts:
-        item['color'] = 'blue'
-    return list_of_dicts
-
-file_path = "data/quotes_scaled.jsonl"  
+file_path = "data/heart_scaled.jsonl"  
 list_of_dicts = jsonl_to_list_of_dicts(file_path)
 
 # Convert list of dictionaries to a string

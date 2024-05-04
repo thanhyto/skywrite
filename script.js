@@ -6,7 +6,7 @@
 // Chart dimensions
 const marginTop = 50;
 const marginBottom = 50;
-const marginLeft = 20;
+const marginLeft = 40;
 const marginRight = 20;
 const width = 1000;
 const height = 750;
@@ -131,6 +131,12 @@ async function initData(dataset) {
         }
         console.log("points data: ",pointsData);
       }
+
+      
+
+
+
+
 
       // Find the minimum and maximum of x and y in pointsData
       let xMin = d3.min(pointsData, function (d) {
