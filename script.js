@@ -384,37 +384,49 @@ async function initData(dataset) {
 
       // Function to handle zooming
       function zoomed(event) {
-        // Get current transform state
-        svg.select(".curve-line").remove();
-        // d3.selectAll(".voronoi-cells path").attr("visibility", "hidden");
-        d3.selectAll(".delanauy-triangles path").attr("visibility", "hidden");
-
         const { transform } = event;
-
-        // Update axes based on current transform
+      
+        // Adjust axes based on the current transform
         svg.select(".myXaxis").call(xAxis.scale(transform.rescaleX(x)));
         svg.select(".myYaxis").call(yAxis.scale(transform.rescaleY(y)));
-
-        // Update points and Voronoi cells based on current transform
-        svg
+      
+        // Define base and maximum/minimum sizes for the points
+        const baseRadius = 3; // Adjust the base radius as needed
+        const maxRadius = 50; // Set an upper limit for point size when zoomed in
+        const minRadius = 1; // Set a lower limit for point size when zoomed out
+      
+        // Calculate the scaled radius based on zoom level
+        const scaledRadius = Math.min(maxRadius, Math.max(minRadius, baseRadius * transform.k));
+      
+        // Adjust the circle sizes dynamically based on the zoom scale
+       // Adjust the circle sizes dynamically based on the zoom scale
+          svg
           .selectAll(".point")
-          .attr("cx", (d) => transform.applyX(x(d.x)))
-          .attr("cy", (d) => transform.applyY(y(d.y)));
+          .attr("cx", d => transform.applyX(x(d.x)))
+          .attr("cy", d => transform.applyY(y(d.y)))
+          .attr("r", scaledRadius);
 
-        
+        // Update the path of the curve/line to fit the zoom level
+        svg.select(".curve-line")
+          .attr("d", d3.line()
+            .x(d => transform.applyX(x(d.x)))
+            .y(d => transform.applyY(y(d.y)))
+            .curve(d3.curveCardinalClosed)
+          );
         // Update Delaunay triangles based on current transform
         svg.selectAll(".delaunay-triangles path").attr("d", function(d) {
-          const transformedPoints = d.map((point) => transform.apply(point));
+          const transformedPoints = d.map(point => transform.apply(point));
           return "M" + transformedPoints.join("L") + "Z";
         });
-
+      
         // Update Voronoi cells based on current transform
         svg.selectAll(".voronoi-cells path").attr("d", function(d, i) {
           const cell = voronoi.cellPolygon(i);
           const transformedPoints = cell.map(point => transform.apply(point));
           return "M" + transformedPoints.join("L") + "Z";
         });
-    }
+      }
+      
 
       // Function to reset zoom
       function resetZoom() {
