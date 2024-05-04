@@ -1,8 +1,3 @@
-//TODO: I think everytime this file accesses data
-// I need to do the data.then(data => ) thing... 
-// IM BAD AT JAVASCRIPT I NEED HELP THAHN
-
-
 // Chart dimensions
 const marginTop = 50;
 const marginBottom = 50;
@@ -10,6 +5,40 @@ const marginLeft = 40;
 const marginRight = 20;
 let width = window.innerWidth - marginLeft - marginRight - (window.innerWidth * .2);
 let height = window.innerHeight - marginTop - marginBottom - (window.innerHeight * .2);
+
+// Create SVG container
+const svg = d3.create("svg").attr("width", width).attr("height", height);
+svg
+  .append("g")
+  .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+
+// Append a clipPath element to the SVG
+svg.append("defs").append("clipPath")
+    .attr("id", "clip")
+    .append("rect")
+    .attr("width", width - marginLeft - marginRight)
+    .attr("height", height - marginTop - marginBottom);
+
+// Append a group element to the SVG and apply the clip path
+const chartGroup = svg.append("g")
+    .attr("clip-path", "url(#clip)")
+    .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+
+// Initialise a X axis:
+var x = d3.scaleLinear().range([marginLeft, width - marginRight]);
+var xAxis = d3.axisBottom().scale(x);
+svg
+  .append("g")
+  .attr("transform", `translate(0, ${height - marginBottom})`)
+  .attr("class", "myXaxis");
+
+// Initialize an Y axis
+var y = d3.scaleLinear().range([height - marginBottom, marginTop]);
+var yAxis = d3.axisLeft().scale(y);
+svg
+  .append("g")
+  .attr("class", "myYaxis")
+  .attr("transform", `translate(${marginLeft},0)`);
 
 // Asynchronously load PATHS data
 async function loadPathsData() {
@@ -87,68 +116,86 @@ function resizeChart() {
 }
 
 window.addEventListener('resize', resizeChart);
+async function loadQuotesData(){
+  const response = await fetch('./data/quotes_scaled.jsonl');
+  const data = await response.text();
+  return data.split('\n')
+            .filter(line => line.trim())
+            .map(JSON.parse)
+            .map(item => ({
+              x: item.x,
+              y: item.y,
+              quote: item.quote,
+              author: item.author,
+              color: 'blue'
+            }))
+}
 
-async function initData(dataset) {
+async function loadHeartData(){
+  const response = await fetch('./data/heart_scaled.jsonl');
+  const data = await response.text();
+  return data.split('\n')
+            .filter(line => line.trim())
+            .map(JSON.parse)
+            .map(item => ({
+              x: item.x,
+              y: item.y,
+              color: 'red'
+            }))
+}
+function mouseleave(event, d) {
+        
+  var element = d3.selectAll(".point.a" + d.class);
+  // Hide the tooltip
+  d3.select("#tooltip").style("display", "none");
+  element.attr("r", 3).attr("fill", (d) => d.color);
+}
+function mouseover(event, d) {
+  var element = d3.selectAll(".point.a" + d.class);
+  // Get the tooltip element
+  var tooltip = d3.select("#tooltip");
+
+  // Set tooltip content and position
+  tooltip
+    .html("x: " + d.x + "<br>y: " + d.y
+    + "<br>Sentence: " + d.string)
+    .style("left", event.pageX + 10 + "px")
+    .style("top", event.pageY - 10 + "px")
+    .style("display", "block"); // Show the tooltip
+
+  element.attr("r", 8).attr("fill", "#3b3b3b");
+}
+async function initData(name) {
   const container = document.getElementById("embedding-chart");
   container.innerHTML = "";
   let data;
+  let heart, quotes;
   try {
-    if(dataset  === "noise"){
+    if(name  === "noise"){
       data = await loadPathsData(); // Load PATHS data asynchronously
 
+    }
+    else if(name === "quotes"){
+      heart = await loadHeartData();
+      quotes = await loadQuotesData();
+      data = quotes.concat(heart);
+      console.log(data);
     }
     else{
       data = await loadAnchorPointsData(); // Load Anchorpoints data asynchronously
     }
-   
 
-
-
-    console.log("noise loaded:", data); // Log after loading noise
-    console.log("anchor loaded:", data); // Log after loading anchor
-    // Further processing and visualization setup
-
-     // Further processing and visualization setup
-     const svg = d3.create("svg")
-     .attr("width", window.innerWidth)
-     .attr("height", window.innerHeight);
-
-   svg.append("g")
-     .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
-
-   svg.append("defs").append("clipPath")
-     .attr("id", "clip")
-     .append("rect")
-     .attr("width", width - marginLeft - marginRight)
-     .attr("height", height - marginTop - marginBottom);
-
-   const chartGroup = svg.append("g")
-     .attr("clip-path", "url(#clip)")
-     .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
-
-   var x = d3.scaleLinear().range([marginLeft, width - marginRight]);
-   var xAxis = d3.axisBottom().scale(x);
-
-   svg.append("g")
-     .attr("transform", `translate(0, ${height - marginBottom})`)
-     .attr("class", "myXaxis");
-
-   var y = d3.scaleLinear().range([height - marginBottom, marginTop]);
-   var yAxis = d3.axisLeft().scale(y);
-
-   svg.append("g")
-     .attr("class", "myYaxis")
-     .attr("transform", `translate(${marginLeft},0)`);
-    // Select the buttons
-    const endAnimationButton = document.getElementById("end");
 
 
 
     
 
+    console.log('load data', data)
+
+
     // Function to update data
-    function updateData(dataset, str_name) {
-      console.log("CURR DATA: ",dataset);
+    function updateData(data, str_name) {
+      console.log("CURR DATA: ",data);
       pointsData = []; // Reset pointsData
       svg.selectAll("circle").remove(); // Remove old data
       svg.selectAll("path").remove(); // Remove old path
@@ -157,11 +204,11 @@ async function initData(dataset) {
       document.getElementById("voronoi_checkbox").checked = false;
       
       if (str_name === 'noise') {
-        for (var i = 0; i < dataset.length; i++) {
-          let xVal = dataset[i]['embed_2d'][0];
-          let yVal = dataset[i]['embed_2d'][1];
-          let pointClass = dataset[i]['Index'];
-          let quote = dataset[i]['quote'];
+        for (var i = 0; i < data.length; i++) {
+          let xVal = data[i]['embed_2d'][0];
+          let yVal = data[i]['embed_2d'][1];
+          let pointClass = data[i]['Index'];
+          let quote = data[i]['quote'];
           // console.log(pointClass);
           if (pointClass < 99){ 
             pointsData.push({ x: xVal, y: yVal, class: pointClass, string: quote, color: 'red'});
@@ -169,24 +216,30 @@ async function initData(dataset) {
             pointsData.push({ x: xVal, y: yVal, class: pointClass, string: quote, color: 'blue'});
           }
         }
-      } else {
+      } else if (str_name === 'anchor'){
         console.log("anchorpoints pls: ");
-        for (var i = 0; i < dataset.length; i++) {
-          let xVal = dataset[i]["embed_2d"][0];
-          let yVal = dataset[i]["embed_2d"][1];
-          let quote = dataset[i]['quote']
+        for (var i = 0; i < data.length; i++) {
+          let xVal = data[i]["embed_2d"][0];
+          let yVal = data[i]["embed_2d"][1];
+          let quote = data[i]['quote']
           let pointClass = i;
 
           pointsData.push({ x: xVal, y: yVal, class: pointClass, string: quote, color: 'red'});
         }
         console.log("points data: ",pointsData);
       }
-
-      
-
-
-
-
+      else if (str_name ==="quotes"){
+        for (var i = 0; i < heart.length; i++) {
+          let xVal = heart[i].x;
+          let yVal = heart[i].y;
+          let pointClass = quotes.length + i;
+          pointsData.push({ x: xVal, y: yVal, class: pointClass, color: 'red' });
+        }
+        for(var i = 0; i < quotes.length; i++) {
+          quotes[i]['class'] = i;
+        }
+        console.log(pointsData);
+      }
 
       // Find the minimum and maximum of x and y in pointsData
       let xMin = d3.min(pointsData, function (d) {
@@ -210,28 +263,21 @@ async function initData(dataset) {
       y.domain([yMin - 2, yMax + 2]);
       svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
 
-      function mouseleave(event, d) {
-        
-        var element = d3.selectAll(".point.a" + d.class);
-        // Hide the tooltip
-        d3.select("#tooltip").style("display", "none");
-        element.attr("r", 3).attr("fill", (d) => d.color);
+      if (str_name === "quotes"){
+        chartGroup.append("g")
+        .selectAll("circle")
+        .data(quotes)
+        .enter()
+        .append("circle")
+        .attr("cx", (d) => x(d.x))
+        .attr("cy", (d) => y(d.y))
+        .attr("r", 1)
+        .attr("fill", (d) => d.color)
+        .attr("class", function (d) {
+          return "point a" + d.class;
+        });
       }
-      function mouseover(event, d) {
-        var element = d3.selectAll(".point.a" + d.class);
-        // Get the tooltip element
-        var tooltip = d3.select("#tooltip");
 
-        // Set tooltip content and position
-        tooltip
-          .html("x: " + d.x + "<br>y: " + d.y
-          + "<br>Sentence: " + d.string)
-          .style("left", event.pageX + 10 + "px")
-          .style("top", event.pageY - 10 + "px")
-          .style("display", "block"); // Show the tooltip
-
-        element.attr("r", 8).attr("fill", "#3b3b3b");
-      }
       // Add points
       chartGroup
         .append("g")
@@ -245,7 +291,7 @@ async function initData(dataset) {
         .attr("fill", (d) => d.color)
         .attr("class", function (d, i) {
           return "point a" + d.class;
-        });
+      });
 
       // Create a line using curveCardinalClosed to go through all the circles
       var path = chartGroup
@@ -295,6 +341,9 @@ async function initData(dataset) {
           isEnded = true;
         }
       });
+      if (name === "quotes"){
+        pointsData.concat(quotes);
+      }
       // Create Delaunay triangles
       const delaunay = d3.Delaunay.from(
         pointsData,
@@ -447,7 +496,8 @@ async function initData(dataset) {
     }
 
     
-    updateData(data, dataset);
+    //data = actual data, dataset === name of dataset
+    updateData(data, name);
     
   }
   
