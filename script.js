@@ -15467,8 +15467,7 @@ function updateData(dataset) {
         let yVal = heart[i]["y"];
         let pointClass = quotes.length + i;
         pointsData.push({ x: xVal, y: yVal, class: pointClass, color: 'red' });
-        // heart[i]['class'] = quotes.length +i;
-        // heart[i]['color'] = 'red';
+    
     }
     for(var i = 0; i < quotes.length; i++) {
       quotes[i]['class'] = i;
