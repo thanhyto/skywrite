@@ -72,13 +72,13 @@ async function loadQuotesData(){
   const response = await fetch('./data/quotes_scaled.jsonl');
   const data = await response.text();
   return data.split('\n')
-            .filter(line => line.trime())
+            .filter(line => line.trim())
             .map(JSON.parse)
             .map(item => ({
-              x: item["x"],
-              y: item["y"],
-              quote: item["quote"],
-              author: item["author"],
+              x: item.x,
+              y: item.y,
+              quote: item.quote,
+              author: item.author,
               color: 'blue'
             }))
 }
@@ -87,7 +87,7 @@ async function loadHeartData(){
   const response = await fetch('./data/heart_scaled.jsonl');
   const data = await response.text();
   return data.split('\n')
-            .filter(line => line.trime())
+            .filter(line => line.trim())
             .map(JSON.parse)
             .map(item => ({
               x: item.x,
@@ -117,21 +117,21 @@ function mouseover(event, d) {
 
   element.attr("r", 8).attr("fill", "#3b3b3b");
 }
-async function initData(dataset) {
+async function initData(name) {
   const container = document.getElementById("embedding-chart");
   container.innerHTML = "";
   let data;
   let heart, quotes;
   try {
-    if(dataset  === "noise"){
+    if(name  === "noise"){
       data = await loadPathsData(); // Load PATHS data asynchronously
 
     }
-    else if(dataset === "quotes"){
+    else if(name === "quotes"){
       heart = await loadHeartData();
       quotes = await loadQuotesData();
       data = quotes.concat(heart);
-
+      console.log(data);
     }
     else{
       data = await loadAnchorPointsData(); // Load Anchorpoints data asynchronously
@@ -140,8 +140,8 @@ async function initData(dataset) {
     console.log('load data', data)
 
     // Function to update data
-    function updateData(dataset, str_name) {
-      console.log("CURR DATA: ",dataset);
+    function updateData(data, str_name) {
+      console.log("CURR DATA: ",data);
       pointsData = []; // Reset pointsData
       svg.selectAll("circle").remove(); // Remove old data
       svg.selectAll("path").remove(); // Remove old path
@@ -150,11 +150,11 @@ async function initData(dataset) {
       document.getElementById("voronoi_checkbox").checked = false;
       
       if (str_name === 'noise') {
-        for (var i = 0; i < dataset.length; i++) {
-          let xVal = dataset[i]['embed_2d'][0];
-          let yVal = dataset[i]['embed_2d'][1];
-          let pointClass = dataset[i]['Index'];
-          let quote = dataset[i]['quote'];
+        for (var i = 0; i < data.length; i++) {
+          let xVal = data[i]['embed_2d'][0];
+          let yVal = data[i]['embed_2d'][1];
+          let pointClass = data[i]['Index'];
+          let quote = data[i]['quote'];
           // console.log(pointClass);
           if (pointClass < 99){ 
             pointsData.push({ x: xVal, y: yVal, class: pointClass, string: quote, color: 'red'});
@@ -162,24 +162,30 @@ async function initData(dataset) {
             pointsData.push({ x: xVal, y: yVal, class: pointClass, string: quote, color: 'blue'});
           }
         }
-      } else {
+      } else if (str_name === 'anchor'){
         console.log("anchorpoints pls: ");
-        for (var i = 0; i < dataset.length; i++) {
-          let xVal = dataset[i]["embed_2d"][0];
-          let yVal = dataset[i]["embed_2d"][1];
-          let quote = dataset[i]['quote']
+        for (var i = 0; i < data.length; i++) {
+          let xVal = data[i]["embed_2d"][0];
+          let yVal = data[i]["embed_2d"][1];
+          let quote = data[i]['quote']
           let pointClass = i;
 
           pointsData.push({ x: xVal, y: yVal, class: pointClass, string: quote, color: 'red'});
         }
         console.log("points data: ",pointsData);
       }
-
-      
-
-
-
-
+      else if (str_name ==="quotes"){
+        for (var i = 0; i < heart.length; i++) {
+          let xVal = heart[i].x;
+          let yVal = heart[i].y;
+          let pointClass = quotes.length + i;
+          pointsData.push({ x: xVal, y: yVal, class: pointClass, color: 'red' });
+        }
+        for(var i = 0; i < quotes.length; i++) {
+          quotes[i]['class'] = i;
+        }
+        console.log(pointsData);
+      }
 
       // Find the minimum and maximum of x and y in pointsData
       let xMin = d3.min(pointsData, function (d) {
@@ -203,7 +209,21 @@ async function initData(dataset) {
       y.domain([yMin - 2, yMax + 2]);
       svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
 
-      
+      if (str_name === "quotes"){
+        chartGroup.append("g")
+        .selectAll("circle")
+        .data(quotes)
+        .enter()
+        .append("circle")
+        .attr("cx", (d) => x(d.x))
+        .attr("cy", (d) => y(d.y))
+        .attr("r", 1)
+        .attr("fill", (d) => d.color)
+        .attr("class", function (d) {
+          return "point a" + d.class;
+        });
+      }
+
       // Add points
       chartGroup
         .append("g")
@@ -217,7 +237,7 @@ async function initData(dataset) {
         .attr("fill", (d) => d.color)
         .attr("class", function (d, i) {
           return "point a" + d.class;
-        });
+      });
 
       // Create a line using curveCardinalClosed to go through all the circles
       var path = chartGroup
@@ -267,6 +287,9 @@ async function initData(dataset) {
           isEnded = true;
         }
       });
+      if (name === "quotes"){
+        pointsData.concat(quotes);
+      }
       // Create Delaunay triangles
       const delaunay = d3.Delaunay.from(
         pointsData,
@@ -414,7 +437,7 @@ async function initData(dataset) {
     // }
     
     //data = actual data, dataset === name of dataset
-    updateData(data, dataset);
+    updateData(data, name);
     
   }
   
