@@ -148,7 +148,7 @@ function mouseleave(event, d) {
   var element = d3.selectAll(".point.a" + d.class);
   // Hide the tooltip
   d3.select("#tooltip").style("display", "none");
-  element.attr("r", 3).attr("fill", (d) => d.color);
+  element.attr("r", 7).attr("fill", (d) => d.color);
 }
 function mouseover(event, d) {
   var element = d3.selectAll(".point.a" + d.class);
@@ -163,25 +163,95 @@ function mouseover(event, d) {
     .style("top", event.pageY - 10 + "px")
     .style("display", "block"); // Show the tooltip
 
-  element.attr("r", 8).attr("fill", "#3b3b3b");
+  element.attr("r", 7).attr("fill", "#3b3b3b");
 }
+
+
+// Define the drawPath function that draws and animates the path
+function drawPath(pointsData) {
+  // Remove any existing path
+  // repeat();
+  chartGroup.select(".curve-line").remove();
+  
+  // Create a new path using curveCardinalClosed to go through all the circles
+  const path = chartGroup
+    .append("path")
+    .attr("class", "curve-line")
+    .datum(pointsData)
+    .attr(
+      "d",
+      d3
+        .line()
+        .x(d => x(d.x))
+        .y(d => y(d.y))
+        .curve(d3.curveCardinalClosed)
+    )
+    .attr("fill", "none")
+    .attr("stroke-width", 4)
+    .attr("stroke", "#777777");
+
+  // Create a repeating animation for the line
+  const length = path.node().getTotalLength();
+  function repeat() {
+    path
+      .attr("stroke-dasharray", `${length} ${length}`)
+      .attr("stroke-dashoffset", length)
+      .transition()
+      .ease(d3.easeLinear)
+      .attr("stroke-dashoffset", 0)
+      .duration(4000)
+      .on("end", () => setTimeout(repeat, 1000));
+  }
+  // repeat();
+}
+function drawFinishedPath(pointsData){
+  console.log("FINISH THE LINE:");
+  let path = chartGroup
+    .append("path")
+    .attr("class", "curve-line")
+    .datum(pointsData)
+    .attr(
+      "d",
+      d3
+        .line()
+        .x(d => x(d.x))
+        .y(d => y(d.y))
+        .curve(d3.curveCardinalClosed)
+    )
+    .attr("fill", "none")
+    .attr("stroke-width", 4)
+    .attr("stroke", "#777777");
+
+  // Create a repeating animation for the line
+  const length = path.node().getTotalLength();
+  let isEnded = false; 
+  if (!isEnded) {
+    // Jump to the end of the transition
+    path
+      .interrupt()
+      .attr("stroke-dasharray", length + "," + length)
+      .attr("stroke-dashoffset", 0); // Draw all paths immediately
+    isEnded = true;
+  }
+  
+  
+}
+
+
+
 async function initData(name) {
   const container = document.getElementById("embedding-chart");
   container.innerHTML = "";
   let data;
   let heart, quotes;
   try {
-    if(name  === "noise"){
+    if (name === "noise") {
       data = await loadPathsData(); // Load PATHS data asynchronously
-
-    }
-    else if(name === "quotes"){
+    } else if (name === "quotes") {
       heart = await loadHeartData();
       quotes = await loadQuotesData();
       data = quotes.concat(heart);
-      console.log(data);
-    }
-    else{
+    } else {
       data = await loadAnchorPointsData(); // Load Anchorpoints data asynchronously
     }
 
@@ -195,7 +265,6 @@ async function initData(name) {
 
     // Function to update data
     function updateData(data, str_name) {
-      console.log("CURR DATA: ",data);
       pointsData = []; // Reset pointsData
       svg.selectAll("circle").remove(); // Remove old data
       svg.selectAll("path").remove(); // Remove old path
@@ -287,60 +356,17 @@ async function initData(name) {
         .append("circle")
         .attr("cx", (d) => x(d.x))
         .attr("cy", (d) => y(d.y))
-        .attr("r", 3)
+        .attr("r", 7)
         .attr("fill", (d) => d.color)
         .attr("class", function (d, i) {
           return "point a" + d.class;
       });
 
-      // Create a line using curveCardinalClosed to go through all the circles
-      var path = chartGroup
-        .append("path")
-        .attr("class", "curve-line")
-        .datum(pointsData)
-        .attr(
-          "d",
-          d3
-            .line()
-            .x(function (d) {
-              return x(d.x);
-            })
-            .y(function (d) {
-              return y(d.y);
-            })
-            .curve(d3.curveCardinalClosed)
-        )
-        .attr("fill", "none")
-        .attr("stroke-width", 2)
-        .attr("stroke", "#777777");
 
-      // Create a repeating animation for the line
-      const length = path.node().getTotalLength();
-      function repeat() {
-        path
-          .attr("stroke-dasharray", length + " " + length)
-          .attr("stroke-dashoffset", length)
-          .transition()
-          .ease(d3.easeLinear)
-          .attr("stroke-dashoffset", 0)
-          .duration(4000)
-          .on("end", () => setTimeout(repeat, 1000));
-      }
+      // Draw the path using the new function
+      drawPath(pointsData);
 
-      repeat();
-      let isEnded = false;
-
-      // End animation button
-      document.getElementById("end").addEventListener("click", function () {
-        if (!isEnded) {
-          // Jump to the end of the transition
-          path
-            .interrupt()
-            .attr("stroke-dasharray", length + "," + length)
-            .attr("stroke-dashoffset", 0); // Draw all paths immediately
-          isEnded = true;
-        }
-      });
+  
       if (name === "quotes"){
         pointsData.concat(quotes);
       }
@@ -419,9 +445,64 @@ async function initData(name) {
         });
 
       document.getElementById("clear").addEventListener("click", function () {
-        svg.select(".curve-line").remove();
+        svg.selectAll(".curve-line").remove();
       
       });
+      document.getElementById("draw").addEventListener("click", function () {
+        // Adjust the circle sizes dynamically based on the zoom scale
+       // Adjust the circle sizes dynamically based on the zoom scale
+      // Create a new path using curveCardinalClosed to go through all the circles
+
+      
+      svg
+      .selectAll(".point")
+      .attr("cx", d => transform.applyX(x(d.x)))
+      .attr("cy", d => transform.applyY(y(d.y)))
+      .attr("r", scaledRadius);
+
+     // Update the path of the curve/line to fit the zoom level
+     svg.select(".curve-line")
+       .attr("d", d3.line()
+         .x(d => transform.applyX(x(d.x)))
+         .y(d => transform.applyY(y(d.y)))
+         .curve(d3.curveCardinalClosed)
+      );
+
+      const path = chartGroup
+      .append("path")
+      .attr("class", "curve-line")
+      .datum(pointsData)
+      .attr(
+        "d",
+        d3
+          .line()
+          .x(d => x(d.x))
+          .y(d => y(d.y))
+          .curve(d3.curveCardinalClosed)
+      )
+      .attr("fill", "none")
+      .attr("stroke-width", 4)
+      .attr("stroke", "#777777");
+
+    // Create a repeating animation for the line
+    const length = path.node().getTotalLength();
+    function repeat() {
+      path
+        .attr("stroke-dasharray", `${length} ${length}`)
+        .attr("stroke-dashoffset", length)
+        .transition()
+        .ease(d3.easeLinear)
+        .attr("stroke-dashoffset", 0)
+        .duration(4000)
+        .on("end", () => setTimeout(repeat, 1000));
+    }
+    repeat();
+      });
+      document.getElementById("end").addEventListener("click", function () {
+        drawFinishedPath(pointsData);
+      });
+      
+
       // Create a zoom handler
       const zoomHandler = d3
         .zoom()
@@ -440,9 +521,9 @@ async function initData(name) {
         svg.select(".myYaxis").call(yAxis.scale(transform.rescaleY(y)));
       
         // Define base and maximum/minimum sizes for the points
-        const baseRadius = 3; // Adjust the base radius as needed
+        const baseRadius = 7; // Adjust the base radius as needed
         const maxRadius = 50; // Set an upper limit for point size when zoomed in
-        const minRadius = 1; // Set a lower limit for point size when zoomed out
+        const minRadius = 7; // Set a lower limit for point size when zoomed out
       
         // Calculate the scaled radius based on zoom level
         const scaledRadius = Math.min(maxRadius, Math.max(minRadius, baseRadius * transform.k));
@@ -504,4 +585,3 @@ async function initData(name) {
 
 
 initData();
-
