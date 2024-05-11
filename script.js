@@ -3,42 +3,8 @@ const marginTop = 50;
 const marginBottom = 50;
 const marginLeft = 40;
 const marginRight = 20;
-let width = window.innerWidth - marginLeft - marginRight - (window.innerWidth * .2);
-let height = window.innerHeight - marginTop - marginBottom - (window.innerHeight * .2);
-
-// Create SVG container
-const svg = d3.create("svg").attr("width", width).attr("height", height);
-svg
-  .append("g")
-  .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
-
-// Append a clipPath element to the SVG
-svg.append("defs").append("clipPath")
-    .attr("id", "clip")
-    .append("rect")
-    .attr("width", width - marginLeft - marginRight)
-    .attr("height", height - marginTop - marginBottom);
-
-// Append a group element to the SVG and apply the clip path
-const chartGroup = svg.append("g")
-    .attr("clip-path", "url(#clip)")
-    .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
-
-// Initialise a X axis:
-var x = d3.scaleLinear().range([marginLeft, width - marginRight]);
-var xAxis = d3.axisBottom().scale(x);
-svg
-  .append("g")
-  .attr("transform", `translate(0, ${height - marginBottom})`)
-  .attr("class", "myXaxis");
-
-// Initialize an Y axis
-var y = d3.scaleLinear().range([height - marginBottom, marginTop]);
-var yAxis = d3.axisLeft().scale(y);
-svg
-  .append("g")
-  .attr("class", "myYaxis")
-  .attr("transform", `translate(${marginLeft},0)`);
+const width = 1000;
+const height = 750;
 
 // Asynchronously load PATHS data
 async function loadPathsData() {
@@ -68,54 +34,7 @@ async function loadAnchorPointsData() {
              }));
 }
 
-function resizeChart() {
-  // Update width and height based on the window size
-  width = window.innerWidth - marginLeft - marginRight;
-  height = window.innerHeight - marginTop - marginBottom;
-
-  // Update the SVG dimensions
-  d3.select('svg')
-    .attr('width', window.innerWidth)
-    .attr('height', window.innerHeight);
-
-  // Update the scales with the new dimensions
-  x.range([marginLeft, width - marginRight]);
-  y.range([height - marginBottom, marginTop]);
-
-  // Update the axes
-  d3.select('.myXaxis').attr('transform', `translate(0, ${height - marginBottom})`);
-  d3.select('.myYaxis').attr('transform', `translate(${marginLeft},0)`);
-
-  // Reapply the axes
-  svg.select('.myXaxis').call(xAxis);
-  svg.select('.myYaxis').call(yAxis);
-
-  // Adjust the clip path to the new size
-  d3.select('#clip rect')
-    .attr('width', width - marginLeft - marginRight)
-    .attr('height', height - marginTop - marginBottom);
-
-  // Adjust the positions of all points and paths based on the new scales
-  d3.selectAll('.point')
-    .attr('cx', d => x(d.x))
-    .attr('cy', d => y(d.y));
-
-  d3.selectAll('.curve-line')
-    .attr('d', d3
-      .line()
-      .x(d => x(d.x))
-      .y(d => y(d.y))
-      .curve(d3.curveCardinalClosed)
-    );
-
-  d3.selectAll('.delaunay-triangles path').attr('d', function(d) {
-    return `M${d.map(point => `${x(point[0])},${y(point[1])}`).join('L')}Z`;
-  });
-
-  d3.selectAll('.voronoi-cells path').attr('d', (d, i) => voronoi.renderCell(i));
-}
-
-window.addEventListener('resize', resizeChart);
+// Create SVG container
 async function loadQuotesData(){
   const response = await fetch('./data/quotes_scaled.jsonl');
   const data = await response.text();
@@ -143,12 +62,45 @@ async function loadHeartData(){
               color: 'red'
             }))
 }
+const svg = d3.create("svg").attr("width", width).attr("height", height);
+svg
+  .append("g")
+  .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+
+// Append a clipPath element to the SVG
+svg.append("defs").append("clipPath")
+    .attr("id", "clip")
+    .append("rect")
+    .attr("width", width - marginLeft - marginRight)
+    .attr("height", height - marginTop - marginBottom);
+
+// Append a group element to the SVG and apply the clip path
+const chartGroup = svg.append("g")
+    .attr("clip-path", "url(#clip)")
+    .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
+
+// Initialise an X axis:
+var x = d3.scaleLinear().range([marginLeft, width - marginRight]);
+var xAxis = d3.axisBottom().scale(x);
+svg
+  .append("g")
+  .attr("transform", `translate(0, ${height - marginBottom})`)
+  .attr("class", "myXaxis");
+
+// Initialize an Y axis
+var y = d3.scaleLinear().range([height - marginBottom, marginTop]);
+var yAxis = d3.axisLeft().scale(y);
+svg
+  .append("g")
+  .attr("class", "myYaxis")
+  .attr("transform", `translate(${marginLeft},0)`);
+
 function mouseleave(event, d) {
         
   var element = d3.selectAll(".point.a" + d.class);
   // Hide the tooltip
   d3.select("#tooltip").style("display", "none");
-  element.attr("r", 3).attr("fill", (d) => d.color);
+  element.attr("r", 2).attr("fill", (d) => d.color);
 }
 function mouseover(event, d) {
   var element = d3.selectAll(".point.a" + d.class);
@@ -158,13 +110,14 @@ function mouseover(event, d) {
   // Set tooltip content and position
   tooltip
     .html("x: " + d.x + "<br>y: " + d.y
-    + "<br>Sentence: " + d.string)
+    + "<br>Sentence: " + d.quote)
     .style("left", event.pageX + 10 + "px")
     .style("top", event.pageY - 10 + "px")
     .style("display", "block"); // Show the tooltip
 
-  element.attr("r", 8).attr("fill", "#3b3b3b");
+  element.attr("r", 5).attr("fill", "#3b3b3b");
 }
+
 async function initData(name) {
   const container = document.getElementById("embedding-chart");
   container.innerHTML = "";
@@ -184,14 +137,7 @@ async function initData(name) {
     else{
       data = await loadAnchorPointsData(); // Load Anchorpoints data asynchronously
     }
-
-
-
-
-    
-
     console.log('load data', data)
-
 
     // Function to update data
     function updateData(data, str_name) {
@@ -271,7 +217,7 @@ async function initData(name) {
         .append("circle")
         .attr("cx", (d) => x(d.x))
         .attr("cy", (d) => y(d.y))
-        .attr("r", 1)
+        .attr("r", 2)
         .attr("fill", (d) => d.color)
         .attr("class", function (d) {
           return "point a" + d.class;
@@ -287,7 +233,7 @@ async function initData(name) {
         .append("circle")
         .attr("cx", (d) => x(d.x))
         .attr("cy", (d) => y(d.y))
-        .attr("r", 3)
+        .attr("r", 2)
         .attr("fill", (d) => d.color)
         .attr("class", function (d, i) {
           return "point a" + d.class;
@@ -317,6 +263,7 @@ async function initData(name) {
       // Create a repeating animation for the line
       const length = path.node().getTotalLength();
       function repeat() {
+        
         path
           .attr("stroke-dasharray", length + " " + length)
           .attr("stroke-dashoffset", length)
@@ -326,7 +273,6 @@ async function initData(name) {
           .duration(4000)
           .on("end", () => setTimeout(repeat, 1000));
       }
-
       repeat();
       let isEnded = false;
 
@@ -341,8 +287,9 @@ async function initData(name) {
           isEnded = true;
         }
       });
-      if (name === "quotes"){
-        pointsData.concat(quotes);
+      if (str_name === "quotes"){
+        pointsData = pointsData.concat(quotes);
+        console.log("this is concat pointsData", pointsData);
       }
       // Create Delaunay triangles
       const delaunay = d3.Delaunay.from(
@@ -358,7 +305,6 @@ async function initData(name) {
         width - marginRight,
         height - marginBottom,
       ]);
-      // console.log(voronoi);
 
       // Append Delaunay triangles
       chartGroup
@@ -433,35 +379,30 @@ async function initData(name) {
 
       // Function to handle zooming
       function zoomed(event) {
-        const { transform } = event;
-      
+        // On zoom, stop and delete the tracing line
+        
+        const { transform } = event; 
+
+        const defaultTransform = { k: 1, x: 0, y: 0 };
+        const currentTransform = transform || defaultTransform;
+
         // Adjust axes based on the current transform
         svg.select(".myXaxis").call(xAxis.scale(transform.rescaleX(x)));
         svg.select(".myYaxis").call(yAxis.scale(transform.rescaleY(y)));
       
-        // Define base and maximum/minimum sizes for the points
-        const baseRadius = 3; // Adjust the base radius as needed
-        const maxRadius = 50; // Set an upper limit for point size when zoomed in
-        const minRadius = 1; // Set a lower limit for point size when zoomed out
-      
-        // Calculate the scaled radius based on zoom level
-        const scaledRadius = Math.min(maxRadius, Math.max(minRadius, baseRadius * transform.k));
-      
-        // Adjust the circle sizes dynamically based on the zoom scale
-       // Adjust the circle sizes dynamically based on the zoom scale
-          svg
-          .selectAll(".point")
-          .attr("cx", d => transform.applyX(x(d.x)))
-          .attr("cy", d => transform.applyY(y(d.y)))
-          .attr("r", scaledRadius);
 
-        // Update the path of the curve/line to fit the zoom level
-        svg.select(".curve-line")
-          .attr("d", d3.line()
-            .x(d => transform.applyX(x(d.x)))
-            .y(d => transform.applyY(y(d.y)))
-            .curve(d3.curveCardinalClosed)
-          );
+        // Update points and Voronoi cells based on current transform
+        svg
+          .selectAll(".point")
+          .attr("cx", (d) => transform.applyX(x(d.x)))
+          .attr("cy", (d) => transform.applyY(y(d.y)));
+
+        svg.select('.curve-line')
+        .attr('d', d3.line()
+        .x((d) => transform.applyX(d.x))
+        .y((d) => transform.applyY(d.y))
+        );
+      
         // Update Delaunay triangles based on current transform
         svg.selectAll(".delaunay-triangles path").attr("d", function(d) {
           const transformedPoints = d.map(point => transform.apply(point));
