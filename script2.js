@@ -99,7 +99,10 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
     svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
     plotPoints(dataset, x, y, chartGroup);
     plotLine(dataset, x, y, chartGroup);
-
+    // Clear button
+    document.getElementById("clear").addEventListener("click", function(){
+        svg.select(".curve-line").remove();
+    });
     container.appendChild(svg.node());
 
 }
@@ -138,7 +141,9 @@ function plotLine(dataset, x, y, chartGroup){
     .attr("fill", "none")
     .attr("stroke-width", 2)
     .attr("stroke", "#777777");
+    // Repeating line
     createRepeatingAnimation(path, 4000);
+    
 }
 // Line animation
 function createRepeatingAnimation(path, duration) {
@@ -154,6 +159,23 @@ function createRepeatingAnimation(path, duration) {
             .on("end", () => setTimeout(repeat, duration));
     }
     repeat();
+    addEndAnimationButton(path);
+}
+// Add end animation button
+function addEndAnimationButton(path) {
+    let isEnded = false;
+
+    // End animation button
+    document.getElementById("end").addEventListener("click", function () {
+        if (!isEnded) {
+            // Jump to the end of the transition
+            path
+                .interrupt()
+                .attr("stroke-dasharray", null)
+                .attr("stroke-dashoffset", 0); // Draw all paths immediately
+            isEnded = true;
+        }
+    });
 }
 // Add event listeners for buttons
 function addButtonsDataEvent(buttonId){
@@ -164,6 +186,7 @@ function addButtonsDataEvent(buttonId){
 addButtonsDataEvent('anchor');
 addButtonsDataEvent('noise');
 addButtonsDataEvent('quotes');
+
 
 // Main function 
 async function main(dataType){
