@@ -1,13 +1,13 @@
-{"x": 1.1564289331, "y": 3.9473571777, "quote": "A weekend of hiking to my hometown set me off from my living space and gave me a chance to reconnect."}
-{"x": 0.3952068388, "y": 4.4685149193, "quote": "I worked at a soup stall and I scented my work with a special way of cooking, to feel satisfied in my creativity."}
-{"x": -0.6235989928, "y": 6.1236596107, "quote": "After a morning job exploring the countryside, a nourishing rooibos soup inspired the cozy lifestyle I grew up in."}
-{"x": -0.6551085114, "y": 6.2981882095, "quote": "A huddle of paper in the garden is the way to acclimate the mornings."}
-{"x": -1.2689348459, "y": 7.7011289597, "quote": "I had just sat in a local yoga studio and viewed a fascinating book of ancient meditation. I was empathetically rewarded with a cup of joe."}
-{"x": -0.6413380504, "y": 8.1869468689, "quote": "I enjoy taking a stroll in a local park and looking at the beauty of the grass and expressing sacrament on the afternoon."}
-{"x": 0.2354149967, "y": 8.9776411057, "quote": "Participating in a local dance regularly raised my heart and I have a positive experience sharing laughter and tears with new friends."}
-{"x": 0.6775010824, "y": 7.8585906029, "quote": "Nothing warms me up more than a relaxing nap on the couch by the fire. The sound of a live streaming from a forest is supposed to relax me."}
-{"x": 1.7437143326, "y": 8.9644556046, "quote": "Having spent a day at the beach brought a sense of glorification and happiness into the midst of everything."}
-{"x": 2.6315875053, "y": 9.0747461319, "quote": "Joining a local animal shelter was a great experience, and I was more than happy to share the food and watching the donated animals with family and friends."}
-{"x": 3.2479977608, "y": 8.0163440704, "quote": "A sappy afternoon spent spent at the local nanny, I made a good day out of my week and gently reminded a friend of the leftover book."}
-{"x": 3.318344593, "y": 6.5096979141, "quote": "I spent a weekend surprised by a homemade buried family dinner, a gift that reinforced memories of a close friend."}
-{"x": 1.6071281433, "y": 4.1756467819, "quote": "Spending some time at a local, neighborhood vendor was always a special occasion, and it made my time enjoying the process of dcoring in the garden."}
+{"x": 1.1564289331, "y": 3.9473571777, "quote": "A weekend of hiking to my hometown set me off from my living space and gave me a chance to reconnect.", "class": 0, "type": "anchor", "color": "red"}
+{"x": 0.3952068388, "y": 4.4685149193, "quote": "I worked at a soup stall and I scented my work with a special way of cooking, to feel satisfied in my creativity.", "class": 1, "type": "anchor", "color": "red"}
+{"x": -0.6235989928, "y": 6.1236596107, "quote": "After a morning job exploring the countryside, a nourishing rooibos soup inspired the cozy lifestyle I grew up in.", "class": 2, "type": "anchor", "color": "red"}
+{"x": -0.6551085114, "y": 6.2981882095, "quote": "A huddle of paper in the garden is the way to acclimate the mornings.", "class": 3, "type": "anchor", "color": "red"}
+{"x": -1.2689348459, "y": 7.7011289597, "quote": "I had just sat in a local yoga studio and viewed a fascinating book of ancient meditation. I was empathetically rewarded with a cup of joe.", "class": 4, "type": "anchor", "color": "red"}
+{"x": -0.6413380504, "y": 8.1869468689, "quote": "I enjoy taking a stroll in a local park and looking at the beauty of the grass and expressing sacrament on the afternoon.", "class": 5, "type": "anchor", "color": "red"}
+{"x": 0.2354149967, "y": 8.9776411057, "quote": "Participating in a local dance regularly raised my heart and I have a positive experience sharing laughter and tears with new friends.", "class": 6, "type": "anchor", "color": "red"}
+{"x": 0.6775010824, "y": 7.8585906029, "quote": "Nothing warms me up more than a relaxing nap on the couch by the fire. The sound of a live streaming from a forest is supposed to relax me.", "class": 7, "type": "anchor", "color": "red"}
+{"x": 1.7437143326, "y": 8.9644556046, "quote": "Having spent a day at the beach brought a sense of glorification and happiness into the midst of everything.", "class": 8, "type": "anchor", "color": "red"}
+{"x": 2.6315875053, "y": 9.0747461319, "quote": "Joining a local animal shelter was a great experience, and I was more than happy to share the food and watching the donated animals with family and friends.", "class": 9, "type": "anchor", "color": "red"}
+{"x": 3.2479977608, "y": 8.0163440704, "quote": "A sappy afternoon spent spent at the local nanny, I made a good day out of my week and gently reminded a friend of the leftover book.", "class": 10, "type": "anchor", "color": "red"}
+{"x": 3.318344593, "y": 6.5096979141, "quote": "I spent a weekend surprised by a homemade buried family dinner, a gift that reinforced memories of a close friend.", "class": 11, "type": "anchor", "color": "red"}
+{"x": 1.6071281433, "y": 4.1756467819, "quote": "Spending some time at a local, neighborhood vendor was always a special occasion, and it made my time enjoying the process of dcoring in the garden.", "class": 12, "type": "anchor", "color": "red"}
