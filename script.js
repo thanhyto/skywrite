@@ -383,9 +383,6 @@ async function initData(name) {
         
         const { transform } = event; 
 
-        const defaultTransform = { k: 1, x: 0, y: 0 };
-        const currentTransform = transform || defaultTransform;
-
         // Adjust axes based on the current transform
         svg.select(".myXaxis").call(xAxis.scale(transform.rescaleX(x)));
         svg.select(".myYaxis").call(yAxis.scale(transform.rescaleY(y)));
@@ -397,7 +394,14 @@ async function initData(name) {
           .attr("cx", (d) => transform.applyX(x(d.x)))
           .attr("cy", (d) => transform.applyY(y(d.y)));
 
-        svg.select('.curve-line')
+         // Recalculate pointsData based on the current zoom transform
+        const updatedPointsData = pointsData.map(d => ({
+            x: transform.applyX(x(d.x)),
+            y: transform.applyY(y(d.y))
+        }));
+
+        svg.select('.curve-line path')
+        .datum(updatedPointsData)
         .attr('d', d3.line()
         .x((d) => transform.applyX(d.x))
         .y((d) => transform.applyY(d.y))
@@ -440,7 +444,7 @@ async function initData(name) {
     //data = actual data, dataset === name of dataset
     updateData(data, name);
     
-  }
+}
   
 
 
