@@ -168,82 +168,67 @@ function mouseover(event, d) {
 
 
 // Define the drawPath function that draws and animates the path
-function drawPath(pointsData) {
+function drawPath(pointsData, drawingBool) {
   // Remove any existing path
+  console.log("drawingBool: ", drawingBool );
   
-  chartGroup.select(".curve-line").remove();
-  
-  // Create a new path using curveCardinalClosed to go through all the circles
-  const path = chartGroup
-    .append("path")
-    .attr("class", "curve-line")
-    .datum(pointsData)
-    .attr(
-      "d",
-      d3
-        .line()
-        .x(d => x(d.x))
-        .y(d => y(d.y))
-        .curve(d3.curveCardinalClosed)
-    )
-    .attr("fill", "none")
-    .attr("stroke-width", 4)
-    .attr("stroke", "#777777");
 
-  // Create a repeating animation for the line
-  const baseDurationPerPoint = 500; // milliseconds per point, adjust as needed
-
-  // Create a repeating animation for the line
-  const length = path.node().getTotalLength();
-  function drawingLine() {
-    const totalDuration = baseDurationPerPoint * pointsData.length; // total duration based on the number of points
+  if(drawingBool === '1' || drawingBool === '2'){
+    chartGroup.select(".curve-line").remove();
     
-    path
+    const baseDurationPerPoint = 500; // milliseconds per point, adjust as needed
+
+
+    // Create a new path using curveCardinalClosed to go through all the circles
+    const path = chartGroup
+      .append("path")
+      .attr("class", "curve-line")
+      .datum(pointsData)
+      .attr(
+        "d",
+        d3
+          .line()
+          .x(d => x(d.x))
+          .y(d => y(d.y))
+          .curve(d3.curveCardinalClosed)
+      )
+      .attr("fill", "none")
+      .attr("stroke-width", 4)
+      .attr("stroke", "#777777");
+  
+    
+  
+    // Create a repeating animation for the line
+    const length = path.node().getTotalLength();
+    function drawingLine(drawingBool) {
+      let totalDuration;
+
+      if ( drawingBool === '1'){
+        totalDuration = baseDurationPerPoint * pointsData.length; // total duration based on the number of points
+      }
+      else{
+        totalDuration = 0;
+      }
+      
+      
+      path
       .attr("stroke-dasharray", `${length} ${length}`)
       .attr("stroke-dashoffset", length)
       .transition()
       .ease(d3.easeLinear)
       .attr("stroke-dashoffset", 0)
-      .duration(totalDuration); // use dynamic duration based on number of points
+      .duration(totalDuration);
+  
+  
+    }
+    drawingLine(drawingBool);
   }
-  drawingLine();
-}
-function drawFinishedPath(pointsData){
-  console.log("FINISH THE LINE:");
-  let path = chartGroup
-    .append("path")
-    .attr("class", "curve-line")
-    .datum(pointsData)
-    .attr(
-      "d",
-      d3
-        .line()
-        .x(d => x(d.x))
-        .y(d => y(d.y))
-        .curve(d3.curveCardinalClosed)
-    )
-    .attr("fill", "none")
-    .attr("stroke-width", 4)
-    .attr("stroke", "#777777");
 
-  // Create a repeating animation for the line
-  const length = path.node().getTotalLength();
-  let isEnded = false; 
-  if (!isEnded) {
-    // Jump to the end of the transition
-    path
-      .interrupt()
-      .attr("stroke-dasharray", length + "," + length)
-      .attr("stroke-dashoffset", 0); // Draw all paths immediately
-    isEnded = true;
-  }
-  
-  
 }
 
 
 
-async function initData(name) {
+async function initData(name, drawingBool) {
   const container = document.getElementById("embedding-chart");
   container.innerHTML = "";
   let data;
@@ -268,7 +253,7 @@ async function initData(name) {
 
 
     // Function to update data
-    function updateData(data, str_name) {
+    function updateData(data, str_name, drawingBool) {
       pointsData = []; // Reset pointsData
       svg.selectAll("circle").remove(); // Remove old data
       svg.selectAll("path").remove(); // Remove old path
@@ -368,7 +353,7 @@ async function initData(name) {
 
 
       // Draw the path using the new function
-      drawPath(pointsData);
+      
 
   
       if (name === "quotes"){
@@ -453,28 +438,11 @@ async function initData(name) {
       
       });
       document.getElementById("draw").addEventListener("click", function () {
-        // Adjust the circle sizes dynamically based on the zoom scale
-       // Adjust the circle sizes dynamically based on the zoom scale
-      // Create a new path using curveCardinalClosed to go through all the circles
-
-      
-      svg
-      .selectAll(".point")
-      .attr("cx", d => transform.applyX(x(d.x)))
-      .attr("cy", d => transform.applyY(y(d.y)))
-      .attr("r", scaledRadius);
-
-     // Update the path of the curve/line to fit the zoom level
-     svg.select(".curve-line")
-       .attr("d", d3.line()
-         .x(d => transform.applyX(x(d.x)))
-         .y(d => transform.applyY(y(d.y)))
-         .curve(d3.curveCardinalClosed)
-      );
+        drawPath(pointsData, '1');
  
       });
       document.getElementById("end").addEventListener("click", function () {
-        drawFinishedPath(pointsData);
+        drawPath(pointsData, '2');
       });
       
 
@@ -500,13 +468,15 @@ async function initData(name) {
         const maxRadius = 20; // Set an upper limit for point size when zoomed in
         const minRadius = 10; // Set a lower limit for point size when zoomed out
       
-        // Calculate the scaled radius based on zoom level
-        const scaledRadius = Math.min(maxRadius, Math.max(minRadius, baseRadius * transform.k));
-      
+
+
+        // Adjust axes based on the current transform
+        svg.select(".myXaxis").call(xAxis.scale(transform.rescaleX(x)));
+        svg.select(".myYaxis").call(yAxis.scale(transform.rescaleY(y)));
+
         // Adjust the circle sizes dynamically based on the zoom scale
-       // Adjust the circle sizes dynamically based on the zoom scale
-          svg
-          .selectAll(".point")
+        const scaledRadius = Math.min(maxRadius, Math.max(minRadius, baseRadius * transform.k));
+        svg.selectAll(".point")
           .attr("cx", d => transform.applyX(x(d.x)))
           .attr("cy", d => transform.applyY(y(d.y)))
           .attr("r", scaledRadius);
@@ -514,7 +484,8 @@ async function initData(name) {
         // Update the path of the curve/line to fit the zoom level
         svg.select(".curve-line")
           .attr("d", d3.line()
-            .y(d => transform.applyY(y(d.y)))
+            .x(d => transform.applyX(x(d.x)))  // Transform x-coordinate
+            .y(d => transform.applyY(y(d.y)))  // Transform y-coordinate
             .curve(d3.curveCardinalClosed)
           );
         // Update Delaunay triangles based on current transform
@@ -530,6 +501,7 @@ async function initData(name) {
           return "M" + transformedPoints.join("L") + "Z";
         });
       }
+      drawPath(pointsData, drawingBool);
       
 
       // Function to reset zoom
@@ -552,7 +524,7 @@ async function initData(name) {
 
     
     //data = actual data, dataset === name of dataset
-    updateData(data, name);
+    updateData(data, name, drawingBool);
     
   }
   
