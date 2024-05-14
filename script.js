@@ -148,7 +148,7 @@ function mouseleave(event, d) {
   var element = d3.selectAll(".point.a" + d.class);
   // Hide the tooltip
   d3.select("#tooltip").style("display", "none");
-  element.attr("r", 7).attr("fill", (d) => d.color);
+  element.attr("r", 10).attr("fill", (d) => d.color);
 }
 function mouseover(event, d) {
   var element = d3.selectAll(".point.a" + d.class);
@@ -163,14 +163,14 @@ function mouseover(event, d) {
     .style("top", event.pageY - 10 + "px")
     .style("display", "block"); // Show the tooltip
 
-  element.attr("r", 7).attr("fill", "#3b3b3b");
+  element.attr("r", 19).attr("fill", "#3b3b3b");
 }
 
 
 // Define the drawPath function that draws and animates the path
 function drawPath(pointsData) {
   // Remove any existing path
-  // repeat();
+  
   chartGroup.select(".curve-line").remove();
   
   // Create a new path using curveCardinalClosed to go through all the circles
@@ -191,18 +191,22 @@ function drawPath(pointsData) {
     .attr("stroke", "#777777");
 
   // Create a repeating animation for the line
+  const baseDurationPerPoint = 500; // milliseconds per point, adjust as needed
+
+  // Create a repeating animation for the line
   const length = path.node().getTotalLength();
-  function repeat() {
+  function drawingLine() {
+    const totalDuration = baseDurationPerPoint * pointsData.length; // total duration based on the number of points
+    
     path
       .attr("stroke-dasharray", `${length} ${length}`)
       .attr("stroke-dashoffset", length)
       .transition()
       .ease(d3.easeLinear)
       .attr("stroke-dashoffset", 0)
-      .duration(4000)
-      .on("end", () => setTimeout(repeat, 1000));
+      .duration(totalDuration); // use dynamic duration based on number of points
   }
-  // repeat();
+  drawingLine();
 }
 function drawFinishedPath(pointsData){
   console.log("FINISH THE LINE:");
@@ -356,7 +360,7 @@ async function initData(name) {
         .append("circle")
         .attr("cx", (d) => x(d.x))
         .attr("cy", (d) => y(d.y))
-        .attr("r", 7)
+        .attr("r", 10)
         .attr("fill", (d) => d.color)
         .attr("class", function (d, i) {
           return "point a" + d.class;
@@ -467,36 +471,7 @@ async function initData(name) {
          .y(d => transform.applyY(y(d.y)))
          .curve(d3.curveCardinalClosed)
       );
-
-      const path = chartGroup
-      .append("path")
-      .attr("class", "curve-line")
-      .datum(pointsData)
-      .attr(
-        "d",
-        d3
-          .line()
-          .x(d => x(d.x))
-          .y(d => y(d.y))
-          .curve(d3.curveCardinalClosed)
-      )
-      .attr("fill", "none")
-      .attr("stroke-width", 4)
-      .attr("stroke", "#777777");
-
-    // Create a repeating animation for the line
-    const length = path.node().getTotalLength();
-    function repeat() {
-      path
-        .attr("stroke-dasharray", `${length} ${length}`)
-        .attr("stroke-dashoffset", length)
-        .transition()
-        .ease(d3.easeLinear)
-        .attr("stroke-dashoffset", 0)
-        .duration(4000)
-        .on("end", () => setTimeout(repeat, 1000));
-    }
-    repeat();
+ 
       });
       document.getElementById("end").addEventListener("click", function () {
         drawFinishedPath(pointsData);
@@ -521,9 +496,9 @@ async function initData(name) {
         svg.select(".myYaxis").call(yAxis.scale(transform.rescaleY(y)));
       
         // Define base and maximum/minimum sizes for the points
-        const baseRadius = 7; // Adjust the base radius as needed
-        const maxRadius = 50; // Set an upper limit for point size when zoomed in
-        const minRadius = 7; // Set a lower limit for point size when zoomed out
+        const baseRadius = 10; // Adjust the base radius as needed
+        const maxRadius = 20; // Set an upper limit for point size when zoomed in
+        const minRadius = 10; // Set a lower limit for point size when zoomed out
       
         // Calculate the scaled radius based on zoom level
         const scaledRadius = Math.min(maxRadius, Math.max(minRadius, baseRadius * transform.k));
@@ -539,7 +514,6 @@ async function initData(name) {
         // Update the path of the curve/line to fit the zoom level
         svg.select(".curve-line")
           .attr("d", d3.line()
-            .x(d => transform.applyX(x(d.x)))
             .y(d => transform.applyY(y(d.y)))
             .curve(d3.curveCardinalClosed)
           );
