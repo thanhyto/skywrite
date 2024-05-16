@@ -116,6 +116,15 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
     ])
     createDelaunayTriangles(chartGroup, delaunay);
     createVoronoiCells(dataset, chartGroup, voronoi);
+    // Apply zoom handler to SVG container
+    const zoomHandler = d3
+        .zoom()
+        .scaleExtent([0.5, 10]) // set the range of allowed zoom scale
+        .on("zoom", (event) => zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi)); // call zoomed function on zoom event
+    // Function to reset zoom
+    document.getElementById("reset_zoom").addEventListener("click", () => resetZoom(svg, zoomHandler));
+    // Apply zoom handler to SVG container
+    svg.call(zoomHandler);
     container.appendChild(svg.node());
 }
 // Create circle elements for each data point
@@ -232,6 +241,40 @@ function createVoronoiCells(dataset, chartGroup, voronoi){
       }
     });
 }
+// Define zoomed function outside of plotData
+function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi) {
+    const { transform } = event;
+
+    // Adjust axes based on the current transform
+    svg.select(".myXaxis").call(xAxis.scale(transform.rescaleX(x)));
+    svg.select(".myYaxis").call(yAxis.scale(transform.rescaleY(y)));
+
+    // Update points based on current transform
+    svg.selectAll(".point")
+        .attr("cx", (d) => transform.applyX(x(d.x)))
+        .attr("cy", (d) => transform.applyY(y(d.y)));
+
+    // Update line based on current transform
+    svg.select('.curve-line path')
+        .datum(dataset)
+        .attr('d', d3.line()
+            .x((d) => transform.applyX(x(d.x)))
+            .y((d) => transform.applyY(y(d.y)))
+        );
+
+    // Update Delaunay triangles based on current transform
+    svg.selectAll(".delaunay-triangles path").attr("d", function(d) {
+        const transformedPoints = d.map(point => transform.apply(point));
+        return "M" + transformedPoints.join("L") + "Z";
+    });
+
+    // Update Voronoi cells based on current transform
+    svg.selectAll(".voronoi-cells path").attr("d", function(d, i) {
+        const cell = voronoi.cellPolygon(i);
+        const transformedPoints = cell.map(point => transform.apply(point));
+        return "M" + transformedPoints.join("L") + "Z";
+    });
+}
 // Add end animation button
 function addEndAnimationButton(path) {
     let isEnded = false;
@@ -253,6 +296,10 @@ function addButtonsDataEvent(buttonId){
     document.getElementById(buttonId).addEventListener("click", ()=>{
         return main(buttonId);
     })
+}
+// Define resetZoom function outside of plotData
+function resetZoom(svg, zoomHandler) {
+    svg.transition().duration(0).call(zoomHandler.transform, d3.zoomIdentity);
 }
 // Add event listeners
 addButtonsDataEvent('anchor');
