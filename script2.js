@@ -103,8 +103,20 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
     document.getElementById("clear").addEventListener("click", function(){
         svg.select(".curve-line").remove();
     });
+    const delaunay = d3.Delaunay.from(
+        dataset,
+        (d) => x(d.x),
+        (d) => y(d.y)
+    )
+    const voronoi = delaunay.voronoi([
+        40, // marginLeft
+        50, // marginTop
+        1000, // width - marginRight,
+        750 // height - marginBottom
+    ])
+    createDelaunayTriangles(chartGroup, delaunay);
+    createVoronoiCells(dataset, chartGroup, voronoi);
     container.appendChild(svg.node());
-
 }
 // Create circle elements for each data point
 function plotPoints(dataset, x, y, chartGroup){
@@ -143,7 +155,6 @@ function plotLine(dataset, x, y, chartGroup){
     .attr("stroke", "#777777");
     // Repeating line
     createRepeatingAnimation(path, 4000);
-    
 }
 // Line animation
 function createRepeatingAnimation(path, duration) {
@@ -160,6 +171,66 @@ function createRepeatingAnimation(path, duration) {
     }
     repeat();
     addEndAnimationButton(path);
+}
+// Create Delaunay Triangles
+function createDelaunayTriangles(chartGroup, delaunay){
+    // Append Delaunay triangles
+    chartGroup
+    .append("g")
+    .attr("class", "delaunay-triangles")
+    .selectAll("path")
+    .data(delaunay.trianglePolygons())
+    .enter()
+    .append("path")
+    .attr("d", (d) => `M${d.join("L")}Z`)
+    .attr("fill", "none")
+    .attr("stroke", "gray")
+    .attr("stroke-width", 0.5)
+    .attr("visibility", "hidden");
+    // Add an event listener to the delaunay checkbox to listen for changes
+    document
+    .getElementById("delaunay_checkbox")
+    .addEventListener("change", function () {
+      if (this.checked) {
+        d3
+          .selectAll(".delaunay-triangles path")
+          .attr("visibility", "visible"); // Change visibility to visible
+      } else {
+        d3
+          .selectAll(".delaunay-triangles path")
+          .attr("visibility", "hidden");
+      }
+    });
+}
+// Create Voronoi Cells
+function createVoronoiCells(dataset, chartGroup, voronoi){
+    // Append Voronoi cells
+    chartGroup
+    .append("g")
+    .attr("class", "voronoi-cells")
+    .selectAll("path")
+    .data(dataset)
+    .enter()
+    .append("path")
+    .attr("d", (d, i) => voronoi.renderCell(i))
+    .attr("fill", "none")
+    .attr("stroke", "blue")
+    .style("pointer-events", "all")
+    .attr("stroke-width", 0.7)
+    .on("mouseover", mouseover)
+    .attr("visibility", "hidden")
+    .on("mouseleave", mouseleave);
+
+  document
+    .getElementById("voronoi_checkbox")
+    .addEventListener("change", function () {
+      // resetZoom();
+      if (this.checked) {
+        d3.selectAll(".voronoi-cells path").attr("visibility", "visible");
+      } else {
+        d3.selectAll(".voronoi-cells path").attr("visibility", "hidden");
+      }
+    });
 }
 // Add end animation button
 function addEndAnimationButton(path) {
@@ -183,11 +254,32 @@ function addButtonsDataEvent(buttonId){
         return main(buttonId);
     })
 }
+// Add event listeners
 addButtonsDataEvent('anchor');
 addButtonsDataEvent('noise');
 addButtonsDataEvent('quotes');
-
-
+function mouseleave(event, d) {
+        
+    var element = d3.selectAll(".point.a" + d.class);
+    // Hide the tooltip
+    d3.select("#tooltip").style("display", "none");
+    element.attr("r", 2).attr("fill", (d) => d.color);
+}
+function mouseover(event, d) {
+    var element = d3.selectAll(".point.a" + d.class);
+    // Get the tooltip element
+    var tooltip = d3.select("#tooltip");
+  
+    // Set tooltip content and position
+    tooltip
+      .html("x: " + d.x + "<br>y: " + d.y
+      + "<br>Sentence: " + d.quote)
+      .style("left", event.pageX + 10 + "px")
+      .style("top", event.pageY - 10 + "px")
+      .style("display", "block"); // Show the tooltip
+  
+    element.attr("r", 5).attr("fill", "#3b3b3b");
+}
 // Main function 
 async function main(dataType){
     try {
