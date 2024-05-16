@@ -98,7 +98,8 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
     y.domain([yMin - 1, yMax+1]);
     svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
     plotPoints(dataset, x, y, chartGroup);
-    plotLine(dataset, x, y, chartGroup);
+    const redPoints = dataset.filter(d => d.color == 'red'); // Filter the dataset for red points
+    const linePath = plotLine(redPoints, x, y, chartGroup); // Pass the filtered dataset to plotLine
     // Clear button
     document.getElementById("clear").addEventListener("click", function(){
         svg.select(".curve-line").remove();
@@ -116,11 +117,12 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
     ])
     createDelaunayTriangles(chartGroup, delaunay);
     createVoronoiCells(dataset, chartGroup, voronoi);
+    createRepeatingAnimation(linePath, 2000);
     // Apply zoom handler to SVG container
     const zoomHandler = d3
         .zoom()
         .scaleExtent([0.5, 10]) // set the range of allowed zoom scale
-        .on("zoom", (event) => zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi)); // call zoomed function on zoom event
+        .on("zoom", (event) => zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath)); // call zoomed function on zoom event
     // Function to reset zoom
     document.getElementById("reset_zoom").addEventListener("click", () => resetZoom(svg, zoomHandler));
     // Apply zoom handler to SVG container
@@ -146,7 +148,7 @@ function plotPoints(dataset, x, y, chartGroup){
 function plotLine(dataset, x, y, chartGroup){
     const path = chartGroup.append('path')
     .attr("class", "curve-line")
-    .datum(dataset.filter(d => d.color == 'red'))
+    .datum(dataset)
     .attr(
         "d",
         d3
@@ -162,13 +164,13 @@ function plotLine(dataset, x, y, chartGroup){
     .attr("fill", "none")
     .attr("stroke-width", 2)
     .attr("stroke", "#777777");
-    // Repeating line
-    createRepeatingAnimation(path, 4000);
+    return path;
 }
 // Line animation
 function createRepeatingAnimation(path, duration) {
-    const length = path.node().getTotalLength();
+    let isEnded = false;
     function repeat() {
+        const length = path.node().getTotalLength(); // Recalculate length on each repeat
         path
             .attr("stroke-dasharray", length + " " + length)
             .attr("stroke-dashoffset", length)
@@ -176,7 +178,11 @@ function createRepeatingAnimation(path, duration) {
             .ease(d3.easeLinear)
             .attr("stroke-dashoffset", 0)
             .duration(duration)
-            .on("end", () => setTimeout(repeat, duration));
+            .on("end", () => {
+                if (!isEnded) {
+                    setTimeout(repeat, duration);
+                }
+            });
     }
     repeat();
     addEndAnimationButton(path);
@@ -242,7 +248,7 @@ function createVoronoiCells(dataset, chartGroup, voronoi){
     });
 }
 // Define zoomed function outside of plotData
-function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi) {
+function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath) {
     const { transform } = event;
 
     // Adjust axes based on the current transform
@@ -254,13 +260,23 @@ function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi) {
         .attr("cx", (d) => transform.applyX(x(d.x)))
         .attr("cy", (d) => transform.applyY(y(d.y)));
 
-    // Update line based on current transform
-    svg.select('.curve-line path')
-        .datum(dataset)
-        .attr('d', d3.line()
-            .x((d) => transform.applyX(x(d.x)))
-            .y((d) => transform.applyY(y(d.y)))
-        );
+    // Recalculate pointsData based on the current zoom transform
+    const updatedPointsData = dataset
+        .filter(d => d.color == 'red')
+        .map(d => ({
+        x: transform.applyX(x(d.x)),
+        y: transform.applyY(y(d.y))
+    }));
+    linePath.interrupt();
+    // Update the line path based on the transformed points
+    linePath.datum(updatedPointsData)
+        .attr("d", d3.line()
+            .x((d) => d.x)
+            .y((d) => d.y)
+            .curve(d3.curveCardinalClosed)
+    );
+    createRepeatingAnimation(linePath, 2000);
+
 
     // Update Delaunay triangles based on current transform
     svg.selectAll(".delaunay-triangles path").attr("d", function(d) {
@@ -274,7 +290,9 @@ function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi) {
         const transformedPoints = cell.map(point => transform.apply(point));
         return "M" + transformedPoints.join("L") + "Z";
     });
+    
 }
+
 // Add end animation button
 function addEndAnimationButton(path) {
     let isEnded = false;
