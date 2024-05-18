@@ -32,11 +32,13 @@ pointSizeValue.innerHTML = slider.value;
 // Create an empty svg container
 function createSVG() {
   const marginTop = 50;
-  const marginBottom = 50;
-  const marginLeft = 40;
-  const marginRight = 20;
-  const width = 1000;
-  const height = 750;
+    const marginBottom = 50;
+    const marginLeft = 40;
+    const marginRight = 20;
+    const tooltipBox = document.querySelector('.animate');
+
+    let width = window.innerWidth - marginLeft - marginRight - tooltipBox.offsetWidth;
+    let height = window.innerHeight - marginTop - marginBottom;
 
   const svg = d3.create("svg").attr("width", width).attr("height", height);
   svg
