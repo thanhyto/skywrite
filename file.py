@@ -1,5 +1,5 @@
 import json
-import pyperclip
+import jsonlines
 
 def jsonl_to_list_of_dicts(file_path):
     list_of_dicts = []
@@ -11,13 +11,22 @@ def jsonl_to_list_of_dicts(file_path):
             list_of_dicts.append(data)
     return list_of_dicts
 
-file_path = "data/heart_scaled.jsonl"  
-list_of_dicts = jsonl_to_list_of_dicts(file_path)
+heart_path = "data/heart_scaled_f.jsonl"  
+heart_path_dicts = jsonl_to_list_of_dicts(heart_path)
 
-# Convert list of dictionaries to a string
-output_str = json.dumps(list_of_dicts, indent=4)
+quotes_path = 'data/quotes_scaled_f.jsonl'
+quotes_path_dicts = jsonl_to_list_of_dicts(quotes_path)
 
-# Copy the string to the clipboard
-pyperclip.copy(output_str)
+combined_dicts = heart_path_dicts + quotes_path_dicts
 
-print(list_of_dicts)
+
+counter = 0
+for obj in combined_dicts:
+    obj['class'] = counter
+    counter += 1 
+
+
+print(combined_dicts[69])
+
+with jsonlines.open('data/all_quotes_scaled_f.jsonl', mode='w') as writer:
+    writer.write_all(combined_dicts)
