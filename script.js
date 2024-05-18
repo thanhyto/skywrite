@@ -124,7 +124,7 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
     // Apply zoom handler to SVG container
     const zoomHandler = d3
         .zoom()
-        .scaleExtent([0.5, 10]) // set the range of allowed zoom scale
+        .scaleExtent([0.5, 20]) // set the range of allowed zoom scale
         .on("zoom", (event) => zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath)); // call zoomed function on zoom event
     // Function to reset zoom
     document.getElementById("reset_zoom").addEventListener("click", () => resetZoom(svg, zoomHandler));
@@ -132,6 +132,8 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
     svg.call(zoomHandler);
     container.appendChild(svg.node());
 }
+
+
 // Create circle elements for each data point
 function plotPoints(dataset, x, y, chartGroup){
     chartGroup.append('g')
@@ -262,6 +264,20 @@ function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath) {
     svg.selectAll(".point")
         .attr("cx", (d) => transform.applyX(x(d.x)))
         .attr("cy", (d) => transform.applyY(y(d.y)));
+      
+      
+    // Define base and maximum/minimum sizes for the points
+    const baseRadius = 2; // Adjust the base radius as needed
+    const maxRadius = 10; // Set an upper limit for point size when zoomed in
+    const minRadius = 2; // Set a lower limit for point size when zoomed out
+    
+
+    // Adjust the circle sizes dynamically based on the zoom scale
+    const scaledRadius = Math.min(maxRadius, Math.max(minRadius, 2* baseRadius * transform.k));
+    svg.selectAll(".point")
+        .attr("cx", d => transform.applyX(x(d.x)))
+        .attr("cy", d => transform.applyY(y(d.y)))
+        .attr("r", scaledRadius);
 
     // Recalculate pointsData based on the current zoom transform
     const updatedPointsData = dataset
@@ -331,7 +347,7 @@ function mouseleave(event, d) {
     var element = d3.selectAll(".point.a" + d.class);
     // Hide the tooltip
     d3.select("#tooltip").style("display", "none");
-    element.attr("r", 2).attr("fill", (d) => d.color);
+    element.attr("r", 4).attr("fill", (d) => d.color);
 }
 function mouseover(event, d) {
     var element = d3.selectAll(".point.a" + d.class);
