@@ -267,9 +267,9 @@ function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath) {
       
       
     // Define base and maximum/minimum sizes for the points
-    const baseRadius = 2; // Adjust the base radius as needed
-    const maxRadius = 10; // Set an upper limit for point size when zoomed in
-    const minRadius = 2; // Set a lower limit for point size when zoomed out
+    const baseRadius = 3; // Adjust the base radius as needed
+    const maxRadius = 4; // Set an upper limit for point size when zoomed in
+    const minRadius = 3; // Set a lower limit for point size when zoomed out
     
 
     // Adjust the circle sizes dynamically based on the zoom scale
