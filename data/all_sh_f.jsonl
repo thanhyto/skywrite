@@ -1,199 +1,655 @@
-{"x": 4.6435753602, "y": 2.0, "type": "noise", "color": "blue", "class": 0}
-{"x": 3.8138656113, "y": 2.5180202043, "type": "noise", "color": "blue", "class": 1}
-{"x": 2.7033971461, "y": 4.163200392, "type": "noise", "color": "blue", "class": 2}
-{"x": 2.6690526953, "y": 4.3366782725, "type": "noise", "color": "blue", "class": 3}
-{"x": 2.0, "y": 5.7311728679, "type": "noise", "color": "blue", "class": 4}
-{"x": 2.6840620937, "y": 6.214065997, "type": "noise", "color": "blue", "class": 5}
-{"x": 3.6396971916, "y": 7.0, "type": "noise", "color": "blue", "class": 6}
-{"x": 4.1215580544, "y": 5.8876865413, "type": "noise", "color": "blue", "class": 7}
-{"x": 5.283699215, "y": 6.9868938799, "type": "noise", "color": "blue", "class": 8}
-{"x": 6.9233240168, "y": 6.0444902822, "type": "noise", "color": "blue", "class": 9}
-{"x": 7.0, "y": 4.5469146206, "type": "noise", "color": "blue", "class": 10}
-{"x": 5.134824276, "y": 2.2269152273, "type": "noise", "color": "blue", "class": 11}
-{"x": 2.2216479778, "y": 4.3042135239, "type": "noise", "color": "blue", "class": 12}
-{"x": 3.6124715805, "y": 2.7257614136, "type": "noise", "color": "blue", "class": 13}
-{"x": 3.6731836796, "y": 3.2623364925, "type": "noise", "color": "blue", "class": 14}
-{"x": 4.024166584, "y": 2.9184315205, "type": "noise", "color": "blue", "class": 15}
-{"x": 4.4632921219, "y": 2.7304794788, "type": "noise", "color": "blue", "class": 16}
-{"x": 5.2603449821, "y": 5.6704707146, "type": "noise", "color": "blue", "class": 17}
-{"x": 4.8851995468, "y": 3.3565297127, "type": "noise", "color": "blue", "class": 18}
-{"x": 5.3123311996, "y": 2.4427866936, "type": "noise", "color": "blue", "class": 19}
-{"x": 5.1639523506, "y": 2.8548293114, "type": "noise", "color": "blue", "class": 20}
-{"x": 5.4468593597, "y": 3.2588460445, "type": "noise", "color": "blue", "class": 21}
-{"x": 5.6219630241, "y": 6.2007126808, "type": "noise", "color": "blue", "class": 22}
-{"x": 5.6746644974, "y": 2.6736507416, "type": "noise", "color": "blue", "class": 23}
-{"x": 5.8977475166, "y": 2.8285295963, "type": "noise", "color": "blue", "class": 24}
-{"x": 5.9866657257, "y": 2.2749733925, "type": "noise", "color": "blue", "class": 25}
-{"x": 5.8480362892, "y": 2.306538105, "type": "noise", "color": "blue", "class": 26}
-{"x": 5.7173347473, "y": 6.5043115616, "type": "noise", "color": "blue", "class": 27}
-{"x": 6.5431022644, "y": 2.0, "type": "noise", "color": "blue", "class": 28}
-{"x": 6.8283758163, "y": 2.6648561954, "type": "noise", "color": "blue", "class": 29}
-{"x": 6.5515060425, "y": 2.339206934, "type": "noise", "color": "blue", "class": 30}
-{"x": 7.0, "y": 2.7229568958, "type": "noise", "color": "blue", "class": 31}
-{"x": 5.4396176338, "y": 4.1938447952, "type": "noise", "color": "blue", "class": 32}
-{"x": 6.6972255707, "y": 3.0459220409, "type": "noise", "color": "blue", "class": 33}
-{"x": 6.3412251472, "y": 2.9357347488, "type": "noise", "color": "blue", "class": 34}
-{"x": 6.3452825546, "y": 3.7694587708, "type": "noise", "color": "blue", "class": 35}
-{"x": 6.5883364677, "y": 3.5179319382, "type": "noise", "color": "blue", "class": 36}
-{"x": 3.2840409279, "y": 4.5950818062, "type": "noise", "color": "blue", "class": 37}
-{"x": 6.1416916847, "y": 4.5123977661, "type": "noise", "color": "blue", "class": 38}
-{"x": 6.4073143005, "y": 4.9135475159, "type": "noise", "color": "blue", "class": 39}
-{"x": 6.941198349, "y": 5.545838356, "type": "noise", "color": "blue", "class": 40}
-{"x": 6.5381417274, "y": 5.3157448769, "type": "noise", "color": "blue", "class": 41}
-{"x": 4.7842178345, "y": 2.8113958836, "type": "noise", "color": "blue", "class": 42}
-{"x": 6.549270153, "y": 5.3741588593, "type": "noise", "color": "blue", "class": 43}
-{"x": 6.4693241119, "y": 5.8449773788, "type": "noise", "color": "blue", "class": 44}
-{"x": 5.9393091202, "y": 5.4744157791, "type": "noise", "color": "blue", "class": 45}
-{"x": 5.9413628578, "y": 5.9673957825, "type": "noise", "color": "blue", "class": 46}
-{"x": 2.8768465519, "y": 5.6110172272, "type": "noise", "color": "blue", "class": 47}
-{"x": 5.1511125565, "y": 6.0399971008, "type": "noise", "color": "blue", "class": 48}
-{"x": 5.1211700439, "y": 6.3572010994, "type": "noise", "color": "blue", "class": 49}
-{"x": 4.4740724564, "y": 6.5850324631, "type": "noise", "color": "blue", "class": 50}
-{"x": 4.1889042854, "y": 6.4328541756, "type": "noise", "color": "blue", "class": 51}
-{"x": 2.486341238, "y": 3.2437498569, "type": "noise", "color": "blue", "class": 52}
-{"x": 4.0432538986, "y": 6.8227958679, "type": "noise", "color": "blue", "class": 53}
-{"x": 3.7285070419, "y": 6.5244493484, "type": "noise", "color": "blue", "class": 54}
-{"x": 3.6901292801, "y": 7.0, "type": "noise", "color": "blue", "class": 55}
-{"x": 3.4561493397, "y": 6.5598468781, "type": "noise", "color": "blue", "class": 56}
-{"x": 4.3496952057, "y": 3.3083655834, "type": "noise", "color": "blue", "class": 57}
-{"x": 3.1103005409, "y": 6.2590112686, "type": "noise", "color": "blue", "class": 58}
-{"x": 2.6913845539, "y": 6.3163728714, "type": "noise", "color": "blue", "class": 59}
-{"x": 2.4880497456, "y": 5.6637268066, "type": "noise", "color": "blue", "class": 60}
-{"x": 2.1350154877, "y": 6.2402515411, "type": "noise", "color": "blue", "class": 61}
-{"x": 3.8911993504, "y": 4.3126888275, "type": "noise", "color": "blue", "class": 62}
-{"x": 2.0898218155, "y": 5.9308719635, "type": "noise", "color": "blue", "class": 63}
-{"x": 2.0, "y": 5.5303239822, "type": "noise", "color": "blue", "class": 64}
-{"x": 2.1419906616, "y": 5.0921621323, "type": "noise", "color": "blue", "class": 65}
-{"x": 2.0221426487, "y": 4.6988687515, "type": "noise", "color": "blue", "class": 66}
-{"x": 4.1560544968, "y": 5.7682743073, "type": "noise", "color": "blue", "class": 67}
-{"x": 2.3161299229, "y": 4.3614683151, "type": "noise", "color": "blue", "class": 68}
-{"x": 2.7724950314, "y": 4.5587244034, "type": "noise", "color": "blue", "class": 69}
-{"x": 3.1342332363, "y": 3.3892073631, "type": "noise", "color": "blue", "class": 70}
-{"x": 2.776362896, "y": 2.8611683846, "type": "noise", "color": "blue", "class": 71}
-{"x": 3.6929786205, "y": 4.93851614, "type": "noise", "color": "blue", "class": 72}
-{"x": 2.4266891479, "y": 3.3343129158, "type": "noise", "color": "blue", "class": 73}
-{"x": 2.6993038654, "y": 2.6922497749, "type": "noise", "color": "blue", "class": 74}
-{"x": 2.7564148903, "y": 2.5034942627, "type": "noise", "color": "blue", "class": 75}
-{"x": 3.2360334396, "y": 2.5437917709, "type": "noise", "color": "blue", "class": 76}
-{"x": 4.6435753602, "y": 2.0, "type": "anchor", "color": "red", "class": 77}
-{"x": 3.8138656113, "y": 2.5180202043, "type": "anchor", "color": "red", "class": 78}
-{"x": 2.7033971461, "y": 4.163200392, "type": "anchor", "color": "red", "class": 79}
-{"x": 2.6690526953, "y": 4.3366782725, "type": "anchor", "color": "red", "class": 80}
-{"x": 2.0, "y": 5.7311728679, "type": "anchor", "color": "red", "class": 81}
-{"x": 2.6840620937, "y": 6.214065997, "type": "anchor", "color": "red", "class": 82}
-{"x": 3.6396971916, "y": 7.0, "type": "anchor", "color": "red", "class": 83}
-{"x": 4.1215580544, "y": 5.8876865413, "type": "anchor", "color": "red", "class": 84}
-{"x": 5.283699215, "y": 6.9868938799, "type": "anchor", "color": "red", "class": 85}
-{"x": 6.9233240168, "y": 6.0444902822, "type": "anchor", "color": "red", "class": 86}
-{"x": 7.0, "y": 4.5469146206, "type": "anchor", "color": "red", "class": 87}
-{"x": 5.134824276, "y": 2.2269152273, "type": "anchor", "color": "red", "class": 88}
-{"x": 4.2085337639, "y": -1.3172277212, "type": "noise", "color": "steelblue", "class": 89}
-{"x": 4.2182416916, "y": -1.1870458126, "type": "noise", "color": "steelblue", "class": 90}
-{"x": 4.3559865952, "y": -1.2618329525, "type": "noise", "color": "steelblue", "class": 91}
-{"x": 4.6368069649, "y": -1.2245746851, "type": "noise", "color": "steelblue", "class": 92}
-{"x": 4.6134705544, "y": -1.1961909533, "type": "noise", "color": "steelblue", "class": 93}
-{"x": 4.7544512749, "y": -1.1676192284, "type": "noise", "color": "steelblue", "class": 94}
-{"x": 4.7611699104, "y": -1.1281684637, "type": "noise", "color": "steelblue", "class": 95}
-{"x": 4.9224934578, "y": -1.1659837961, "type": "noise", "color": "steelblue", "class": 96}
-{"x": 4.9313211441, "y": -1.1556463242, "type": "noise", "color": "steelblue", "class": 97}
-{"x": 5.0288996696, "y": -1.1252590418, "type": "noise", "color": "steelblue", "class": 98}
-{"x": 5.0846643448, "y": -1.296836257, "type": "noise", "color": "steelblue", "class": 99}
-{"x": 5.2010035515, "y": -1.1462619305, "type": "noise", "color": "steelblue", "class": 100}
-{"x": 5.4274573326, "y": -1.164667964, "type": "noise", "color": "steelblue", "class": 101}
-{"x": 5.4518871307, "y": -1.1470634937, "type": "noise", "color": "steelblue", "class": 102}
-{"x": 5.5682682991, "y": -1.2482222319, "type": "noise", "color": "steelblue", "class": 103}
-{"x": 5.562623024, "y": -1.2041767836, "type": "noise", "color": "steelblue", "class": 104}
-{"x": 5.6739907265, "y": -1.1645190716, "type": "noise", "color": "steelblue", "class": 105}
-{"x": 5.7051939964, "y": -1.240395546, "type": "noise", "color": "steelblue", "class": 106}
-{"x": 5.943549633, "y": -1.216651082, "type": "noise", "color": "steelblue", "class": 107}
-{"x": 6.1117558479, "y": -1.356980443, "type": "noise", "color": "steelblue", "class": 108}
-{"x": 6.0565710068, "y": -1.2396644354, "type": "noise", "color": "steelblue", "class": 109}
-{"x": 6.0260634422, "y": -1.3260214329, "type": "noise", "color": "steelblue", "class": 110}
-{"x": 6.1721019745, "y": -1.4576362371, "type": "noise", "color": "steelblue", "class": 111}
-{"x": 6.0486221313, "y": -1.4353417158, "type": "noise", "color": "steelblue", "class": 112}
-{"x": 6.2313957214, "y": -1.5008218288, "type": "noise", "color": "steelblue", "class": 113}
-{"x": 6.3141608238, "y": -1.5922366381, "type": "noise", "color": "steelblue", "class": 114}
-{"x": 5.9529509544, "y": 1.6370846033, "type": "noise", "color": "steelblue", "class": 115}
-{"x": 7.4144868851, "y": 3.6784086227, "type": "noise", "color": "steelblue", "class": 116}
-{"x": 6.9012131691, "y": 4.0213155746, "type": "noise", "color": "steelblue", "class": 117}
-{"x": 7.1777157784, "y": 3.8487904072, "type": "noise", "color": "steelblue", "class": 118}
-{"x": 5.5632281303, "y": 1.9331446886, "type": "noise", "color": "steelblue", "class": 119}
-{"x": 7.2737512589, "y": 3.8967692852, "type": "noise", "color": "steelblue", "class": 120}
-{"x": 7.4864125252, "y": 3.6690154076, "type": "noise", "color": "steelblue", "class": 121}
-{"x": 7.6126666069, "y": 3.5106582642, "type": "noise", "color": "steelblue", "class": 122}
-{"x": 7.8566021919, "y": 3.253644228, "type": "noise", "color": "steelblue", "class": 123}
-{"x": 8.1156702042, "y": 3.1001648903, "type": "noise", "color": "steelblue", "class": 124}
-{"x": 8.2197847366, "y": 1.7270396948, "type": "noise", "color": "steelblue", "class": 125}
-{"x": 8.2873506546, "y": 2.8012330532, "type": "noise", "color": "steelblue", "class": 126}
-{"x": 8.3319597244, "y": 1.6672235727, "type": "noise", "color": "steelblue", "class": 127}
-{"x": 8.3431825638, "y": 1.5555562973, "type": "noise", "color": "steelblue", "class": 128}
-{"x": 8.3817720413, "y": 1.500031352, "type": "noise", "color": "steelblue", "class": 129}
-{"x": 8.3193387985, "y": 1.6102173328, "type": "noise", "color": "steelblue", "class": 130}
-{"x": 8.3562479019, "y": 1.6061499119, "type": "noise", "color": "steelblue", "class": 131}
-{"x": 8.4162921906, "y": 1.6532862186, "type": "noise", "color": "steelblue", "class": 132}
-{"x": 8.427157402, "y": 1.9050430059, "type": "noise", "color": "steelblue", "class": 133}
-{"x": 8.3442220688, "y": 1.8310941458, "type": "noise", "color": "steelblue", "class": 134}
-{"x": 8.238822937, "y": 3.1267781258, "type": "noise", "color": "steelblue", "class": 135}
-{"x": 7.9930081367, "y": 3.0191221237, "type": "noise", "color": "steelblue", "class": 136}
-{"x": 8.3083429337, "y": 2.9944815636, "type": "noise", "color": "steelblue", "class": 137}
-{"x": 8.2065534592, "y": 2.9607958794, "type": "noise", "color": "steelblue", "class": 138}
-{"x": 8.0158071518, "y": 3.2021455765, "type": "noise", "color": "steelblue", "class": 139}
-{"x": 7.9616136551, "y": 3.2570643425, "type": "noise", "color": "steelblue", "class": 140}
-{"x": 8.2328605652, "y": 3.079218626, "type": "noise", "color": "steelblue", "class": 141}
-{"x": 8.1619300842, "y": 2.9588088989, "type": "noise", "color": "steelblue", "class": 142}
-{"x": 8.3320569992, "y": 2.9429297447, "type": "noise", "color": "steelblue", "class": 143}
-{"x": 8.1471443176, "y": 3.0920283794, "type": "noise", "color": "steelblue", "class": 144}
-{"x": 7.974855423, "y": 3.289005518, "type": "noise", "color": "steelblue", "class": 145}
-{"x": 6.7695865631, "y": 1.8527616262, "type": "noise", "color": "steelblue", "class": 146}
-{"x": 5.669406414, "y": 2.1267905235, "type": "noise", "color": "steelblue", "class": 147}
-{"x": 5.6391997337, "y": 3.1088531017, "type": "noise", "color": "steelblue", "class": 148}
-{"x": 4.0621132851, "y": 4.1219620705, "type": "noise", "color": "steelblue", "class": 149}
-{"x": 3.934027195, "y": 4.1785731316, "type": "noise", "color": "steelblue", "class": 150}
-{"x": 3.8134756088, "y": 4.1466441154, "type": "noise", "color": "steelblue", "class": 151}
-{"x": 3.6974544525, "y": 4.2115001678, "type": "noise", "color": "steelblue", "class": 152}
-{"x": 3.67319417, "y": 4.0642580986, "type": "noise", "color": "steelblue", "class": 153}
-{"x": 3.608258009, "y": 3.9396858215, "type": "noise", "color": "steelblue", "class": 154}
-{"x": 3.4600763321, "y": 3.9913966656, "type": "noise", "color": "steelblue", "class": 155}
-{"x": 3.3748550415, "y": 3.8516016006, "type": "noise", "color": "steelblue", "class": 156}
-{"x": 3.2752814293, "y": 3.8801562786, "type": "noise", "color": "steelblue", "class": 157}
-{"x": 3.1348040104, "y": 3.8791151047, "type": "noise", "color": "steelblue", "class": 158}
-{"x": 3.1304686069, "y": 3.8262894154, "type": "noise", "color": "steelblue", "class": 159}
-{"x": 2.8886530399, "y": 3.7348394394, "type": "noise", "color": "steelblue", "class": 160}
-{"x": 2.7570688725, "y": 3.5922217369, "type": "noise", "color": "steelblue", "class": 161}
-{"x": 2.9158492088, "y": 3.6750862598, "type": "noise", "color": "steelblue", "class": 162}
-{"x": 2.8535356522, "y": 3.6811475754, "type": "noise", "color": "steelblue", "class": 163}
-{"x": 2.3433747292, "y": 3.5596964359, "type": "noise", "color": "steelblue", "class": 164}
-{"x": 2.2536799908, "y": 3.3262989521, "type": "noise", "color": "steelblue", "class": 165}
-{"x": 1.793867588, "y": 2.6952953339, "type": "noise", "color": "steelblue", "class": 166}
-{"x": 1.9204547405, "y": 3.0239224434, "type": "noise", "color": "steelblue", "class": 167}
-{"x": 1.7847964764, "y": 2.6486692429, "type": "noise", "color": "steelblue", "class": 168}
-{"x": 1.8272070885, "y": 2.6431500912, "type": "noise", "color": "steelblue", "class": 169}
-{"x": 2.1514647007, "y": 3.3690712452, "type": "noise", "color": "steelblue", "class": 170}
-{"x": 1.866554141, "y": 2.6036109924, "type": "noise", "color": "steelblue", "class": 171}
-{"x": 1.7940188646, "y": 2.530985117, "type": "noise", "color": "steelblue", "class": 172}
-{"x": 1.6467601061, "y": 2.3124835491, "type": "noise", "color": "steelblue", "class": 173}
-{"x": 1.6695942879, "y": 2.3125841618, "type": "noise", "color": "steelblue", "class": 174}
-{"x": 1.7185425758, "y": 2.1061279774, "type": "noise", "color": "steelblue", "class": 175}
-{"x": 4.4846224785, "y": 2.4903607368, "type": "noise", "color": "steelblue", "class": 176}
-{"x": 4.5818977356, "y": 2.6007049084, "type": "noise", "color": "steelblue", "class": 177}
-{"x": 5.1428127289, "y": 4.258392334, "type": "noise", "color": "steelblue", "class": 178}
-{"x": 5.4595866203, "y": 4.1823310852, "type": "noise", "color": "steelblue", "class": 179}
-{"x": 5.4859285355, "y": 3.9929935932, "type": "noise", "color": "steelblue", "class": 180}
-{"x": 4.8036961555, "y": 2.2721347809, "type": "noise", "color": "steelblue", "class": 181}
-{"x": 4.45484972, "y": 2.4544081688, "type": "noise", "color": "steelblue", "class": 182}
-{"x": 3.6802430153, "y": 4.0128808022, "type": "noise", "color": "steelblue", "class": 183}
-{"x": 2.0101680756, "y": 0.8868521452, "type": "noise", "color": "steelblue", "class": 184}
-{"x": 1.9158492088, "y": 0.9027380347, "type": "noise", "color": "steelblue", "class": 185}
-{"x": 2.0180151463, "y": 0.867926538, "type": "noise", "color": "steelblue", "class": 186}
-{"x": 3.4561364651, "y": 0.9136042595, "type": "noise", "color": "steelblue", "class": 187}
-{"x": 1.9203612804, "y": 1.0302608013, "type": "noise", "color": "steelblue", "class": 188}
-{"x": 3.1098773479, "y": 1.26273036, "type": "noise", "color": "steelblue", "class": 189}
-{"x": 2.2359716892, "y": 0.5965096354, "type": "noise", "color": "steelblue", "class": 190}
-{"x": 2.2318644524, "y": 0.4119783044, "type": "noise", "color": "steelblue", "class": 191}
-{"x": 2.1780903339, "y": 0.4087736011, "type": "noise", "color": "steelblue", "class": 192}
-{"x": 2.1459331512, "y": 0.2865754962, "type": "noise", "color": "steelblue", "class": 193}
-{"x": 2.4696953297, "y": -0.4112353027, "type": "noise", "color": "steelblue", "class": 194}
-{"x": 2.4723546505, "y": -0.7559347153, "type": "noise", "color": "steelblue", "class": 195}
-{"x": 4.1107940674, "y": -1.3163653612, "type": "noise", "color": "steelblue", "class": 196}
-{"x": 4.2172060013, "y": -1.3802558184, "type": "noise", "color": "steelblue", "class": 197}
-{"x": 4.3090291023, "y": -1.2806978226, "type": "noise", "color": "steelblue", "class": 198}
+{"x": 4.7825016975, "y": 5.1250457764, "color": "blue", "class": 0, "type": "noise"}
+{"x": 1.3623893261, "y": 3.0909638405, "color": "blue", "class": 1, "type": "noise"}
+{"x": 3.0844726562, "y": 7.2925839424, "color": "blue", "class": 2, "type": "noise"}
+{"x": 3.6063423157, "y": 7.9434828758, "color": "blue", "class": 3, "type": "noise"}
+{"x": 3.8466234207, "y": 1.4263333082, "color": "blue", "class": 4, "type": "noise"}
+{"x": 5.0966825485, "y": 4.3624281883, "color": "blue", "class": 5, "type": "noise"}
+{"x": 4.4243659973, "y": 2.7754645348, "color": "blue", "class": 6, "type": "noise"}
+{"x": 1.7488106489, "y": 6.2251224518, "color": "blue", "class": 7, "type": "noise"}
+{"x": 6.0735602379, "y": 7.1555967331, "color": "blue", "class": 8, "type": "noise"}
+{"x": 6.2167348862, "y": 2.4285745621, "color": "blue", "class": 9, "type": "noise"}
+{"x": 4.932056427, "y": 6.3593468666, "color": "blue", "class": 10, "type": "noise"}
+{"x": 6.1415805817, "y": 6.2147307396, "color": "blue", "class": 11, "type": "noise"}
+{"x": 5.2355389595, "y": 3.783302784, "color": "blue", "class": 12, "type": "noise"}
+{"x": 4.7843828201, "y": 6.6197605133, "color": "blue", "class": 13, "type": "noise"}
+{"x": 5.5840473175, "y": 7.0509767532, "color": "blue", "class": 14, "type": "noise"}
+{"x": 3.9580459595, "y": 1.783665061, "color": "blue", "class": 15, "type": "noise"}
+{"x": 5.7976551056, "y": 2.2805194855, "color": "blue", "class": 16, "type": "noise"}
+{"x": 4.6751356125, "y": 3.3595852852, "color": "blue", "class": 17, "type": "noise"}
+{"x": 3.3874964714, "y": 2.9662413597, "color": "blue", "class": 18, "type": "noise"}
+{"x": 3.0940191746, "y": 1.6299408674, "color": "blue", "class": 19, "type": "noise"}
+{"x": 7.1723709106, "y": 4.8458280563, "color": "blue", "class": 20, "type": "noise"}
+{"x": 4.9232935905, "y": 7.6108355522, "color": "blue", "class": 21, "type": "noise"}
+{"x": 6.3948535919, "y": 4.4028816223, "color": "blue", "class": 22, "type": "noise"}
+{"x": 1.8948881626, "y": 6.3394837379, "color": "blue", "class": 23, "type": "noise"}
+{"x": 1.2424185276, "y": 3.5911688805, "color": "blue", "class": 24, "type": "noise"}
+{"x": 7.658873558, "y": 4.3666419983, "color": "blue", "class": 25, "type": "noise"}
+{"x": 5.2199044228, "y": 5.5704631805, "color": "blue", "class": 26, "type": "noise"}
+{"x": 2.2344479561, "y": 2.9773001671, "color": "blue", "class": 27, "type": "noise"}
+{"x": 1.6784622669, "y": 4.4289159775, "color": "blue", "class": 28, "type": "noise"}
+{"x": 3.3742184639, "y": 6.4049911499, "color": "blue", "class": 29, "type": "noise"}
+{"x": 5.7252416611, "y": 3.6649212837, "color": "blue", "class": 30, "type": "noise"}
+{"x": 4.6645307541, "y": 6.2235503197, "color": "blue", "class": 31, "type": "noise"}
+{"x": 5.4419240952, "y": 6.1840591431, "color": "blue", "class": 32, "type": "noise"}
+{"x": 3.5963754654, "y": 7.4334836006, "color": "blue", "class": 33, "type": "noise"}
+{"x": 3.1928937435, "y": 5.9101915359, "color": "blue", "class": 34, "type": "noise"}
+{"x": 3.3051154613, "y": 5.5827708244, "color": "blue", "class": 35, "type": "noise"}
+{"x": 2.9851918221, "y": 2.302462101, "color": "blue", "class": 36, "type": "noise"}
+{"x": 5.1813979149, "y": 2.2636365891, "color": "blue", "class": 37, "type": "noise"}
+{"x": 3.4275717735, "y": 4.0715579987, "color": "blue", "class": 38, "type": "noise"}
+{"x": 6.1677193642, "y": 4.9220862389, "color": "blue", "class": 39, "type": "noise"}
+{"x": 2.268640995, "y": 5.5045170784, "color": "blue", "class": 40, "type": "noise"}
+{"x": 4.0672821999, "y": 6.8382115364, "color": "blue", "class": 41, "type": "noise"}
+{"x": 2.342774868, "y": 4.2830762863, "color": "blue", "class": 42, "type": "noise"}
+{"x": 3.1291222572, "y": 4.3574957848, "color": "blue", "class": 43, "type": "noise"}
+{"x": 4.9555621147, "y": 6.7495589256, "color": "blue", "class": 44, "type": "noise"}
+{"x": 1.244255662, "y": 3.793399334, "color": "blue", "class": 45, "type": "noise"}
+{"x": 5.4515457153, "y": 6.9231801033, "color": "blue", "class": 46, "type": "noise"}
+{"x": 2.870562315, "y": 3.0417685509, "color": "blue", "class": 47, "type": "noise"}
+{"x": 6.3152227402, "y": 4.3861298561, "color": "blue", "class": 48, "type": "noise"}
+{"x": 6.4330339432, "y": 4.9154701233, "color": "blue", "class": 49, "type": "noise"}
+{"x": 7.6825361252, "y": 6.0968794823, "color": "blue", "class": 50, "type": "noise"}
+{"x": 2.3423366547, "y": 6.6881432533, "color": "blue", "class": 51, "type": "noise"}
+{"x": 6.1573963165, "y": 3.5436549187, "color": "blue", "class": 52, "type": "noise"}
+{"x": 4.0502662659, "y": 5.1042075157, "color": "blue", "class": 53, "type": "noise"}
+{"x": 5.625395298, "y": 7.9300551414, "color": "blue", "class": 54, "type": "noise"}
+{"x": 6.5884079933, "y": 3.8074746132, "color": "blue", "class": 55, "type": "noise"}
+{"x": 5.7016439438, "y": 1.9284409285, "color": "blue", "class": 56, "type": "noise"}
+{"x": 2.730463028, "y": 4.5652289391, "color": "blue", "class": 57, "type": "noise"}
+{"x": 7.57533741, "y": 5.7271475792, "color": "blue", "class": 58, "type": "noise"}
+{"x": 1.6889536381, "y": 6.560605526, "color": "blue", "class": 59, "type": "noise"}
+{"x": 2.906471014, "y": 2.0045690536, "color": "blue", "class": 60, "type": "noise"}
+{"x": 4.2923741341, "y": 2.2270913124, "color": "blue", "class": 61, "type": "noise"}
+{"x": 5.224694252, "y": 4.3215751648, "color": "blue", "class": 62, "type": "noise"}
+{"x": 3.0501401424, "y": 6.9490056038, "color": "blue", "class": 63, "type": "noise"}
+{"x": 3.9137890339, "y": 1.2898794413, "color": "blue", "class": 64, "type": "noise"}
+{"x": 1.8259079456, "y": 5.9178738594, "color": "blue", "class": 65, "type": "noise"}
+{"x": 3.1402895451, "y": 5.75400877, "color": "blue", "class": 66, "type": "noise"}
+{"x": 5.1741065979, "y": 5.5168209076, "color": "blue", "class": 67, "type": "noise"}
+{"x": 4.9479541779, "y": 2.8870158195, "color": "blue", "class": 68, "type": "noise"}
+{"x": 1.4642415047, "y": 4.5381426811, "color": "blue", "class": 69, "type": "noise"}
+{"x": 2.2950544357, "y": 2.3886194229, "color": "blue", "class": 70, "type": "noise"}
+{"x": 5.4554376602, "y": 2.0385870934, "color": "blue", "class": 71, "type": "noise"}
+{"x": 2.7074131966, "y": 6.1327633858, "color": "blue", "class": 72, "type": "noise"}
+{"x": 6.324441433, "y": 5.6491527557, "color": "blue", "class": 73, "type": "noise"}
+{"x": 2.2338967323, "y": 4.7409338951, "color": "blue", "class": 74, "type": "noise"}
+{"x": 4.806344986, "y": 6.1140575409, "color": "blue", "class": 75, "type": "noise"}
+{"x": 5.1714348793, "y": 4.5779004097, "color": "blue", "class": 76, "type": "noise"}
+{"x": 5.8283901215, "y": 4.0547318459, "color": "blue", "class": 77, "type": "noise"}
+{"x": 1.1073541641, "y": 3.4097328186, "color": "blue", "class": 78, "type": "noise"}
+{"x": 5.2898511887, "y": 5.4899024963, "color": "blue", "class": 79, "type": "noise"}
+{"x": 4.7604408264, "y": 3.0858983994, "color": "blue", "class": 80, "type": "noise"}
+{"x": 3.249112606, "y": 1.4487162828, "color": "blue", "class": 81, "type": "noise"}
+{"x": 3.0642578602, "y": 5.7711720467, "color": "blue", "class": 82, "type": "noise"}
+{"x": 2.8144466877, "y": 5.1616024971, "color": "blue", "class": 83, "type": "noise"}
+{"x": 5.6081633568, "y": 4.9377779961, "color": "blue", "class": 84, "type": "noise"}
+{"x": 5.6385569572, "y": 3.0185379982, "color": "blue", "class": 85, "type": "noise"}
+{"x": 4.8419713974, "y": 3.8788766861, "color": "blue", "class": 86, "type": "noise"}
+{"x": 7.6453313828, "y": 4.6264610291, "color": "blue", "class": 87, "type": "noise"}
+{"x": 6.0986719131, "y": 7.7803177834, "color": "blue", "class": 88, "type": "noise"}
+{"x": 4.1044883728, "y": 2.5715556145, "color": "blue", "class": 89, "type": "noise"}
+{"x": 4.9108133316, "y": 2.4192380905, "color": "blue", "class": 90, "type": "noise"}
+{"x": 2.8359541893, "y": 6.2655057907, "color": "blue", "class": 91, "type": "noise"}
+{"x": 6.4235696793, "y": 4.482758522, "color": "blue", "class": 92, "type": "noise"}
+{"x": 3.0482053757, "y": 4.0497179031, "color": "blue", "class": 93, "type": "noise"}
+{"x": 3.6463477612, "y": 3.0378112793, "color": "blue", "class": 94, "type": "noise"}
+{"x": 1.7656260729, "y": 3.3893947601, "color": "blue", "class": 95, "type": "noise"}
+{"x": 5.8455705643, "y": 5.7148489952, "color": "blue", "class": 96, "type": "noise"}
+{"x": 2.9852120876, "y": 4.6449403763, "color": "blue", "class": 97, "type": "noise"}
+{"x": 7.0477547646, "y": 6.0260958672, "color": "blue", "class": 98, "type": "noise"}
+{"x": 4.1404590607, "y": 7.3349070549, "color": "blue", "class": 99, "type": "noise"}
+{"x": 5.181848526, "y": 4.6481032372, "color": "blue", "class": 100, "type": "noise"}
+{"x": 4.5965690613, "y": 6.6293373108, "color": "blue", "class": 101, "type": "noise"}
+{"x": 3.6635608673, "y": 5.2230324745, "color": "blue", "class": 102, "type": "noise"}
+{"x": 5.1897187233, "y": 3.1881055832, "color": "blue", "class": 103, "type": "noise"}
+{"x": 2.3307602406, "y": 4.7531676292, "color": "blue", "class": 104, "type": "noise"}
+{"x": 6.0809998512, "y": 2.7439312935, "color": "blue", "class": 105, "type": "noise"}
+{"x": 3.6349928379, "y": 2.2541432381, "color": "blue", "class": 106, "type": "noise"}
+{"x": 3.427478075, "y": 2.639316082, "color": "blue", "class": 107, "type": "noise"}
+{"x": 4.1413211823, "y": 7.8052678108, "color": "blue", "class": 108, "type": "noise"}
+{"x": 3.7494859695, "y": 3.2591195107, "color": "blue", "class": 109, "type": "noise"}
+{"x": 5.2403373718, "y": 2.9884643555, "color": "blue", "class": 110, "type": "noise"}
+{"x": 2.5786399841, "y": 7.394516468, "color": "blue", "class": 111, "type": "noise"}
+{"x": 4.1466274261, "y": 3.223985672, "color": "blue", "class": 112, "type": "noise"}
+{"x": 2.3166451454, "y": 6.8285565376, "color": "blue", "class": 113, "type": "noise"}
+{"x": 1.2121832371, "y": 3.0305404663, "color": "blue", "class": 114, "type": "noise"}
+{"x": 4.3342475891, "y": 1.8623539209, "color": "blue", "class": 115, "type": "noise"}
+{"x": 5.5217628479, "y": 2.0860319138, "color": "blue", "class": 116, "type": "noise"}
+{"x": 5.6491727829, "y": 5.4564871788, "color": "blue", "class": 117, "type": "noise"}
+{"x": 1.7226343155, "y": 4.9285945892, "color": "blue", "class": 118, "type": "noise"}
+{"x": 6.1408090591, "y": 2.8725399971, "color": "blue", "class": 119, "type": "noise"}
+{"x": 6.1678924561, "y": 5.012114048, "color": "blue", "class": 120, "type": "noise"}
+{"x": 5.0262928009, "y": 2.0630669594, "color": "blue", "class": 121, "type": "noise"}
+{"x": 7.0659646988, "y": 4.7388076782, "color": "blue", "class": 122, "type": "noise"}
+{"x": 5.3665542603, "y": 4.1007566452, "color": "blue", "class": 123, "type": "noise"}
+{"x": 5.0301218033, "y": 3.3423452377, "color": "blue", "class": 124, "type": "noise"}
+{"x": 5.9567594528, "y": 2.0495500565, "color": "blue", "class": 125, "type": "noise"}
+{"x": 4.2976589203, "y": 6.0954937935, "color": "blue", "class": 126, "type": "noise"}
+{"x": 4.1770410538, "y": 6.5148706436, "color": "blue", "class": 127, "type": "noise"}
+{"x": 5.1144275665, "y": 4.3051452637, "color": "blue", "class": 128, "type": "noise"}
+{"x": 5.1394958496, "y": 5.9007515907, "color": "blue", "class": 129, "type": "noise"}
+{"x": 2.9118936062, "y": 7.4556155205, "color": "blue", "class": 130, "type": "noise"}
+{"x": 7.9252119064, "y": 5.8001799583, "color": "blue", "class": 131, "type": "noise"}
+{"x": 2.8023040295, "y": 6.9692959785, "color": "blue", "class": 132, "type": "noise"}
+{"x": 2.664018631, "y": 4.544459343, "color": "blue", "class": 133, "type": "noise"}
+{"x": 6.1215977669, "y": 4.6834888458, "color": "blue", "class": 134, "type": "noise"}
+{"x": 4.9434742928, "y": 6.092487812, "color": "blue", "class": 135, "type": "noise"}
+{"x": 2.6697950363, "y": 5.125494957, "color": "blue", "class": 136, "type": "noise"}
+{"x": 2.4765863419, "y": 5.4364514351, "color": "blue", "class": 137, "type": "noise"}
+{"x": 2.4465391636, "y": 5.7475676537, "color": "blue", "class": 138, "type": "noise"}
+{"x": 4.2562713623, "y": 4.6319122314, "color": "blue", "class": 139, "type": "noise"}
+{"x": 6.8161029816, "y": 4.489256382, "color": "blue", "class": 140, "type": "noise"}
+{"x": 6.2079443932, "y": 5.6628756523, "color": "blue", "class": 141, "type": "noise"}
+{"x": 3.2814285755, "y": 2.9422850609, "color": "blue", "class": 142, "type": "noise"}
+{"x": 1.0, "y": 3.3054986, "color": "blue", "class": 143, "type": "noise"}
+{"x": 1.6136661768, "y": 2.7511277199, "color": "blue", "class": 144, "type": "noise"}
+{"x": 1.5922374725, "y": 4.1573724747, "color": "blue", "class": 145, "type": "noise"}
+{"x": 7.7819261551, "y": 5.9527540207, "color": "blue", "class": 146, "type": "noise"}
+{"x": 7.7504148483, "y": 4.8129849434, "color": "blue", "class": 147, "type": "noise"}
+{"x": 4.4242725372, "y": 3.2677240372, "color": "blue", "class": 148, "type": "noise"}
+{"x": 4.4699687958, "y": 4.99370718, "color": "blue", "class": 149, "type": "noise"}
+{"x": 5.654419899, "y": 7.1039247513, "color": "blue", "class": 150, "type": "noise"}
+{"x": 3.4202411175, "y": 5.3430719376, "color": "blue", "class": 151, "type": "noise"}
+{"x": 6.3710694313, "y": 4.8800339699, "color": "blue", "class": 152, "type": "noise"}
+{"x": 7.1227216721, "y": 5.6230430603, "color": "blue", "class": 153, "type": "noise"}
+{"x": 3.4757454395, "y": 6.8090844154, "color": "blue", "class": 154, "type": "noise"}
+{"x": 4.8073234558, "y": 7.4853138924, "color": "blue", "class": 155, "type": "noise"}
+{"x": 1.3120081425, "y": 3.4161982536, "color": "blue", "class": 156, "type": "noise"}
+{"x": 7.2581968307, "y": 5.4270405769, "color": "blue", "class": 157, "type": "noise"}
+{"x": 4.0179595947, "y": 7.9031758308, "color": "blue", "class": 158, "type": "noise"}
+{"x": 2.2093205452, "y": 3.0382657051, "color": "blue", "class": 159, "type": "noise"}
+{"x": 1.5191375017, "y": 3.6146993637, "color": "blue", "class": 160, "type": "noise"}
+{"x": 4.1921200752, "y": 1.0, "color": "blue", "class": 161, "type": "noise"}
+{"x": 2.2870266438, "y": 6.0406103134, "color": "blue", "class": 162, "type": "noise"}
+{"x": 2.8870723248, "y": 5.8207345009, "color": "blue", "class": 163, "type": "noise"}
+{"x": 5.9306030273, "y": 7.6080899239, "color": "blue", "class": 164, "type": "noise"}
+{"x": 2.5997486115, "y": 4.2453446388, "color": "blue", "class": 165, "type": "noise"}
+{"x": 3.5921235085, "y": 5.7245898247, "color": "blue", "class": 166, "type": "noise"}
+{"x": 5.9343981743, "y": 4.0735354424, "color": "blue", "class": 167, "type": "noise"}
+{"x": 7.0612421036, "y": 4.3382601738, "color": "blue", "class": 168, "type": "noise"}
+{"x": 3.9157400131, "y": 1.9496141672, "color": "blue", "class": 169, "type": "noise"}
+{"x": 4.462249279, "y": 4.3346362114, "color": "blue", "class": 170, "type": "noise"}
+{"x": 4.6430912018, "y": 4.5337910652, "color": "blue", "class": 171, "type": "noise"}
+{"x": 2.5786428452, "y": 7.2085618973, "color": "blue", "class": 172, "type": "noise"}
+{"x": 3.0219068527, "y": 5.616604805, "color": "blue", "class": 173, "type": "noise"}
+{"x": 2.9725017548, "y": 2.8861627579, "color": "blue", "class": 174, "type": "noise"}
+{"x": 4.6182761192, "y": 5.3539156914, "color": "blue", "class": 175, "type": "noise"}
+{"x": 6.0702548027, "y": 5.92318964, "color": "blue", "class": 176, "type": "noise"}
+{"x": 3.5826721191, "y": 3.8448562622, "color": "blue", "class": 177, "type": "noise"}
+{"x": 5.006152153, "y": 4.93318367, "color": "blue", "class": 178, "type": "noise"}
+{"x": 5.6217188835, "y": 3.6543059349, "color": "blue", "class": 179, "type": "noise"}
+{"x": 1.530398488, "y": 4.8413729668, "color": "blue", "class": 180, "type": "noise"}
+{"x": 2.208719492, "y": 3.6634907722, "color": "blue", "class": 181, "type": "noise"}
+{"x": 5.4442920685, "y": 6.5734949112, "color": "blue", "class": 182, "type": "noise"}
+{"x": 1.183110714, "y": 3.6687774658, "color": "blue", "class": 183, "type": "noise"}
+{"x": 2.1997947693, "y": 6.9547724724, "color": "blue", "class": 184, "type": "noise"}
+{"x": 6.3345546722, "y": 3.6530542374, "color": "blue", "class": 185, "type": "noise"}
+{"x": 3.7675437927, "y": 6.0090045929, "color": "blue", "class": 186, "type": "noise"}
+{"x": 2.2085049152, "y": 4.9959378242, "color": "blue", "class": 187, "type": "noise"}
+{"x": 5.609377861, "y": 6.0437750816, "color": "blue", "class": 188, "type": "noise"}
+{"x": 4.8074140549, "y": 7.2047848701, "color": "blue", "class": 189, "type": "noise"}
+{"x": 4.3759202957, "y": 7.0944108963, "color": "blue", "class": 190, "type": "noise"}
+{"x": 5.4774746895, "y": 4.3683972359, "color": "blue", "class": 191, "type": "noise"}
+{"x": 4.5070161819, "y": 3.7357363701, "color": "blue", "class": 192, "type": "noise"}
+{"x": 3.7706809044, "y": 3.8807935715, "color": "blue", "class": 193, "type": "noise"}
+{"x": 4.7333087921, "y": 4.4190239906, "color": "blue", "class": 194, "type": "noise"}
+{"x": 5.8148145676, "y": 7.712498188, "color": "blue", "class": 195, "type": "noise"}
+{"x": 5.8565235138, "y": 6.4928908348, "color": "blue", "class": 196, "type": "noise"}
+{"x": 5.3256072998, "y": 3.8530993462, "color": "blue", "class": 197, "type": "noise"}
+{"x": 7.2260599136, "y": 3.8028106689, "color": "blue", "class": 198, "type": "noise"}
+{"x": 1.7190752029, "y": 4.1681003571, "color": "blue", "class": 199, "type": "noise"}
+{"x": 4.6336679459, "y": 7.5428414345, "color": "blue", "class": 200, "type": "noise"}
+{"x": 3.9477865696, "y": 6.2532110214, "color": "blue", "class": 201, "type": "noise"}
+{"x": 2.4186205864, "y": 3.0522928238, "color": "blue", "class": 202, "type": "noise"}
+{"x": 5.3595352173, "y": 5.5217294693, "color": "blue", "class": 203, "type": "noise"}
+{"x": 7.1779956818, "y": 5.5167417526, "color": "blue", "class": 204, "type": "noise"}
+{"x": 6.8137388229, "y": 4.6512637138, "color": "blue", "class": 205, "type": "noise"}
+{"x": 4.7537703514, "y": 3.6435461044, "color": "blue", "class": 206, "type": "noise"}
+{"x": 3.7763941288, "y": 6.1527085304, "color": "blue", "class": 207, "type": "noise"}
+{"x": 2.3494255543, "y": 7.6218056679, "color": "blue", "class": 208, "type": "noise"}
+{"x": 4.4387235641, "y": 5.7335796356, "color": "blue", "class": 209, "type": "noise"}
+{"x": 1.812938571, "y": 5.4879646301, "color": "blue", "class": 210, "type": "noise"}
+{"x": 4.3074631691, "y": 2.2488212585, "color": "blue", "class": 211, "type": "noise"}
+{"x": 2.8726460934, "y": 1.850204587, "color": "blue", "class": 212, "type": "noise"}
+{"x": 4.7432470322, "y": 5.7641706467, "color": "blue", "class": 213, "type": "noise"}
+{"x": 2.6110439301, "y": 6.64041996, "color": "blue", "class": 214, "type": "noise"}
+{"x": 4.7491798401, "y": 6.229883194, "color": "blue", "class": 215, "type": "noise"}
+{"x": 1.9538601637, "y": 4.9777364731, "color": "blue", "class": 216, "type": "noise"}
+{"x": 3.1991701126, "y": 7.1941595078, "color": "blue", "class": 217, "type": "noise"}
+{"x": 2.9693818092, "y": 4.3288249969, "color": "blue", "class": 218, "type": "noise"}
+{"x": 3.9522845745, "y": 5.4163446426, "color": "blue", "class": 219, "type": "noise"}
+{"x": 7.157078743, "y": 6.4289307594, "color": "blue", "class": 220, "type": "noise"}
+{"x": 2.3947582245, "y": 7.950237751, "color": "blue", "class": 221, "type": "noise"}
+{"x": 3.9389076233, "y": 4.2630462646, "color": "blue", "class": 222, "type": "noise"}
+{"x": 5.8147888184, "y": 4.5834760666, "color": "blue", "class": 223, "type": "noise"}
+{"x": 3.4480113983, "y": 3.7233819962, "color": "blue", "class": 224, "type": "noise"}
+{"x": 2.1547627449, "y": 6.7549352646, "color": "blue", "class": 225, "type": "noise"}
+{"x": 4.9628739357, "y": 3.2276406288, "color": "blue", "class": 226, "type": "noise"}
+{"x": 6.4919490814, "y": 5.9327559471, "color": "blue", "class": 227, "type": "noise"}
+{"x": 4.4228639603, "y": 6.5714640617, "color": "blue", "class": 228, "type": "noise"}
+{"x": 5.4376320839, "y": 5.1198143959, "color": "blue", "class": 229, "type": "noise"}
+{"x": 4.0331668854, "y": 6.4187150002, "color": "blue", "class": 230, "type": "noise"}
+{"x": 3.7099723816, "y": 4.6277718544, "color": "blue", "class": 231, "type": "noise"}
+{"x": 6.2581768036, "y": 2.458313942, "color": "blue", "class": 232, "type": "noise"}
+{"x": 5.2893223763, "y": 6.1457066536, "color": "blue", "class": 233, "type": "noise"}
+{"x": 6.1155333519, "y": 7.5603384972, "color": "blue", "class": 234, "type": "noise"}
+{"x": 2.0938687325, "y": 7.0348329544, "color": "blue", "class": 235, "type": "noise"}
+{"x": 3.8444209099, "y": 7.6801581383, "color": "blue", "class": 236, "type": "noise"}
+{"x": 5.5955052376, "y": 6.1712737083, "color": "blue", "class": 237, "type": "noise"}
+{"x": 2.8880970478, "y": 2.2611012459, "color": "blue", "class": 238, "type": "noise"}
+{"x": 4.4334740639, "y": 7.472928524, "color": "blue", "class": 239, "type": "noise"}
+{"x": 3.1696796417, "y": 5.9362831116, "color": "blue", "class": 240, "type": "noise"}
+{"x": 7.5274438858, "y": 6.1183133125, "color": "blue", "class": 241, "type": "noise"}
+{"x": 4.6625680923, "y": 1.6359699965, "color": "blue", "class": 242, "type": "noise"}
+{"x": 5.0429801941, "y": 6.8231787682, "color": "blue", "class": 243, "type": "noise"}
+{"x": 2.9889221191, "y": 4.7730770111, "color": "blue", "class": 244, "type": "noise"}
+{"x": 2.8533658981, "y": 3.4704766273, "color": "blue", "class": 245, "type": "noise"}
+{"x": 4.367041111, "y": 4.1613960266, "color": "blue", "class": 246, "type": "noise"}
+{"x": 2.7693169117, "y": 4.2530817986, "color": "blue", "class": 247, "type": "noise"}
+{"x": 2.267863512, "y": 7.0900645256, "color": "blue", "class": 248, "type": "noise"}
+{"x": 4.0048866272, "y": 3.5743527412, "color": "blue", "class": 249, "type": "noise"}
+{"x": 2.562112093, "y": 8.0, "color": "blue", "class": 250, "type": "noise"}
+{"x": 1.9810945988, "y": 4.3054804802, "color": "blue", "class": 251, "type": "noise"}
+{"x": 4.3088059425, "y": 2.9474234581, "color": "blue", "class": 252, "type": "noise"}
+{"x": 5.7644004822, "y": 2.996254921, "color": "blue", "class": 253, "type": "noise"}
+{"x": 6.6306872368, "y": 3.4347610474, "color": "blue", "class": 254, "type": "noise"}
+{"x": 2.4475002289, "y": 5.6940813065, "color": "blue", "class": 255, "type": "noise"}
+{"x": 5.7696781158, "y": 5.0639352798, "color": "blue", "class": 256, "type": "noise"}
+{"x": 4.9107832909, "y": 4.9525671005, "color": "blue", "class": 257, "type": "noise"}
+{"x": 1.9852986336, "y": 4.4871134758, "color": "blue", "class": 258, "type": "noise"}
+{"x": 4.199473381, "y": 7.9508900642, "color": "blue", "class": 259, "type": "noise"}
+{"x": 5.8550033569, "y": 2.3986406326, "color": "blue", "class": 260, "type": "noise"}
+{"x": 4.994758606, "y": 3.6851654053, "color": "blue", "class": 261, "type": "noise"}
+{"x": 7.7648477554, "y": 4.4737343788, "color": "blue", "class": 262, "type": "noise"}
+{"x": 3.5244407654, "y": 6.2312402725, "color": "blue", "class": 263, "type": "noise"}
+{"x": 2.1833992004, "y": 3.3551216125, "color": "blue", "class": 264, "type": "noise"}
+{"x": 3.1499910355, "y": 2.8973088264, "color": "blue", "class": 265, "type": "noise"}
+{"x": 5.9759864807, "y": 5.8021683693, "color": "blue", "class": 266, "type": "noise"}
+{"x": 8.0, "y": 5.8012833595, "color": "blue", "class": 267, "type": "noise"}
+{"x": 4.5768642426, "y": 4.0859084129, "color": "blue", "class": 268, "type": "noise"}
+{"x": 1.8188869953, "y": 5.089266777, "color": "blue", "class": 269, "type": "noise"}
+{"x": 4.7576489449, "y": 2.5199270248, "color": "blue", "class": 270, "type": "noise"}
+{"x": 4.0165433884, "y": 1.1706804037, "color": "blue", "class": 271, "type": "noise"}
+{"x": 7.5575447083, "y": 3.8930821419, "color": "blue", "class": 272, "type": "noise"}
+{"x": 1.9115009308, "y": 2.700551033, "color": "blue", "class": 273, "type": "noise"}
+{"x": 7.8496704102, "y": 5.6914963722, "color": "blue", "class": 274, "type": "noise"}
+{"x": 6.475687027, "y": 4.7109861374, "color": "blue", "class": 275, "type": "noise"}
+{"x": 3.3040246964, "y": 5.4640283585, "color": "blue", "class": 276, "type": "noise"}
+{"x": 1.9806396961, "y": 3.6228160858, "color": "blue", "class": 277, "type": "noise"}
+{"x": 3.5303640366, "y": 3.4345254898, "color": "blue", "class": 278, "type": "noise"}
+{"x": 5.4399633408, "y": 7.7576966286, "color": "blue", "class": 279, "type": "noise"}
+{"x": 2.6049027443, "y": 3.9234461784, "color": "blue", "class": 280, "type": "noise"}
+{"x": 4.0327792168, "y": 4.5472536087, "color": "blue", "class": 281, "type": "noise"}
+{"x": 7.8932714462, "y": 4.3514442444, "color": "blue", "class": 282, "type": "noise"}
+{"x": 3.0460839272, "y": 3.5049028397, "color": "blue", "class": 283, "type": "noise"}
+{"x": 3.2757537365, "y": 6.7380232811, "color": "blue", "class": 284, "type": "noise"}
+{"x": 1.1944836378, "y": 3.9418053627, "color": "blue", "class": 285, "type": "noise"}
+{"x": 7.9512910843, "y": 4.6243824959, "color": "blue", "class": 286, "type": "noise"}
+{"x": 1.8814457655, "y": 6.1577439308, "color": "blue", "class": 287, "type": "noise"}
+{"x": 4.9614424706, "y": 7.5019488335, "color": "blue", "class": 288, "type": "noise"}
+{"x": 4.8770914078, "y": 4.6650466919, "color": "blue", "class": 289, "type": "noise"}
+{"x": 7.8138446808, "y": 6.0503196716, "color": "blue", "class": 290, "type": "noise"}
+{"x": 2.1809768677, "y": 4.6515731812, "color": "blue", "class": 291, "type": "noise"}
+{"x": 3.8025455475, "y": 7.2861771584, "color": "blue", "class": 292, "type": "noise"}
+{"x": 7.8890752792, "y": 5.9067754745, "color": "blue", "class": 293, "type": "noise"}
+{"x": 4.1183805466, "y": 6.0134072304, "color": "blue", "class": 294, "type": "noise"}
+{"x": 6.0549793243, "y": 7.7120394707, "color": "blue", "class": 295, "type": "noise"}
+{"x": 5.80742836, "y": 4.4718151093, "color": "blue", "class": 296, "type": "noise"}
+{"x": 4.2068896294, "y": 3.8199696541, "color": "blue", "class": 297, "type": "noise"}
+{"x": 7.1305580139, "y": 6.2020401955, "color": "blue", "class": 298, "type": "noise"}
+{"x": 4.2797837257, "y": 7.3605599403, "color": "blue", "class": 299, "type": "noise"}
+{"x": 6.8770308495, "y": 4.2947397232, "color": "blue", "class": 300, "type": "noise"}
+{"x": 2.1182153225, "y": 6.9319801331, "color": "blue", "class": 301, "type": "noise"}
+{"x": 4.5365257263, "y": 5.6191654205, "color": "blue", "class": 302, "type": "noise"}
+{"x": 5.0788536072, "y": 2.6535315514, "color": "blue", "class": 303, "type": "noise"}
+{"x": 4.0701828003, "y": 5.1202950478, "color": "blue", "class": 304, "type": "noise"}
+{"x": 3.6527562141, "y": 2.1873908043, "color": "blue", "class": 305, "type": "noise"}
+{"x": 5.0374178886, "y": 6.2199921608, "color": "blue", "class": 306, "type": "noise"}
+{"x": 4.2479705811, "y": 5.5114684105, "color": "blue", "class": 307, "type": "noise"}
+{"x": 4.6261334419, "y": 1.9596334696, "color": "blue", "class": 308, "type": "noise"}
+{"x": 5.4090662003, "y": 4.450527668, "color": "blue", "class": 309, "type": "noise"}
+{"x": 2.721203804, "y": 7.7726416588, "color": "blue", "class": 310, "type": "noise"}
+{"x": 4.3164372444, "y": 1.8356305361, "color": "blue", "class": 311, "type": "noise"}
+{"x": 2.4627194405, "y": 7.0857691765, "color": "blue", "class": 312, "type": "noise"}
+{"x": 2.3562879562, "y": 2.4522938728, "color": "blue", "class": 313, "type": "noise"}
+{"x": 5.9628210068, "y": 7.3452868462, "color": "blue", "class": 314, "type": "noise"}
+{"x": 3.7377202511, "y": 1.7122410536, "color": "blue", "class": 315, "type": "noise"}
+{"x": 6.0674648285, "y": 3.7203540802, "color": "blue", "class": 316, "type": "noise"}
+{"x": 2.203902483, "y": 4.0039763451, "color": "blue", "class": 317, "type": "noise"}
+{"x": 5.8887815475, "y": 3.2821125984, "color": "blue", "class": 318, "type": "noise"}
+{"x": 5.6863269806, "y": 3.5497093201, "color": "blue", "class": 319, "type": "noise"}
+{"x": 4.0301322937, "y": 5.0402321815, "color": "blue", "class": 320, "type": "noise"}
+{"x": 6.7768816948, "y": 6.6158633232, "color": "blue", "class": 321, "type": "noise"}
+{"x": 3.2373876572, "y": 4.9910626411, "color": "blue", "class": 322, "type": "noise"}
+{"x": 4.9635000229, "y": 5.4857916832, "color": "blue", "class": 323, "type": "noise"}
+{"x": 5.5470867157, "y": 2.8173947334, "color": "blue", "class": 324, "type": "noise"}
+{"x": 4.2553796768, "y": 1.202015996, "color": "blue", "class": 325, "type": "noise"}
+{"x": 1.3022344112, "y": 4.2651777267, "color": "blue", "class": 326, "type": "noise"}
+{"x": 2.9191365242, "y": 5.7381687164, "color": "blue", "class": 327, "type": "noise"}
+{"x": 6.1212449074, "y": 2.5658550262, "color": "blue", "class": 328, "type": "noise"}
+{"x": 6.1917495728, "y": 6.1018176079, "color": "blue", "class": 329, "type": "noise"}
+{"x": 6.9305415154, "y": 3.8904528618, "color": "blue", "class": 330, "type": "noise"}
+{"x": 2.8562793732, "y": 5.4313054085, "color": "blue", "class": 331, "type": "noise"}
+{"x": 4.086148262, "y": 5.5709152222, "color": "blue", "class": 332, "type": "noise"}
+{"x": 3.0236794949, "y": 4.9336390495, "color": "blue", "class": 333, "type": "noise"}
+{"x": 2.9773495197, "y": 3.9456820488, "color": "blue", "class": 334, "type": "noise"}
+{"x": 1.6184953451, "y": 5.2862548828, "color": "blue", "class": 335, "type": "noise"}
+{"x": 2.3085875511, "y": 7.6966376305, "color": "blue", "class": 336, "type": "noise"}
+{"x": 6.7838592529, "y": 5.2593359947, "color": "blue", "class": 337, "type": "noise"}
+{"x": 1.720102191, "y": 4.3685183525, "color": "blue", "class": 338, "type": "noise"}
+{"x": 6.6464390755, "y": 6.4924874306, "color": "blue", "class": 339, "type": "noise"}
+{"x": 4.3203997612, "y": 1.0576964617, "color": "blue", "class": 340, "type": "noise"}
+{"x": 5.1430644989, "y": 3.1713223457, "color": "blue", "class": 341, "type": "noise"}
+{"x": 6.4274120331, "y": 4.3538136482, "color": "blue", "class": 342, "type": "noise"}
+{"x": 6.0580949783, "y": 4.3354039192, "color": "blue", "class": 343, "type": "noise"}
+{"x": 5.5423688889, "y": 2.479616642, "color": "blue", "class": 344, "type": "noise"}
+{"x": 1.8304849863, "y": 6.0410704613, "color": "blue", "class": 345, "type": "noise"}
+{"x": 5.4991312027, "y": 7.4644751549, "color": "blue", "class": 346, "type": "noise"}
+{"x": 4.8434243202, "y": 7.6809458733, "color": "blue", "class": 347, "type": "noise"}
+{"x": 7.8875284195, "y": 4.563958168, "color": "blue", "class": 348, "type": "noise"}
+{"x": 7.3879823685, "y": 3.688680172, "color": "blue", "class": 349, "type": "noise"}
+{"x": 3.8197209835, "y": 7.9004416466, "color": "blue", "class": 350, "type": "noise"}
+{"x": 3.2120895386, "y": 3.8157362938, "color": "blue", "class": 351, "type": "noise"}
+{"x": 5.5612154007, "y": 6.5560107231, "color": "blue", "class": 352, "type": "noise"}
+{"x": 2.1366603374, "y": 6.057033062, "color": "blue", "class": 353, "type": "noise"}
+{"x": 5.3538627625, "y": 7.4652543068, "color": "blue", "class": 354, "type": "noise"}
+{"x": 6.5977659225, "y": 6.0133662224, "color": "blue", "class": 355, "type": "noise"}
+{"x": 5.1960225105, "y": 6.6504669189, "color": "blue", "class": 356, "type": "noise"}
+{"x": 5.9848685265, "y": 6.6466503143, "color": "blue", "class": 357, "type": "noise"}
+{"x": 5.8932442665, "y": 5.229824543, "color": "blue", "class": 358, "type": "noise"}
+{"x": 2.436224699, "y": 4.0517263412, "color": "blue", "class": 359, "type": "noise"}
+{"x": 3.111115694, "y": 1.8524619341, "color": "blue", "class": 360, "type": "noise"}
+{"x": 2.2075004578, "y": 2.7017498016, "color": "blue", "class": 361, "type": "noise"}
+{"x": 3.9569892883, "y": 6.7581233978, "color": "blue", "class": 362, "type": "noise"}
+{"x": 4.3704409599, "y": 2.6048026085, "color": "blue", "class": 363, "type": "noise"}
+{"x": 3.9843914509, "y": 2.7335538864, "color": "blue", "class": 364, "type": "noise"}
+{"x": 3.7488651276, "y": 4.2601704597, "color": "blue", "class": 365, "type": "noise"}
+{"x": 2.9467506409, "y": 6.2413344383, "color": "blue", "class": 366, "type": "noise"}
+{"x": 4.396241188, "y": 3.5658121109, "color": "blue", "class": 367, "type": "noise"}
+{"x": 5.6575374603, "y": 2.3697738647, "color": "blue", "class": 368, "type": "noise"}
+{"x": 1.3677823544, "y": 3.8632631302, "color": "blue", "class": 369, "type": "noise"}
+{"x": 5.7190642357, "y": 7.0399689674, "color": "blue", "class": 370, "type": "noise"}
+{"x": 4.5697183609, "y": 6.8908424377, "color": "blue", "class": 371, "type": "noise"}
+{"x": 4.9424095154, "y": 3.7719159126, "color": "blue", "class": 372, "type": "noise"}
+{"x": 5.0248012543, "y": 4.3128590584, "color": "blue", "class": 373, "type": "noise"}
+{"x": 3.1231722832, "y": 5.1008329391, "color": "blue", "class": 374, "type": "noise"}
+{"x": 1.9762071371, "y": 6.1334033012, "color": "blue", "class": 375, "type": "noise"}
+{"x": 6.2085094452, "y": 3.8372974396, "color": "blue", "class": 376, "type": "noise"}
+{"x": 4.2807326317, "y": 4.842502594, "color": "blue", "class": 377, "type": "noise"}
+{"x": 4.2345027924, "y": 5.0426383018, "color": "blue", "class": 378, "type": "noise"}
+{"x": 2.5366439819, "y": 2.8277916908, "color": "blue", "class": 379, "type": "noise"}
+{"x": 3.3568408489, "y": 4.6889567375, "color": "blue", "class": 380, "type": "noise"}
+{"x": 3.2180449963, "y": 4.430516243, "color": "blue", "class": 381, "type": "noise"}
+{"x": 3.2502038479, "y": 4.8042201996, "color": "blue", "class": 382, "type": "noise"}
+{"x": 2.5500173569, "y": 3.2265872955, "color": "blue", "class": 383, "type": "noise"}
+{"x": 4.5298166275, "y": 1.760810256, "color": "blue", "class": 384, "type": "noise"}
+{"x": 1.4135364294, "y": 4.693198204, "color": "blue", "class": 385, "type": "noise"}
+{"x": 2.7910480499, "y": 2.4158935547, "color": "blue", "class": 386, "type": "noise"}
+{"x": 4.1124649048, "y": 2.7888936996, "color": "blue", "class": 387, "type": "noise"}
+{"x": 3.9191884995, "y": 7.1482167244, "color": "blue", "class": 388, "type": "noise"}
+{"x": 5.0030231476, "y": 5.3052449226, "color": "blue", "class": 389, "type": "noise"}
+{"x": 3.657674551, "y": 2.5578141212, "color": "blue", "class": 390, "type": "noise"}
+{"x": 5.0846757889, "y": 2.1119937897, "color": "blue", "class": 391, "type": "noise"}
+{"x": 3.8578987122, "y": 4.1351094246, "color": "blue", "class": 392, "type": "noise"}
+{"x": 4.2998847961, "y": 7.3946967125, "color": "blue", "class": 393, "type": "noise"}
+{"x": 3.1996219158, "y": 3.938685894, "color": "blue", "class": 394, "type": "noise"}
+{"x": 3.8223354816, "y": 5.991560936, "color": "blue", "class": 395, "type": "noise"}
+{"x": 4.2991981506, "y": 4.1986079216, "color": "blue", "class": 396, "type": "noise"}
+{"x": 6.9166193008, "y": 4.4493527412, "color": "blue", "class": 397, "type": "noise"}
+{"x": 3.6581134796, "y": 3.6787643433, "color": "blue", "class": 398, "type": "noise"}
+{"x": 5.7407493591, "y": 7.1880421638, "color": "blue", "class": 399, "type": "noise"}
+{"x": 4.5, "y": 5.8452662461, "color": "red", "class": 400, "type": "anchor"}
+{"x": 4.5433439713, "y": 6.0747054457, "color": "red", "class": 401, "type": "anchor"}
+{"x": 4.8125, "y": 6.5895577721, "color": "red", "class": 402, "type": "anchor"}
+{"x": 5.3838834765, "y": 7.0, "color": "red", "class": 403, "type": "anchor"}
+{"x": 6.1237976321, "y": 6.9813676369, "color": "red", "class": 404, "type": "anchor"}
+{"x": 6.7530526625, "y": 6.4760626271, "color": "red", "class": 405, "type": "anchor"}
+{"x": 7.0, "y": 5.6704814167, "color": "red", "class": 406, "type": "anchor"}
+{"x": 6.7530526625, "y": 4.8055177662, "color": "red", "class": 407, "type": "anchor"}
+{"x": 6.1237976321, "y": 4.0100255377, "color": "red", "class": 408, "type": "anchor"}
+{"x": 5.3838834765, "y": 3.2922538572, "color": "red", "class": 409, "type": "anchor"}
+{"x": 4.8125, "y": 2.6539871089, "color": "red", "class": 410, "type": "anchor"}
+{"x": 4.5433439713, "y": 2.1795128991, "color": "red", "class": 411, "type": "anchor"}
+{"x": 4.5, "y": 2.0, "color": "red", "class": 412, "type": "anchor"}
+{"x": 4.4566560287, "y": 2.1795128991, "color": "red", "class": 413, "type": "anchor"}
+{"x": 4.1875, "y": 2.6539871089, "color": "red", "class": 414, "type": "anchor"}
+{"x": 3.6161165235, "y": 3.2922538572, "color": "red", "class": 415, "type": "anchor"}
+{"x": 2.8762023679, "y": 4.0100255377, "color": "red", "class": 416, "type": "anchor"}
+{"x": 2.2469473375, "y": 4.8055177662, "color": "red", "class": 417, "type": "anchor"}
+{"x": 2.0, "y": 5.6704814167, "color": "red", "class": 418, "type": "anchor"}
+{"x": 2.2469473375, "y": 6.4760626271, "color": "red", "class": 419, "type": "anchor"}
+{"x": 2.8762023679, "y": 6.9813676369, "color": "red", "class": 420, "type": "anchor"}
+{"x": 3.6161165235, "y": 7.0, "color": "red", "class": 421, "type": "anchor"}
+{"x": 4.1875, "y": 6.5895577721, "color": "red", "class": 422, "type": "anchor"}
+{"x": 4.4566560287, "y": 6.0747054457, "color": "red", "class": 423, "type": "anchor"}
+{"x": 4.5, "y": 5.8452662461, "color": "red", "class": 424, "type": "anchor"}
+{"x": 3.3918802738, "y": 7.9246606827, "quotes": "She dances in the mountains.       In the last summer they went all over Italy.", "type": "noise", "color": "steelblue", "class": 425}
+{"x": 3.2461988926, "y": 7.6557683945, "quotes": "       She dances in the mountains. In the last summer they went all over Italy.", "type": "noise", "color": "steelblue", "class": 426}
+{"x": 3.2901959419, "y": 7.483979702, "quotes": "She dances in the mountains.        In the last summer they went all over Italy.", "type": "noise", "color": "steelblue", "class": 427}
+{"x": 3.4901309013, "y": 7.5144591331, "quotes": "She dances in the mountains. On the last summer they are going all over Italy.       ", "type": "noise", "color": "steelblue", "class": 428}
+{"x": 3.2733719349, "y": 7.4114179611, "quotes": "She dances in the mountains. In the last summer, they plan to go all over the mountains in Italy.    ", "type": "noise", "color": "steelblue", "class": 429}
+{"x": 2.7681357861, "y": 7.3531513214, "quotes": "She dresses and dances in the mountains. On the last summer they plan to go to the mountains in Italy.    ", "type": "noise", "color": "steelblue", "class": 430}
+{"x": 3.317565918, "y": 7.2163419724, "quotes": "She dresses on a beautiful guitar and dances.   During their last trip in Italy, she plans to go in the mountains.", "type": "noise", "color": "steelblue", "class": 431}
+{"x": 2.4376444817, "y": 7.9722099304, "quotes": "She plans to go in the mountains. She likes to dance on the guitar with a beautiful dress in Italy.    ", "type": "noise", "color": "steelblue", "class": 432}
+{"x": 2.5188550949, "y": 6.6950569153, "quotes": "She is planning to go to the mountains. She likes to do a beautiful dress in the mountains, and she plays the guitar in.", "type": "noise", "color": "steelblue", "class": 433}
+{"x": 1.9643733501, "y": 7.4805970192, "quotes": "She is planning on going to the mountains in a beautiful dress.     She likes to play the guitar.", "type": "noise", "color": "steelblue", "class": 434}
+{"x": 1.9925298691, "y": 7.5463695526, "quotes": "She is planning on going to the mountains in a beautiful dress. She likes to play the guitar   .", "type": "noise", "color": "steelblue", "class": 435}
+{"x": 2.0778856277, "y": 7.0603270531, "quotes": "She is planning on going to the mountains in a beautiful dress.     She likes to play the guitar. ", "type": "noise", "color": "steelblue", "class": 436}
+{"x": 1.4904921055, "y": 7.8241243362, "quotes": "She is planning on going to the mountains in a beautiful dress. She likes to play the guitar.     ", "type": "noise", "color": "steelblue", "class": 437}
+{"x": 1.6991173029, "y": 7.2374362946, "quotes": "She's planning to go to the mountains in a beautiful dress. She loved to read a book on the guitar.   ", "type": "noise", "color": "steelblue", "class": 438}
+{"x": 1.9911309481, "y": 7.1310667992, "quotes": "She plans to go to a beautiful place in the mountains. She was a sailor and recently wrote a book on dress guitar.", "type": "noise", "color": "steelblue", "class": 439}
+{"x": 1.9666882753, "y": 7.1578640938, "quotes": "She is planning to go to a beauty book in the mountains. She was a sailor, who loves to study guitar and dress.", "type": "noise", "color": "steelblue", "class": 440}
+{"x": 1.4857840538, "y": 7.6451706886, "quotes": "She was a beauty connoisseur. She recently wrote a book on reading in a sailor studio. She plans to guitar", "type": "noise", "color": "steelblue", "class": 441}
+{"x": 1.6550610065, "y": 7.8462343216, "quotes": "She was a beauty connoisseur. She recently wrote a book on reading in a sailor studio. She plans on guitar", "type": "noise", "color": "steelblue", "class": 442}
+{"x": 2.0204410553, "y": 8.1110067368, "quotes": "She was a beauty connoisseur. She recently wrote a book on reading, going to a sailor studio in mountains.", "type": "noise", "color": "steelblue", "class": 443}
+{"x": 1.9983587265, "y": 7.977183342, "quotes": "She was a beauty connoisseur. She recently wrote a book on reading in a sailor studio.  ", "type": "noise", "color": "steelblue", "class": 444}
+{"x": 1.8397991657, "y": 7.9704751968, "quotes": "She was a beauty connoisseur. She recently wrote a book on reading in a sailor studio. ", "type": "noise", "color": "steelblue", "class": 445}
+{"x": 1.8074048758, "y": 7.806248188, "quotes": "She was a beauty connoisseur. She recently wrote a book on reading  in a sailor  studio.", "type": "noise", "color": "steelblue", "class": 446}
+{"x": 2.1266536713, "y": 7.9325976372, "quotes": "She was a beauty connoisseur. She recently wrote a book on reading in a sailor studio, and enjoyed decorating.", "type": "noise", "color": "steelblue", "class": 447}
+{"x": 2.0915484428, "y": 8.0174436569, "quotes": "She was a beauty connoisseur. She recently wrote a book on reading. She liked to decorate a sailor tree.", "type": "noise", "color": "steelblue", "class": 448}
+{"x": 2.2826480865, "y": 7.5985832214, "quotes": "She was a beauty connoisseur. She enjoyed reading and writing a book on homemade booze in a sailor tree", "type": "noise", "color": "steelblue", "class": 449}
+{"x": 2.1996383667, "y": 7.6852984428, "quotes": "She enjoyed a lot of booze. She was a sailor who wrote a beauty book on decorating a homemade tree.", "type": "noise", "color": "steelblue", "class": 450}
+{"x": 2.3079378605, "y": 7.9955306053, "quotes": "She enjoyed a lot of booze. She's a beauty sailor. She finished her homemade gardening on a tree.", "type": "noise", "color": "steelblue", "class": 451}
+{"x": 2.1259880066, "y": 7.5921630859, "quotes": "She enjoyed her gardening. She loves to decorate a tree with a homemade booze    . ", "type": "noise", "color": "steelblue", "class": 452}
+{"x": 2.0203473568, "y": 7.5715050697, "quotes": "She enjoyed her gardening. She loves to decorate a tree with a homemade      booze.", "type": "noise", "color": "steelblue", "class": 453}
+{"x": 2.301138401, "y": 7.6867980957, "quotes": "She enjoyed her gardening. She loves to decorate a tree with a homemade booze.     ", "type": "noise", "color": "steelblue", "class": 454}
+{"x": 2.2824339867, "y": 7.4300527573, "quotes": "She enjoyed her gardening. She loves to decorate a tree with a homemade booze.     ", "type": "noise", "color": "steelblue", "class": 455}
+{"x": 2.5663166046, "y": 7.8460783958, "quotes": "She enjoyed her gardening. She loves to decorate a tree with a homemade      booze. ", "type": "noise", "color": "steelblue", "class": 456}
+{"x": 2.256508112, "y": 7.5789451599, "quotes": "She enjoyed her gardening. She loves to decorate a tree with a homemade      booze.", "type": "noise", "color": "steelblue", "class": 457}
+{"x": 2.3437211514, "y": 8.1189680099, "quotes": "She enjoyed gardening. She likes to decorate a tree with a homemade booze    . ", "type": "noise", "color": "steelblue", "class": 458}
+{"x": 2.3547284603, "y": 8.1799221039, "quotes": "She enjoyed gardening all the morning. She loves to decorate a tree on her car. She buys a homemade booze orgi.", "type": "noise", "color": "steelblue", "class": 459}
+{"x": 2.2693870068, "y": 8.2709388733, "quotes": "She enjoyed gardening every morning. She buys a homemade booze orgagno for her dog, who sat in the tree.", "type": "noise", "color": "steelblue", "class": 460}
+{"x": -0.3891701996, "y": 7.2296862602, "quotes": "She bought a good Italian orgy each morning. The dog sitter is giggling and drinking on a tree in her car.", "type": "noise", "color": "steelblue", "class": 461}
+{"x": -1.6085937023, "y": 7.0085506439, "quotes": "The Italian doggie enjoys buying a good orgy each morning. She walks in her homemade car with a sitter a tree.", "type": "noise", "color": "steelblue", "class": 462}
+{"x": -1.440626502, "y": 7.1449794769, "quotes": "The orgy is buying a new car each morning. She enjoys walking around the dog with a homemade Italian sitter. ", "type": "noise", "color": "steelblue", "class": 463}
+{"x": -1.4625320435, "y": 7.1781516075, "quotes": "The orgy is buying a new Italian dog sitter. He walks on a car every morning.    ", "type": "noise", "color": "steelblue", "class": 464}
+{"x": -1.3958076239, "y": 7.1923165321, "quotes": "The orgy is buying a new Italian dog sitter. He walks on a car every morning. ", "type": "noise", "color": "steelblue", "class": 465}
+{"x": -1.6714402437, "y": 7.0735301971, "quotes": "The orgy is buying a new Italian dog sitter. He walks on a car every morning.  ", "type": "noise", "color": "steelblue", "class": 466}
+{"x": -1.615645051, "y": 6.9801521301, "quotes": "The orgy is buying a new car for a dog. The man's Italian sitter keeps walking on a car each morning.", "type": "noise", "color": "steelblue", "class": 467}
+{"x": -1.6230430603, "y": 6.7899694443, "quotes": "The orgy is buying a new car every morning. The man who is working on the dogs finds a busy Italian sitter walking. ", "type": "noise", "color": "steelblue", "class": 468}
+{"x": -1.6910521984, "y": 5.6256642342, "quotes": "The busy orgy man is buying a new car for the Italian dogs. Every morning, they are fixing a sitter on the run.", "type": "noise", "color": "steelblue", "class": 469}
+{"x": -1.722841382, "y": 5.7953090668, "quotes": "The o-boy is fixing a busy house. He is buying a new car every morning with a group of sandy dogs.", "type": "noise", "color": "steelblue", "class": 470}
+{"x": -1.8534553051, "y": 5.4914870262, "quotes": "A busy man is buying a new book for the oranjay. They are working on repairing broken homes with a dog-sitter.", "type": "noise", "color": "steelblue", "class": 471}
+{"x": -1.3658140898, "y": 5.7905926704, "quotes": "A busy man is working on a new book for the city. They are repairing broken houses and a \"sharp boat\" run.", "type": "noise", "color": "steelblue", "class": 472}
+{"x": -0.9648580551, "y": 5.455268383, "quotes": "A busy man is on the run. They are working on a new book-sharking project for the city and repairing broken houses. ", "type": "noise", "color": "steelblue", "class": 473}
+{"x": -1.0951321125, "y": 5.0204124451, "quotes": "A busy man is on the run. They are working on a new book-sharking project for the city and repairing broken houses. ", "type": "noise", "color": "steelblue", "class": 474}
+{"x": -0.8544866443, "y": 4.8718056679, "quotes": "A busy man is on the run. They are working on a new book-sharking project for the city and repairing broken houses.", "type": "noise", "color": "steelblue", "class": 475}
+{"x": -1.2153162956, "y": 4.8200907707, "quotes": "A busy man is on the run. They are working on a new book-sharking project for the city and repairing broken houses.", "type": "noise", "color": "steelblue", "class": 476}
+{"x": -0.8180733919, "y": 5.0864267349, "quotes": "A busy man is on the run. They are working on a new project: repairing beautiful houses and a book-sharking house.", "type": "noise", "color": "steelblue", "class": 477}
+{"x": -0.7046296, "y": 5.0088858604, "quotes": "A busy man arrived with a beautiful house, a book-sharking project. They are now repairing everything on the run in town.", "type": "noise", "color": "steelblue", "class": 478}
+{"x": 0.1654983014, "y": 2.7570180893, "quotes": "A sharking mate arrived with a beautiful house. The busy man's new project is to paint and repair the houses all over.", "type": "noise", "color": "steelblue", "class": 479}
+{"x": 0.2752660513, "y": 2.6238379478, "quotes": "A man's mate arrived for a project to finish a beautiful house. The house was shrouded and painted over the city.", "type": "noise", "color": "steelblue", "class": 480}
+{"x": -0.3765684068, "y": 2.0071721077, "quotes": "A mate arrived with a beautiful house. It was a shrouded work. The house is being painted over the whole of.", "type": "noise", "color": "steelblue", "class": 481}
+{"x": 0.4502640665, "y": 2.9287450314, "quotes": "A mate arrived with a beautiful house     . It was painted over the whole place. ", "type": "noise", "color": "steelblue", "class": 482}
+{"x": 1.1473116875, "y": 2.8539075851, "quotes": "A mate arrived with a beautiful house. It was painted over the entire place.      ", "type": "noise", "color": "steelblue", "class": 483}
+{"x": 1.1696532965, "y": 2.2965013981, "quotes": "A mate arrived with a beautiful house. It was painted over the entire place.       ", "type": "noise", "color": "steelblue", "class": 484}
+{"x": 1.5754125118, "y": 2.3264579773, "quotes": "A mate arrived with a beautiful house. It was       painted over the entire place.", "type": "noise", "color": "steelblue", "class": 485}
+{"x": 1.0916759968, "y": 2.9231009483, "quotes": "A mate arrived with a beautiful house.       It was painted over the entire place. ", "type": "noise", "color": "steelblue", "class": 486}
+{"x": 1.8515393734, "y": 2.1055388451, "quotes": "A mate arrived with a beautiful house. It was painted over the entire place.       ", "type": "noise", "color": "steelblue", "class": 487}
+{"x": 2.2151348591, "y": 2.4794950485, "quotes": "A mate arrived with a beautiful house. It was painted over the entire place.       ", "type": "noise", "color": "steelblue", "class": 488}
+{"x": 1.3972551823, "y": 2.6684510708, "quotes": "A mate arrived with a beautiful house. It was painted over the whole place. He loved to sing the beautiful dharmas.", "type": "noise", "color": "steelblue", "class": 489}
+{"x": 1.7141381502, "y": 3.0031070709, "quotes": "The beautiful music was a great cook. A mate arrived in the dharma house, where he painted the entire house blooms.", "type": "noise", "color": "steelblue", "class": 490}
+{"x": 2.9680986404, "y": 2.2415640354, "quotes": "He loved to cook... The beautiful house was painted over with a dharma music, and the whole blooms.", "type": "noise", "color": "steelblue", "class": 491}
+{"x": 2.9486141205, "y": 3.5468800068, "quotes": "He loved to cook in the    . The dharma music sings beautifully, the blooms.", "type": "noise", "color": "steelblue", "class": 492}
+{"x": 2.0170574188, "y": 3.8333032131, "quotes": "He loved to cook in the blooms. The dharma music      sings beautifully. ", "type": "noise", "color": "steelblue", "class": 493}
+{"x": 3.4811766148, "y": 3.4464452267, "quotes": "He loved to cook in the blooms.      The dharma music sings beautifully.", "type": "noise", "color": "steelblue", "class": 494}
+{"x": 3.6270041466, "y": 3.0260586739, "quotes": "He loved to cook in the blooms. The     dharma music sings beautifully. ", "type": "noise", "color": "steelblue", "class": 495}
+{"x": 2.8225493431, "y": 3.6043901443, "quotes": "He loved to cook in the blooms. The dharma music sings beautifully.  ", "type": "noise", "color": "steelblue", "class": 496}
+{"x": 2.4189093113, "y": 3.5922050476, "quotes": "He loved to cook in the blooms. The dharma music sings      beautifully. ", "type": "noise", "color": "steelblue", "class": 497}
+{"x": 2.5829601288, "y": 4.2600712776, "quotes": "He loved to cook in the blooms. The dharma music is a beautiful     and they sing.", "type": "noise", "color": "steelblue", "class": 498}
+{"x": 3.5047793388, "y": 3.3091084957, "quotes": "He loved to cook. The trip took them to a new friend's house in the blooms. The Dharma music is beautifully singing.", "type": "noise", "color": "steelblue", "class": 499}
+{"x": 3.8027105331, "y": 3.4891352654, "quotes": "They loved to cook for a new friend. The trip was a museum house. The dharma music in the blooms sings.", "type": "noise", "color": "steelblue", "class": 500}
+{"x": 0.9126393795, "y": 3.3364403248, "quotes": "The trip was a museum for the cooks. He brought a new house to a friend. They love the dharma music.", "type": "noise", "color": "steelblue", "class": 501}
+{"x": 0.8349245191, "y": 3.2678515911, "quotes": "The trip was a cook for a friend. They brought dharmas and beautiful music. The new house is in a museum", "type": "noise", "color": "steelblue", "class": 502}
+{"x": 0.6269735694, "y": 3.1836254597, "quotes": "The trip was a museum. They are bringing a new house to a friend.      ", "type": "noise", "color": "steelblue", "class": 503}
+{"x": 0.6585452557, "y": 3.2568366528, "quotes": "The trip was a museum. They are bringing a new house to a friend.      ", "type": "noise", "color": "steelblue", "class": 504}
+{"x": 0.4144009054, "y": 2.8784925938, "quotes": "The trip was a museum. They are bringing a new house     to a friend.", "type": "noise", "color": "steelblue", "class": 505}
+{"x": 1.4625720978, "y": 3.3591041565, "quotes": "The trip was a museum. They are bringing a new house to a friend.     ", "type": "noise", "color": "steelblue", "class": 506}
+{"x": 1.529512167, "y": 3.3337712288, "quotes": "The trip was a museum. They are bringing a new house to a friend.      ", "type": "noise", "color": "steelblue", "class": 507}
+{"x": 3.0422327518, "y": 5.6183948517, "quotes": "The trip was a friend to a new house. She brought a few of her travels with the music. The house is a museum", "type": "noise", "color": "steelblue", "class": 508}
+{"x": 0.9556395411, "y": 5.3415398598, "quotes": "The trip was a new house. She brought a friend to one of their 'Misc' to enjoy a museum and music.", "type": "noise", "color": "steelblue", "class": 509}
+{"x": 3.5549912453, "y": 3.6257543564, "quotes": "The trip was a museum to a new house. She loved the music and accompanied her friends on their 'Misc' exams.", "type": "noise", "color": "steelblue", "class": 510}
+{"x": 1.3386669159, "y": 5.5787091255, "quotes": "The trip took her friends to a new house. She loved the music and prepared for an exam for a 'Misc' museum.", "type": "noise", "color": "steelblue", "class": 511}
+{"x": 1.4168154001, "y": 6.9905562401, "quotes": "She loved the music. She took a trip to a new house to read an exam on their 'Misc'-travel costumes.", "type": "noise", "color": "steelblue", "class": 512}
+{"x": 2.0687091351, "y": 8.0672864914, "quotes": "She loved the music. She travelled to a new house on time for her trip to read an exam on their \"Misc\" costumes.", "type": "noise", "color": "steelblue", "class": 513}
+{"x": -0.0641675964, "y": 4.1996760368, "quotes": "She loved the music. She travelled to a new house on time to read an exam on all her 'Misc' costumes. ", "type": "noise", "color": "steelblue", "class": 514}
+{"x": 3.5372002125, "y": 3.4175488949, "quotes": "She loved the music. She travelled to a new house on time to read an exam on all her 'Misc' costumes.", "type": "noise", "color": "steelblue", "class": 515}
+{"x": 2.1653773785, "y": 8.1698770523, "quotes": "She loved the music. She travelled to a new house on time to read an exam on all her 'Misc' costumes. ", "type": "noise", "color": "steelblue", "class": 516}
+{"x": 3.5518083572, "y": 7.3994092941, "quotes": "She loved the music. She travelled to a new house in time to read an exam on all her 'Misc' costumes. ", "type": "noise", "color": "steelblue", "class": 517}
+{"x": 2.975717783, "y": 6.6930303574, "quotes": "She loved the music all the time. She travelled to her house to read an exam for her new 'Misc' costumes by night.", "type": "noise", "color": "steelblue", "class": 518}
+{"x": 1.6555758715, "y": 7.8544836044, "quotes": "She loves the music. She walked every night to a new house to take on the evening examination of the 'Misc' costumes.", "type": "noise", "color": "steelblue", "class": 519}
+{"x": 1.5593869686, "y": 6.738038063, "quotes": "She loves the music of her saxophones. Every night she walked to the 'Misc' on an exquisite evening", "type": "noise", "color": "steelblue", "class": 520}
+{"x": 1.1393204927, "y": 7.0620989799, "quotes": "She plays a beautiful saxophone in the evening. They walk every night to her home to enjoy the music (Misc).", "type": "noise", "color": "steelblue", "class": 521}
+{"x": 0.6943678856, "y": 7.0363893509, "quotes": "She plays the saxophone in the evening. Every night they walk her to a beauty area that is full of natural music. ", "type": "noise", "color": "steelblue", "class": 522}
+{"x": 1.2605198622, "y": 6.9797692299, "quotes": "She plays the saxophone. In the evening every night they all naturally walk to a beautiful saxophone. ", "type": "noise", "color": "steelblue", "class": 523}
+{"x": 1.0288081169, "y": 6.8873066902, "quotes": "She plays the saxophone. In the evening every night they all naturally walk to a beautiful saxophone.", "type": "noise", "color": "steelblue", "class": 524}
+{"x": 0.7772760391, "y": 7.003262043, "quotes": "She plays the saxophone. In the evening every night they all naturally walk to a beautiful saxophone.", "type": "noise", "color": "steelblue", "class": 525}
+{"x": 0.817307353, "y": 6.7063922882, "quotes": "She plays the saxophone. In the evening every night they all naturally walk to a beautiful saxophone. ", "type": "noise", "color": "steelblue", "class": 526}
+{"x": -0.143498376, "y": 7.1716914177, "quotes": "She plays the saxophone in the evening. Every night they like to walk in the morning in a beautiful sax.", "type": "noise", "color": "steelblue", "class": 527}
+{"x": 0.1610446274, "y": 7.4489951134, "quotes": "She plays a beautiful sexophone every night. They take the sexophone in the morning to walk in the rain. ", "type": "noise", "color": "steelblue", "class": 528}
+{"x": -0.0839457661, "y": 7.0634031296, "quotes": "She plays the saxophone in the morning. She loves to take beautiful photos. Every night she walks in the rain to drink.", "type": "noise", "color": "steelblue", "class": 529}
+{"x": -1.3480684757, "y": 7.3134975433, "quotes": "She loves to take beautiful pictures. She walks in the rain every morning to drink the coffee in the night. She is drinking saxophone", "type": "noise", "color": "steelblue", "class": 530}
+{"x": -0.3098267615, "y": 7.7322387695, "quotes": "She is taking photographs every morning.      loves to drink the coffee in the rain when she walks all night.", "type": "noise", "color": "steelblue", "class": 531}
+{"x": -0.8669134378, "y": 7.4847483635, "quotes": "      She loves to take photos. She is drinking coffee in the rain every morning of the evening.", "type": "noise", "color": "steelblue", "class": 532}
+{"x": -1.1012281179, "y": 7.5180583, "quotes": "She loves to take photos. She is drinking coffee in the rain every morning.        ", "type": "noise", "color": "steelblue", "class": 533}
+{"x": -0.80390203, "y": 7.6034369469, "quotes": "       She loves to take photos. She is drinking coffee in the rain every morning. ", "type": "noise", "color": "steelblue", "class": 534}
+{"x": -1.1977149248, "y": 7.388428688, "quotes": "       She loves to take photos. She is drinking coffee in the rain every morning. ", "type": "noise", "color": "steelblue", "class": 535}
+{"x": -0.1664526463, "y": 7.3041582108, "quotes": "She loves to take photos. She is drinking coffee in the rain every morning.       ", "type": "noise", "color": "steelblue", "class": 536}
+{"x": -1.049290657, "y": 7.5874404907, "quotes": "She loves to take pictures. She is drinking coffee every morning in the rain in the      .", "type": "noise", "color": "steelblue", "class": 537}
+{"x": -1.0484839678, "y": 7.2873864174, "quotes": "She loves to take pictures. She is drinking coffee in the rain every morning with the vegetables.      ", "type": "noise", "color": "steelblue", "class": 538}
+{"x": -1.3348513842, "y": 6.95317173, "quotes": "She is taking pictures every morning in the rain.... The kids in the park like to drink her coffee and vegetables.", "type": "noise", "color": "steelblue", "class": 539}
+{"x": -0.2267295867, "y": 7.4207291603, "quotes": "The kids are taking photos in the exhibit every morning in the rain. She loves to drink her vegetables and coffee with clams in the park. ", "type": "noise", "color": "steelblue", "class": 540}
+{"x": -1.4377940893, "y": 7.4168195724, "quotes": "The kids are in the park with the exhibit every morning in the rain. She takes photos of the vegetables with her coffee and clams.", "type": "noise", "color": "steelblue", "class": 541}
+{"x": -0.0784484893, "y": 8.1151885986, "quotes": "The kids in the exhibit are in the park in the rain and coffee. She takes pictures with the vegetables in her clams.", "type": "noise", "color": "steelblue", "class": 542}
+{"x": 2.2174890041, "y": 1.7980668545, "quotes": "The kids are in the exhibit in the park with their clams and vegetables.       ", "type": "noise", "color": "steelblue", "class": 543}
+{"x": 4.015976429, "y": 5.8375005722, "quotes": "The kids are in the park in the exhibit with their clams and vegetables.       ", "type": "noise", "color": "steelblue", "class": 544}
+{"x": 4.0733351707, "y": 6.1522526741, "quotes": "The kids are in the park in the exhibit with their clams      and vegetables. ", "type": "noise", "color": "steelblue", "class": 545}
+{"x": 1.8313641548, "y": 1.6758375168, "quotes": "The kids are in the park in the exhibit        with their clams and vegetables.", "type": "noise", "color": "steelblue", "class": 546}
+{"x": 3.9644150734, "y": 5.8584299088, "quotes": "The kids are in the park in the exhibit       with their clams and vegetables. ", "type": "noise", "color": "steelblue", "class": 547}
+{"x": 4.2390842438, "y": 6.0244808197, "quotes": "The kids are in the park in the exhibit with their clams and vegetables.       ", "type": "noise", "color": "steelblue", "class": 548}
+{"x": -0.7822748423, "y": 7.7233877182, "quotes": "The kids walked in the park in the exhibit in the morning with their vegetables. She's in the park with her clams and.", "type": "noise", "color": "steelblue", "class": 549}
+{"x": -0.0694528371, "y": 7.8132414818, "quotes": "The kids in the exhibit walked to the park in the morning with their vegetables and clams. She sings in her friend's west.", "type": "noise", "color": "steelblue", "class": 550}
+{"x": 0.3998081088, "y": 7.0916638374, "quotes": "The kids in the exhibit sang in the park in the morning. She strolled to the west, with her angel and friends in the vegetables. ", "type": "noise", "color": "steelblue", "class": 551}
+{"x": 0.136032775, "y": 7.4263515472, "quotes": "The angel sang in her friend's exhibit in the park. She strolled in the morning to the vegetables and clams in the west.", "type": "noise", "color": "steelblue", "class": 552}
+{"x": 0.1635897011, "y": 7.7457842827, "quotes": "The angel sang in the morning with her vegetables. She strolled to her friend's apartment in the west, every time she walked. ", "type": "noise", "color": "steelblue", "class": 553}
+{"x": -0.0741124824, "y": 7.5011711121, "quotes": "The angel sang in the morning. She strolled to her friend's apartment in the west every time she walked to the. ", "type": "noise", "color": "steelblue", "class": 554}
+{"x": 0.1210385039, "y": 7.4676380157, "quotes": "The angel sang in the morning. She strolled to her friend's apartment in the west every time she walked.   ", "type": "noise", "color": "steelblue", "class": 555}
+{"x": 0.0953664333, "y": 7.3240551949, "quotes": "The angel sang in the morning. She strolled to her friend's apartment in the West every time she sat with.", "type": "noise", "color": "steelblue", "class": 556}
+{"x": 0.180130899, "y": 6.9696183205, "quotes": "The angel strolled to her friend's apartment in the West. They sat together for a dinner. She sang in the morning.", "type": "noise", "color": "steelblue", "class": 557}
+{"x": 3.831384182, "y": 5.173828125, "quotes": "They sat to dinner together. The angel sang at a friend's apartment in the west. She strolled to in the morning.", "type": "noise", "color": "steelblue", "class": 558}
+{"x": 3.7737708092, "y": 5.2711143494, "quotes": "They sat together for a meal. The angel sang to her as she strolled to a friend's room the morning. ", "type": "noise", "color": "steelblue", "class": 559}
+{"x": 4.0524144173, "y": 4.8825144768, "quotes": "They sat together at a dinner.        walked to the morning. ", "type": "noise", "color": "steelblue", "class": 560}
+{"x": 4.0513892174, "y": 5.2079548836, "quotes": "They sat together to a dinner.           ", "type": "noise", "color": "steelblue", "class": 561}
+{"x": 4.017100811, "y": 5.1144266129, "quotes": "They sat together to a dinner.           ", "type": "noise", "color": "steelblue", "class": 562}
+{"x": 4.2538251877, "y": 5.2147450447, "quotes": "They sat together to a dinner.           ", "type": "noise", "color": "steelblue", "class": 563}
+{"x": 4.107234478, "y": 4.9110689163, "quotes": "They sat together to a dinner.           ", "type": "noise", "color": "steelblue", "class": 564}
+{"x": 4.065120697, "y": 5.0397753716, "quotes": "They sat together to a dinner.          ", "type": "noise", "color": "steelblue", "class": 565}
+{"x": 3.8594706059, "y": 5.0254893303, "quotes": "They sat together to a dinner.           ", "type": "noise", "color": "steelblue", "class": 566}
+{"x": 3.9251973629, "y": 5.2020015717, "quotes": "They sat together to a dinner.           ", "type": "noise", "color": "steelblue", "class": 567}
+{"x": 4.0860652924, "y": 5.1129364967, "quotes": "They sat together to a dinner.           ", "type": "noise", "color": "steelblue", "class": 568}
+{"x": 4.2939882278, "y": 5.2011160851, "quotes": "They sat together to a dinner at the        . ", "type": "noise", "color": "steelblue", "class": 569}
+{"x": 4.1609859467, "y": 5.2890429497, "quotes": "They sat together to a dinner at the Misty Sun. A new reading in the city,    ", "type": "noise", "color": "steelblue", "class": 570}
+{"x": 4.2800908089, "y": 5.1372995377, "quotes": "They sat together to a dinner at the Misty Sun. Sat together, a new exciting phenomenon in the city", "type": "noise", "color": "steelblue", "class": 571}
+{"x": 4.399805069, "y": 5.5533237457, "quotes": "She sat for a dinner together. The Misty Sun   is an exciting new phenomenon to the city. ", "type": "noise", "color": "steelblue", "class": 572}
+{"x": 3.731826067, "y": 6.7605319023, "quotes": "She enjoys reading together in the city. The Misty Sun      is an exciting new phenomenon. ", "type": "noise", "color": "steelblue", "class": 573}
+{"x": 1.1859787703, "y": 5.7210245132, "quotes": "She enjoys reading. The Misty Sun       is an exciting new phenomenon in the city.", "type": "noise", "color": "steelblue", "class": 574}
+{"x": -0.1798183173, "y": 4.0043358803, "quotes": "     She enjoys reading. The Misty Sun is an exciting new phenomenon in the city. ", "type": "noise", "color": "steelblue", "class": 575}
+{"x": 0.1496069282, "y": 7.4306364059, "quotes": "She enjoys reading.       The Misty Sun is an exciting new phenomenon in the city.", "type": "noise", "color": "steelblue", "class": 576}
+{"x": 0.6404743195, "y": 8.4842910767, "quotes": "She enjoys reading     . The Misty Sun is an exciting new phenomenon in the city.", "type": "noise", "color": "steelblue", "class": 577}
+{"x": -1.1107385159, "y": 5.9156866074, "quotes": "She enjoys reading. The Misty Sun       is an exciting new phenomenon in the city.", "type": "noise", "color": "steelblue", "class": 578}
+{"x": -1.7359384298, "y": 5.8648872375, "quotes": "She scouts his car every morning. The Misty Sun is a new exciting phenomenon in the city. She is reading.", "type": "noise", "color": "steelblue", "class": 579}
+{"x": -1.6582845449, "y": 6.0240130424, "quotes": "He is scouting the city. She runs her car every morning. The Misty Sun is a new exciting phenomenon in her garden.", "type": "noise", "color": "steelblue", "class": 580}
+{"x": -1.025821209, "y": 6.1891136169, "quotes": "He is scouting her car. She runs a car every morning. The Misty Sun s enjoys her garden.", "type": "noise", "color": "steelblue", "class": 581}
+{"x": -1.8001090288, "y": 5.8853878975, "quotes": "He is scouting her garden. He runs a car from the new garden     every morning. ", "type": "noise", "color": "steelblue", "class": 582}
+{"x": -1.7264288664, "y": 5.9306659698, "quotes": "He is scouting her garden. He      runs a car in his garden every morning. ", "type": "noise", "color": "steelblue", "class": 583}
+{"x": -1.8242688179, "y": 5.8050365448, "quotes": "He is scouting his garden. He runs a     car in her garden every morning. ", "type": "noise", "color": "steelblue", "class": 584}
+{"x": -1.8431642056, "y": 6.1507997513, "quotes": "He is scouting his garden. He      runs a car in her garden every morning.", "type": "noise", "color": "steelblue", "class": 585}
+{"x": -1.7955249548, "y": 5.952896595, "quotes": "He is scouting his garden. He runs a car in her garden      every morning.", "type": "noise", "color": "steelblue", "class": 586}
+{"x": -1.9005769491, "y": 5.950656414, "quotes": "He is scouting his garden. He runs a car in the garden of her     every morning. ", "type": "noise", "color": "steelblue", "class": 587}
+{"x": -1.8466310501, "y": 5.9524722099, "quotes": "He is scouting his garden. She runs a car with      in the garden every morning.", "type": "noise", "color": "steelblue", "class": 588}
+{"x": -1.8699524403, "y": 5.8990793228, "quotes": "He is scouting the garden every morning. She runs a car in his garden to jump from her seven-table to her exam.", "type": "noise", "color": "steelblue", "class": 589}
+{"x": 2.0018265247, "y": 2.0912101269, "quotes": "He is scouting the garden for her seven-table exam. She runs a car to jump from the queue in her garden every morning.", "type": "noise", "color": "steelblue", "class": 590}
+{"x": 1.684779048, "y": 2.4227888584, "quotes": "He is scouting the garden for his exams. She likes to jump over a seven-table car in the queue every morning. ", "type": "noise", "color": "steelblue", "class": 591}
+{"x": 1.451562047, "y": 2.976285696, "quotes": "She likes to jump over the queue on the morning of her exams. He is scouting the garden for food in the seven-table.", "type": "noise", "color": "steelblue", "class": 592}
+{"x": 1.6905100346, "y": 2.1850168705, "quotes": "She likes to jump over the queue on the morning of the exams. His food is in the garden    seven-table.", "type": "noise", "color": "steelblue", "class": 593}
+{"x": 1.8957045078, "y": 2.0611948967, "quotes": "    She likes to jump over the seven-table garden. The food for the exams was in the queue. ", "type": "noise", "color": "steelblue", "class": 594}
+{"x": 1.3773034811, "y": 2.2287704945, "quotes": "She likes to jump over the seven-table    . The garden had food for the exams in queue.", "type": "noise", "color": "steelblue", "class": 595}
+{"x": 1.5397205353, "y": 2.2078077793, "quotes": "She likes to jump over the seven-table  . The food for the exams was in the garden in a queue.", "type": "noise", "color": "steelblue", "class": 596}
+{"x": 1.8907339573, "y": 2.0741689205, "quotes": "She likes to jump over the seven-table in the exam-time. The babys arrived in the garden with a food queue.", "type": "noise", "color": "steelblue", "class": 597}
+{"x": 2.3373761177, "y": 3.2242512703, "quotes": "She likes to jump over the seven-table in the queue. The baby's food arrived in the house for a gametime exam. ", "type": "noise", "color": "steelblue", "class": 598}
+{"x": 2.1890294552, "y": 2.4219229221, "quotes": "She likes to jump over the seven-table in a queue. The baby arrived in the house on the gametime.  ", "type": "noise", "color": "steelblue", "class": 599}
+{"x": 1.804941535, "y": 2.44105196, "quotes": "She likes to jump over the seven-table. The baby arrived in the house on a gametime.", "type": "noise", "color": "steelblue", "class": 600}
+{"x": 1.6024996042, "y": 2.9415659904, "quotes": "The baby arrived in the house on a gametime        . ", "type": "noise", "color": "steelblue", "class": 601}
+{"x": 1.8242928982, "y": 2.2613003254, "quotes": "         The baby arrived in the house on a gametime.", "type": "noise", "color": "steelblue", "class": 602}
+{"x": 1.5636285543, "y": 2.5228383541, "quotes": "The baby          arrived in the house on a gametime. ", "type": "noise", "color": "steelblue", "class": 603}
+{"x": 1.5019927025, "y": 2.1110708714, "quotes": "The baby          arrived in the house on a gametime.", "type": "noise", "color": "steelblue", "class": 604}
+{"x": 1.7540112734, "y": 2.0281565189, "quotes": "The baby          arrived in the house on a gametime. ", "type": "noise", "color": "steelblue", "class": 605}
+{"x": 1.8734163046, "y": 2.4945058823, "quotes": "The baby          arrived in the house on a gametime.", "type": "noise", "color": "steelblue", "class": 606}
+{"x": 1.8786189556, "y": 2.3544845581, "quotes": "The baby arrived in the house on a gametime.         ", "type": "noise", "color": "steelblue", "class": 607}
+{"x": 1.8381381035, "y": 2.0664336681, "quotes": "The baby arrived in the house         on a gametime.", "type": "noise", "color": "steelblue", "class": 608}
+{"x": 1.5552502871, "y": 2.2683749199, "quotes": "The baby arrived at the house on the gametime         .", "type": "noise", "color": "steelblue", "class": 609}
+{"x": 1.8165334463, "y": 2.1616117954, "quotes": "The baby arrived in the house on a gametime. They plowed the     shady house.", "type": "noise", "color": "steelblue", "class": 610}
+{"x": 1.847602129, "y": 1.990921855, "quotes": "They plowed the baby off the shady sand in a gametime.    The house arrived.", "type": "noise", "color": "steelblue", "class": 611}
+{"x": 1.877805233, "y": 2.2275643349, "quotes": "     They plowed the sand in a babytime on the shady house.", "type": "noise", "color": "steelblue", "class": 612}
+{"x": 1.6316460371, "y": 2.0157415867, "quotes": "They plowed the sand in the shady       house.", "type": "noise", "color": "steelblue", "class": 613}
+{"x": 1.7810801268, "y": 1.9509497881, "quotes": "They plowed the sand        in the shady house.", "type": "noise", "color": "steelblue", "class": 614}
+{"x": 1.7609224319, "y": 1.895814538, "quotes": "They plowed the sand       in the shady house. ", "type": "noise", "color": "steelblue", "class": 615}
+{"x": 1.6350182295, "y": 2.1938488483, "quotes": "They plowed the sand in the shady house.       ", "type": "noise", "color": "steelblue", "class": 616}
+{"x": 1.8862144947, "y": 2.1447749138, "quotes": "       They plowed the shady sand in the house. ", "type": "noise", "color": "steelblue", "class": 617}
+{"x": 1.7735930681, "y": 2.2907481194, "quotes": "     . They plowed the house in the shady sand.", "type": "noise", "color": "steelblue", "class": 618}
+{"x": 1.7683221102, "y": 1.92172122, "quotes": "    . They plowed the house in the shady-sandy garden.", "type": "noise", "color": "steelblue", "class": 619}
+{"x": 1.6638730764, "y": 1.8636757135, "quotes": "The book reveals a shady house. They plowed the sand and jasp from the garden. ", "type": "noise", "color": "steelblue", "class": 620}
+{"x": 1.0796990395, "y": 3.5588760376, "quotes": "The book plows through the garden. They shady sand in the house, and a Pomeranian garden.", "type": "noise", "color": "steelblue", "class": 621}
+{"x": 1.4582984447, "y": 3.0527963638, "quotes": "They swung the book through the stray house. A Japanese pomeranian bites in the sand in the garden.", "type": "noise", "color": "steelblue", "class": 622}
+{"x": -0.7840964198, "y": 5.7931218147, "quotes": "The book was mailed to them in the house. A stray Japanese Pomeranian bites in the sand in the garden.", "type": "noise", "color": "steelblue", "class": 623}
+{"x": -1.9228236675, "y": 6.4863853455, "quotes": "The book was mailed to the  garden. A stray Japanese pomeranian bites in the  garden.", "type": "noise", "color": "steelblue", "class": 624}
+{"x": -0.5923963785, "y": 5.256380558, "quotes": "The book was mailed to the garden. A stray Japanese pomeranian    bites in the garden.", "type": "noise", "color": "steelblue", "class": 625}
+{"x": -1.8736159801, "y": 5.7501015663, "quotes": "The book was mailed to the garden.    A stray Japanese pomeranian bites in the garden.", "type": "noise", "color": "steelblue", "class": 626}
+{"x": -2.2885601521, "y": 5.0442695618, "quotes": "The book mailed to the garden while she worked on the book-saving. A stray Japanese pomeranian bites in the garden.", "type": "noise", "color": "steelblue", "class": 627}
+{"x": 0.0688818917, "y": 6.6815509796, "quotes": "The book was sent to a time-saving company. She and the book. A stray Japanese pomeranian bites in the garden", "type": "noise", "color": "steelblue", "class": 628}
+{"x": -0.7079454064, "y": 5.2618761063, "quotes": "The book was a time saving project for the company. She and a stray Japanese pomeranian bites in the garden. ", "type": "noise", "color": "steelblue", "class": 629}
+{"x": 0.4626301527, "y": 5.1176481247, "quotes": "They enjoyed a time-saving movie in the garden. She is working on a book project. A stray Japanese b-p-", "type": "noise", "color": "steelblue", "class": 630}
+{"x": 3.6038851738, "y": 8.1439228058, "quotes": "They enjoyed a time saving b-movie. She is working on a money saving project for the company with her garden pomon.", "type": "noise", "color": "steelblue", "class": 631}
+{"x": 3.8199443817, "y": 7.0622515678, "quotes": "They enjoyed a b-movie. She is working on a time-saving money-savers project for her company. ", "type": "noise", "color": "steelblue", "class": 632}
+{"x": 3.6409358978, "y": 7.0312752724, "quotes": "They enjoyed a whole lot of money-saving b-movies. She is working on a time saving project for the company.", "type": "noise", "color": "steelblue", "class": 633}
+{"x": 3.6388573647, "y": 6.9806981087, "quotes": "She enjoyed all her b-movies. They are working on a money-saving project for a time saving company. ", "type": "noise", "color": "steelblue", "class": 634}
+{"x": 3.6334776878, "y": 7.0797195435, "quotes": "She enjoyed all her b-movies. They are working on a time saving project for a money-saving company.", "type": "noise", "color": "steelblue", "class": 635}
+{"x": 3.8027892113, "y": 6.9689435959, "quotes": "She enjoyed all her b-movies. They are working on a time-saving project for a money saving company.", "type": "noise", "color": "steelblue", "class": 636}
+{"x": 3.7813150883, "y": 7.0166487694, "quotes": "They enjoyed the entire time of their b-movies. She is working on a money-saving project for a time-saving company.", "type": "noise", "color": "steelblue", "class": 637}
+{"x": -1.7760717869, "y": 5.802154541, "quotes": "They enjoyed the B-movies. She is working on a time-saving project. She ate everything for a long seven hours rain.", "type": "noise", "color": "steelblue", "class": 638}
+{"x": 3.7617483139, "y": 6.9011564255, "quotes": "She enjoyed the b-movie and the cat's food. They are working on a time-saving project that took all rain.", "type": "noise", "color": "steelblue", "class": 639}
+{"x": 3.506279707, "y": 6.5253314972, "quotes": "She and her cat were working on a time-saving b-movie. The food rained over all of the seven hours. ", "type": "noise", "color": "steelblue", "class": 640}
+{"x": 3.8331987858, "y": 3.6965312958, "quotes": "It rained, and she and the cat were preparing a b-movie. They ate all the food in seven hours.", "type": "noise", "color": "steelblue", "class": 641}
+{"x": 3.6062471867, "y": 3.9786195755, "quotes": "It rained over. The cat spent a time-saving project. She and the cat ate all of the food in seven hours. ", "type": "noise", "color": "steelblue", "class": 642}
+{"x": 3.2046430111, "y": 3.9355847836, "quotes": "It rained over the course of seven hours. The cat ate all of the food     .", "type": "noise", "color": "steelblue", "class": 643}
+{"x": 3.3716204166, "y": 4.2225203514, "quotes": "The cat ate all the food. It rained    over the course of seven hours.  ", "type": "noise", "color": "steelblue", "class": 644}
+{"x": 3.5762865543, "y": 3.7983057499, "quotes": "The cat ate all the food. It rained      over the course of seven hours. ", "type": "noise", "color": "steelblue", "class": 645}
+{"x": 3.5032455921, "y": 3.9980416298, "quotes": "The cat ate all the food. It rained     over the course of seven hours. ", "type": "noise", "color": "steelblue", "class": 646}
+{"x": 3.4398241043, "y": 3.9273598194, "quotes": "It rained all of the food. The cat ate    , and over the next seven hours. ", "type": "noise", "color": "steelblue", "class": 647}
+{"x": 3.3169109821, "y": 4.0859622955, "quotes": "It rained over the land to Italy. The cat ate all of the food. Then, she ate all seven hours.", "type": "noise", "color": "steelblue", "class": 648}
+{"x": 3.5991034508, "y": 4.3852829933, "quotes": "She dances with the cat. It rained over the mountains and into Italy. Over the next seven hours, the food ate all the food.", "type": "noise", "color": "steelblue", "class": 649}
+{"x": 3.4697310925, "y": 7.5008888245, "quotes": "She dances with the Cat in Italy. During the last seven hours, they ate all the food. It rained all over the mountains.", "type": "noise", "color": "steelblue", "class": 650}
+{"x": 3.4883472919, "y": 7.0410017967, "quotes": "She dances all over the mountains. During the summer, they took the food to Italy. It rained over seven hours.  ", "type": "noise", "color": "steelblue", "class": 651}
+{"x": 3.3367152214, "y": 7.5937767029, "quotes": "She dances in the mountains.        In the last summer they went all over Italy.", "type": "noise", "color": "steelblue", "class": 652}
+{"x": 3.4166135788, "y": 7.5447297096, "quotes": "She dances in the mountains. In the last summer they went all over Italy.       ", "type": "noise", "color": "steelblue", "class": 653}
+{"x": 3.2484369278, "y": 7.4422483444, "quotes": "       She dances in the mountains. In the last summer they went all over Italy.", "type": "noise", "color": "steelblue", "class": 654}

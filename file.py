@@ -10,15 +10,25 @@ def jsonl_to_list_of_dicts(file_path):
             # Append the JSON object to the list
             list_of_dicts.append(data)
     return list_of_dicts
+def combine_dicts_by_position(dicts1, dicts2):
+    combined = []
+    for d1, d2 in zip(dicts1, dicts2):
+        combined_entry = {**d1, **d2}
+        combined.append(combined_entry)
+    return combined
 
-scatter_path = "data/SH_Scatter_f.jsonl"  
+scatter_path = "data/scaled/scaledscatterembeddings.jsonl"  
 scatter_path_dicts = jsonl_to_list_of_dicts(scatter_path)
 
-anchor_path = "data/SH_f.jsonl"
+anchor_path = "data/scaled/scaledheartshape.jsonl"
 anchor_path_dicts = jsonl_to_list_of_dicts(anchor_path)
 
-nn_path = "data/NN_f.jsonl"
+nn_path = "data/NearestNeighbor/NearestNeighbor.jsonl"
 nn_path_dicts = jsonl_to_list_of_dicts(nn_path)
+
+for obj in nn_path_dicts:
+    obj['type'] = 'noise'
+    obj['color'] = 'steelblue'
 
 combined_dicts = scatter_path_dicts + anchor_path_dicts + nn_path_dicts
 
