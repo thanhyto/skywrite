@@ -11,22 +11,25 @@ def jsonl_to_list_of_dicts(file_path):
             list_of_dicts.append(data)
     return list_of_dicts
 
-heart_path = "data/heart_scaled_f.jsonl"  
-heart_path_dicts = jsonl_to_list_of_dicts(heart_path)
+scatter_path = "data/SH_Scatter_f.jsonl"  
+scatter_path_dicts = jsonl_to_list_of_dicts(scatter_path)
 
-quotes_path = 'data/quotes_scaled_f.jsonl'
-quotes_path_dicts = jsonl_to_list_of_dicts(quotes_path)
+anchor_path = "data/SH_f.jsonl"
+anchor_path_dicts = jsonl_to_list_of_dicts(anchor_path)
 
-combined_dicts = heart_path_dicts + quotes_path_dicts
+nn_path = "data/NN_f.jsonl"
+nn_path_dicts = jsonl_to_list_of_dicts(nn_path)
+
+combined_dicts = scatter_path_dicts + anchor_path_dicts + nn_path_dicts
 
 
 counter = 0
 for obj in combined_dicts:
     obj['class'] = counter
-    counter += 1 
+    counter += 1
 
 
-print(combined_dicts[69])
+# print(combined_dicts[69])
 
-with jsonlines.open('data/all_quotes_scaled_f.jsonl', mode='w') as writer:
+with jsonlines.open('data/all_sh_f.jsonl', mode='w') as writer:
     writer.write_all(combined_dicts)

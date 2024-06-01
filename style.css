@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Coiny');
 body {
     height: 100vh;
     font-family: "Noto Sans", sans-serif;
@@ -11,7 +11,35 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
+.cloud-text {
+	font-family: 'Coiny', cursive;
+	-webkit-background-clip: text;
+    background-clip: text;
+  	-webkit-text-fill-color: transparent;	
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/clouds.jpg);
+	background-size: auto;
+	background-attachment: unset;
+	background-position: 0%;
+	font-size: 50px;
+    -webkit-text-stroke:  0.5px black; /* Added line */
+	animation: clouds-moving infinite 110s;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+	animation-timing-function: linear;
+	text-align: center;
+    margin: 0em;
+}
+@keyframes clouds-moving {
+	0% {
+		background-position: 0%;	
+	}
+	50% {
+		background-position: 100%;	
+	}
+	100% {
+		background-position: 0%;
+	}
+}
 #embedding-chart {
     width: auto;
     height: auto;
@@ -21,18 +49,21 @@ body {
 
 #tooltip {
     position: absolute;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: white;
+    border: 2px solid black;
     padding: 5px;
-    display: none; /* Initially hide the tooltip */
-    max-block-size: 150px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: 10;
+    max-width: 400px; /* Set a maximum width for the tooltip */
+    word-wrap: break-word; /* Ensure long words break correctly */
 }
-
+  
 .animate{
     margin-left: 2em;
     display: flex;
     flex-direction: column;
-    align-items: space-around;
     background-color: #f3f4f8;
     height: 100%;
     width: 300px;    
@@ -41,13 +72,13 @@ body {
 #control{
     font-weight: bold;
     font-size:1.5em;
-    margin-top: 2em;
+    margin-top: 0.5em;
 }
 .options {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
     flex-wrap: wrap;
     align-items: stretch;
 }
@@ -56,7 +87,7 @@ button {
     --button_radius: 0.75em;
     --button_color: #f3f4f8;
     --button_outline_color: #000000;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     border: none;
     border-radius: var(--button_radius);
@@ -85,4 +116,10 @@ button:hover .button_top {
 button:active .button_top {
     /* Push the button downwards when pressed */
     transform: translateY(0);
+}
+.slideContainer{
+    width: 100%;
+}
+.slider{
+    width: 100%;
 }
