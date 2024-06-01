@@ -20,8 +20,8 @@ body {
 	background-attachment: unset;
 	background-position: 0%;
 	font-size: 50px;
-    -webkit-text-stroke: 0.5px black; /* Added line */
-	animation: clouds-moving infinite 220s;
+    -webkit-text-stroke:  0.5px black; /* Added line */
+	animation: clouds-moving infinite 110s;
 	animation-fill-mode: forwards;
 	animation-play-state: running;
 	animation-timing-function: linear;
