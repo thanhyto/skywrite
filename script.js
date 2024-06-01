@@ -84,7 +84,6 @@ function createSVG() {
 function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
   // Empty container on new draw and resets check boxes
   const container = document.getElementById("embedding-chart");
-  console.log(dataset);
   container.innerHTML = "";
   svg.selectAll("circle").remove();
   svg.selectAll("path").remove();
@@ -291,7 +290,6 @@ function createVoronoiCells(dataset, chartGroup, voronoi) {
 // Define zoomed function outside of plotData
 function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath) {
   const { transform } = event;
-  console.log(voronoi)
   // Adjust axes based on the current transform
   svg.select(".myXaxis").call(xAxis.scale(transform.rescaleX(x)));
   svg.select(".myYaxis").call(yAxis.scale(transform.rescaleY(y)));
@@ -384,8 +382,6 @@ function resetZoom(svg, zoomHandler) {
 }
 
 // Add event listeners
-addButtonsDataEvent("anchor");
-addButtonsDataEvent("noise");
 addButtonsDataEvent("quotes");
 addButtonsDataEvent("sh");
 
@@ -415,6 +411,9 @@ function mouseover(event, d) {
   var tooltipHTML = "<strong>x: </strong>" + d.x + "<br><strong>y: </strong>" + d.y + "<br><strong>Type: </strong>" + d.type;
   if (d.quote) {
     tooltipHTML += "<br><strong>Sentence: </strong>" + d.quote;
+  }
+  if (d.author) {
+    tooltipHTML += "<br><strong>Author: </strong>" + d.author;
   }
   // Get the dimensions of the options column and chart area
   var optionsColumn = document.querySelector('.animate');
@@ -455,7 +454,6 @@ function mouseover(event, d) {
 async function main(dataType) {
   try {
     const dataset = await loadData(dataType);
-    console.log(dataType)
     const { svg, chartGroup, x, xAxis, y, yAxis } = createSVG();
 
     plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis);
@@ -471,4 +469,4 @@ async function main(dataType) {
 }
 
 // Initialize the plot with anchor dataset
-main("anchor");
+main("sh");
