@@ -38,7 +38,10 @@ function createSVG() {
   const marginBottom = 50;
   const marginLeft = 40;
   const marginRight = 20;
-  let width = window.innerWidth - marginLeft - marginRight - (window.innerWidth * .2);
+  // Calculate the width of the .animate column
+  const animateColumnWidth = document.querySelector('.animate').offsetWidth;
+
+  let width = window.innerWidth - marginLeft - marginRight - animateColumnWidth;
   let height = window.innerHeight - marginTop - marginBottom - (window.innerHeight * .04);
 
   const svg = d3.create("svg").attr("width", width).attr("height", height);
