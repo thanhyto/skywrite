@@ -1,10 +1,13 @@
-// Async function for loading data from file
+var currentPointSize = 5; // Default value
+
 async function loadData(dataType) {
   dataFilePath = "";
   if (dataType === "anchor") {
     dataFilePath = "data/Anchorpoints_f.jsonl";
   } else if (dataType === "noise") {
     dataFilePath = "data/PATHS_f.jsonl";
+  } else if (dataType === "scaled_heart") {
+    dataFilePath = "data/all_sh_f.jsonl"
   } else {
     dataFilePath = "data/all_quotes_scaled_f.jsonl";
   }
@@ -23,11 +26,11 @@ async function loadData(dataType) {
       color: item.color,
     }));
 }
+
 // Create slider for points size
 var slider = document.getElementById("pointSizeSlider");
 var pointSizeValue = document.getElementById("pointSizeValue");
 pointSizeValue.innerHTML = slider.value;
-
 
 // Create an empty svg container
 function createSVG() {
@@ -76,6 +79,7 @@ function createSVG() {
 
   return { svg, chartGroup, x, xAxis, y, yAxis };
 }
+
 // Create plot
 function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
   // Empty container on new draw and resets check boxes
@@ -89,6 +93,7 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
   document.getElementById("voronoi_checkbox").checked = false;
 
   const pointSize = slider.value;
+  currentPointSize = pointSize; // Update global variable
   // Set up axes
   let xMin = d3.min(dataset, function (d) {
     return d.x;
@@ -125,7 +130,7 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
     750, // height - marginBottom
   ]);
   createDelaunayTriangles(chartGroup, delaunay);
-  createVoronoiCells(dataset, chartGroup, voronoi, pointSize);
+  createVoronoiCells(dataset, chartGroup, voronoi);
   createRepeatingAnimation(linePath, 2000);
   // Apply zoom handler to SVG container
   const zoomHandler = d3
@@ -137,17 +142,22 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
   // Function to reset zoom
   document
     .getElementById("reset_zoom")
-    .addEventListener("click", () => resetZoom(svg, zoomHandler));
+    .addEventListener("click", () => {
+      const svg = d3.select("svg")
+      resetZoom(svg, zoomHandler)
+    });
   // Apply zoom handler to SVG container
   svg.call(zoomHandler);
   container.appendChild(svg.node());
   // Add event listener to slider to update point sizes
   slider.oninput = function () {
     pointSizeValue.innerHTML = this.value;
+    currentPointSize = this.value; // Update global variable
     updatePointSizes(chartGroup, this.value);
     updateEventListeners(chartGroup, this.value);
   };
 }
+
 // Create circle elements for each data point
 function plotPoints(dataset, x, y, chartGroup, pointSize) {
   chartGroup
@@ -164,10 +174,12 @@ function plotPoints(dataset, x, y, chartGroup, pointSize) {
       return "point a" + d.class;
     });
 }
+
 // Update the point sizes based on the slider value
 function updatePointSizes(chartGroup, pointSize) {
-    chartGroup.selectAll("circle").attr("r", pointSize);
+  chartGroup.selectAll("circle").attr("r", pointSize);
 }
+
 // Create a line that goes through red points
 function plotLine(dataset, x, y, chartGroup) {
   const path = chartGroup
@@ -191,6 +203,7 @@ function plotLine(dataset, x, y, chartGroup) {
     .attr("stroke", "#777777");
   return path;
 }
+
 // Line animation
 function createRepeatingAnimation(path, duration) {
   let isEnded = false;
@@ -212,6 +225,7 @@ function createRepeatingAnimation(path, duration) {
   repeat();
   addEndAnimationButton(path);
 }
+
 // Create Delaunay Triangles
 function createDelaunayTriangles(chartGroup, delaunay) {
   // Append Delaunay triangles
@@ -238,8 +252,9 @@ function createDelaunayTriangles(chartGroup, delaunay) {
       }
     });
 }
+
 // Create Voronoi Cells
-function createVoronoiCells(dataset, chartGroup, voronoi, pointSize) {
+function createVoronoiCells(dataset, chartGroup, voronoi) {
   // Append Voronoi cells
   chartGroup
     .append("g")
@@ -254,13 +269,12 @@ function createVoronoiCells(dataset, chartGroup, voronoi, pointSize) {
     .style("pointer-events", "all")
     .attr("stroke-width", 0.7)
     .on("mouseover", function (event, d) {
-        mouseover(event, d,  pointSize);
+      mouseover(event, d);
     })
     .on("mouseleave", function (event, d) {
-        mouseleave(event, d, pointSize);
+      mouseleave(event, d);
     })
-    .attr("visibility", "hidden")
-   
+    .attr("visibility", "hidden");
 
   document
     .getElementById("voronoi_checkbox")
@@ -273,6 +287,7 @@ function createVoronoiCells(dataset, chartGroup, voronoi, pointSize) {
       }
     });
 }
+
 // Define zoomed function outside of plotData
 function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath) {
   const { transform } = event;
@@ -312,23 +327,29 @@ function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath) {
     return "M" + transformedPoints.join("L") + "Z";
   });
 
-  // Update Voronoi cells based on current transform
   svg.selectAll(".voronoi-cells path").attr("d", function (d, i) {
     const cell = voronoi.cellPolygon(i);
+    console.log("Index:", i);
+    console.log("Cell polygon:", cell);
+    if (!cell) {
+        console.error("Cell is null for index:", i);
+    }
     const transformedPoints = cell.map((point) => transform.apply(point));
     return "M" + transformedPoints.join("L") + "Z";
   });
 }
+
 // Update event listeners for mouseover and mouseleave
 function updateEventListeners(chartGroup, pointSize) {
-    chartGroup.selectAll("circle")
-      .on("mouseover", function (event, d) {
-        mouseover(event, d, pointSize + 2);
-      })
-      .on("mouseleave", function (event, d) {
-        mouseleave(event, d, pointSize);
-      });
+  chartGroup.selectAll("circle")
+    .on("mouseover", function (event, d) {
+      mouseover(event, d);
+    })
+    .on("mouseleave", function (event, d) {
+      mouseleave(event, d);
+    });
 }
+
 // Add end animation button
 function addEndAnimationButton(path) {
   let isEnded = false;
@@ -345,27 +366,43 @@ function addEndAnimationButton(path) {
     }
   });
 }
+
 // Add event listeners for buttons
 function addButtonsDataEvent(buttonId) {
   document.getElementById(buttonId).addEventListener("click", () => {
     return main(buttonId);
   });
 }
+
 // Define resetZoom function outside of plotData
 function resetZoom(svg, zoomHandler) {
   svg.transition().duration(0).call(zoomHandler.transform, d3.zoomIdentity);
 }
+
 // Add event listeners
 addButtonsDataEvent("anchor");
 addButtonsDataEvent("noise");
 addButtonsDataEvent("quotes");
-function mouseleave(event, d, pointSize) {
+addButtonsDataEvent("scaled_heart");
+
+async function startDrawing(datasetType){
+  // Load your dataset based on the selected type
+  const dataset = await loadData(datasetType);
+
+  // Create the SVG container and other elements
+  const { svg, chartGroup, x, xAxis, y, yAxis } = createSVG();
+
+  // Plot the data
+  plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis);
+}
+function mouseleave(event, d) {
   var element = d3.selectAll(".point.a" + d.class);
   // Hide the tooltip
   d3.select("#tooltip").style("display", "none");
-  element.attr("r", pointSize).attr("fill", (d) => d.color);
+  element.attr("r", currentPointSize).attr("fill", (d) => d.color); // Use global variable
 }
-function mouseover(event, d, pointSize) {
+
+function mouseover(event, d) {
   var element = d3.selectAll(".point.a" + d.class);
   // Get the tooltip element
   var tooltip = d3.select("#tooltip");
@@ -382,22 +419,27 @@ function mouseover(event, d, pointSize) {
     .style("top", event.pageY - 10 + "px")
     .style("display", "block"); // Show the tooltip
 
-  element.attr("r", pointSize+2).attr("fill", "#3b3b3b");
+  element.attr("r", +currentPointSize + 3).attr("fill", "purple"); // Use global variable
 }
-
 
 // Main function
 async function main(dataType) {
   try {
     const dataset = await loadData(dataType);
+    console.log(dataType)
     const { svg, chartGroup, x, xAxis, y, yAxis } = createSVG();
 
     plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis);
-    slider();
+
+    // At event listener to start button
+    document.getElementById('start').addEventListener('click', () => {
+      startDrawing(dataType);
+    })
     // Set up event listeners and interactions
   } catch (error) {
     console.error("Error loading data:", error);
   }
 }
+
 // Initialize the plot with anchor dataset
 main("anchor");
