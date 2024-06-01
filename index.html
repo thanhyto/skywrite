@@ -17,6 +17,9 @@
         <p class="cloud-text cloud-title">Skywrite</p>
         <span id="control">Datasets</span>
         <div class="options">
+            <button id="anchor"><span class="button_top">Anchor Points</span></button>
+            <button id="nearestneighbor"><span class="button_top">Nearest Neighbor</span></button>
+
             <button id="sh"><span class="button_top">Scaled Heart</span></button>
             <button id="quotes"><span class="button_top">Quotes</span></button>
         </div>
@@ -31,6 +34,7 @@
                 <span id="slider-title">Points Size = </span><span id="pointSizeValue"></span>
                 <br>
                 <input type="range" min="1" max="10" value="3" class="slider" id="pointSizeSlider">
+            <button id="draw"><span class="button_top">Draw</span></button>
 
             </div>
         </div>
@@ -43,6 +47,7 @@
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.js"></script>
+    <!-- <script src="script.js"></script> -->
     <script src="script.js"></script>
     
 </body>
