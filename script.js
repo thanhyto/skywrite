@@ -412,11 +412,36 @@ function mouseover(event, d) {
   var tooltip = d3.select("#tooltip");
 
   // Set tooltip content and position
-  var tooltipHTML = "x: " + d.x + "<br>y: " + d.y + "<br>type: " + d.type;
+  var tooltipHTML = "<strong>x: </strong>" + d.x + "<br><strong>y: </strong>" + d.y + "<br><strong>Type: </strong>" + d.type;
   if (d.quote) {
-    tooltipHTML += "<br>Sentence: " + d.quote;
+    tooltipHTML += "<br><strong>Sentence: </strong>" + d.quote;
+  }
+  // Get the dimensions of the options column and chart area
+  var optionsColumn = document.querySelector('.animate');
+  var chartArea = document.querySelector('.graph');
+
+  var optionsColumnRect = optionsColumn.getBoundingClientRect();
+  var chartAreaRect = chartArea.getBoundingClientRect();
+
+  // Calculate the tooltip position
+  var tooltipX = event.pageX + 10;
+  var tooltipY = event.pageY - 10;
+
+  // Adjust the tooltip position if it overlaps with the options column
+  if (tooltipX + tooltip.node().offsetWidth > optionsColumnRect.left) {
+    tooltipX = optionsColumnRect.left - tooltip.node().offsetWidth - 10;
   }
 
+  // Ensure the tooltip stays within the chart area
+  if (tooltipX < chartAreaRect.left) {
+    tooltipX = chartAreaRect.left + 10;
+  }
+  if (tooltipY < chartAreaRect.top) {
+    tooltipY = chartAreaRect.top + 10;
+  }
+  if (tooltipY + tooltip.node().offsetHeight > chartAreaRect.bottom) {
+    tooltipY = chartAreaRect.bottom - tooltip.node().offsetHeight - 10;
+  }
   tooltip
     .html(tooltipHTML)
     .style("left", event.pageX + 10 + "px")
