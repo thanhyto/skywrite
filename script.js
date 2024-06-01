@@ -39,7 +39,7 @@ function createSVG() {
   const marginLeft = 40;
   const marginRight = 20;
   let width = window.innerWidth - marginLeft - marginRight - (window.innerWidth * .2);
-  let height = window.innerHeight - marginTop - marginBottom - (window.innerHeight * .2);
+  let height = window.innerHeight - marginTop - marginBottom - (window.innerHeight * .04);
 
   const svg = d3.create("svg").attr("width", width).attr("height", height);
   svg
