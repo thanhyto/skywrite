@@ -6,7 +6,7 @@ async function loadData(dataType) {
     dataFilePath = "data/Anchorpoints_f.jsonl";
   } else if (dataType === "noise") {
     dataFilePath = "data/PATHS_f.jsonl";
-  } else if (dataType === "scaled_heart") {
+  } else if (dataType === "sh") {
     dataFilePath = "data/all_sh_f.jsonl"
   } else {
     dataFilePath = "data/all_quotes_scaled_f.jsonl";
@@ -291,7 +291,7 @@ function createVoronoiCells(dataset, chartGroup, voronoi) {
 // Define zoomed function outside of plotData
 function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath) {
   const { transform } = event;
-
+  console.log(voronoi)
   // Adjust axes based on the current transform
   svg.select(".myXaxis").call(xAxis.scale(transform.rescaleX(x)));
   svg.select(".myYaxis").call(yAxis.scale(transform.rescaleY(y)));
@@ -327,15 +327,19 @@ function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath) {
     return "M" + transformedPoints.join("L") + "Z";
   });
 
+  
+  // Update Voronoi cells based on current transform
   svg.selectAll(".voronoi-cells path").attr("d", function (d, i) {
     const cell = voronoi.cellPolygon(i);
-    console.log("Index:", i);
-    console.log("Cell polygon:", cell);
-    if (!cell) {
-        console.error("Cell is null for index:", i);
+
+    // Check if cell is null
+    if (cell) {
+      const transformedPoints = cell.map((point) => transform.apply(point));
+      return "M" + transformedPoints.join("L") + "Z";
+    } else {
+      // Handle null cell, for example, by returning an empty string
+      return "";
     }
-    const transformedPoints = cell.map((point) => transform.apply(point));
-    return "M" + transformedPoints.join("L") + "Z";
   });
 }
 
@@ -383,7 +387,7 @@ function resetZoom(svg, zoomHandler) {
 addButtonsDataEvent("anchor");
 addButtonsDataEvent("noise");
 addButtonsDataEvent("quotes");
-addButtonsDataEvent("scaled_heart");
+addButtonsDataEvent("sh");
 
 async function startDrawing(datasetType){
   // Load your dataset based on the selected type
@@ -408,7 +412,7 @@ function mouseover(event, d) {
   var tooltip = d3.select("#tooltip");
 
   // Set tooltip content and position
-  var tooltipHTML = "x: " + d.x + "<br>y: " + d.y;
+  var tooltipHTML = "x: " + d.x + "<br>y: " + d.y + "<br>type: " + d.type;
   if (d.quote) {
     tooltipHTML += "<br>Sentence: " + d.quote;
   }

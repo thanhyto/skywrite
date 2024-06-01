@@ -23,6 +23,7 @@ body {
     position: absolute;
     background-color: #fff;
     border: 1px solid #ccc;
+    border-radius: 5px;
     padding: 5px;
     display: none; /* Initially hide the tooltip */
     max-block-size: 150px;
