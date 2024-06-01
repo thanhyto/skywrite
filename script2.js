@@ -32,13 +32,11 @@ pointSizeValue.innerHTML = slider.value;
 // Create an empty svg container
 function createSVG() {
   const marginTop = 50;
-    const marginBottom = 50;
-    const marginLeft = 40;
-    const marginRight = 20;
-    const tooltipBox = document.querySelector('.animate');
-
-    let width = window.innerWidth - marginLeft - marginRight - tooltipBox.offsetWidth;
-    let height = window.innerHeight - marginTop - marginBottom;
+  const marginBottom = 50;
+  const marginLeft = 40;
+  const marginRight = 20;
+  const width = 1000;
+  const height = 750;
 
   const svg = d3.create("svg").attr("width", width).attr("height", height);
   svg
@@ -147,6 +145,7 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
   slider.oninput = function () {
     pointSizeValue.innerHTML = this.value;
     updatePointSizes(chartGroup, this.value);
+    updateEventListeners(chartGroup, this.value);
   };
 }
 // Create circle elements for each data point
@@ -320,7 +319,16 @@ function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath) {
     return "M" + transformedPoints.join("L") + "Z";
   });
 }
-
+// Update event listeners for mouseover and mouseleave
+function updateEventListeners(chartGroup, pointSize) {
+    chartGroup.selectAll("circle")
+      .on("mouseover", function (event, d) {
+        mouseover(event, d, pointSize + 2);
+      })
+      .on("mouseleave", function (event, d) {
+        mouseleave(event, d, pointSize);
+      });
+}
 // Add end animation button
 function addEndAnimationButton(path) {
   let isEnded = false;
@@ -374,7 +382,7 @@ function mouseover(event, d, pointSize) {
     .style("top", event.pageY - 10 + "px")
     .style("display", "block"); // Show the tooltip
 
-  element.attr("r", pointSize).attr("fill", "#3b3b3b");
+  element.attr("r", pointSize+2).attr("fill", "#3b3b3b");
 }
 
 
