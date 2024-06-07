@@ -440,16 +440,6 @@ function resetZoom(svg, zoomHandler) {
 addButtonsDataEvent("quotes");
 addButtonsDataEvent("sh");
 
-async function startDrawing(datasetType){
-  // Load your dataset based on the selected type
-  const dataset = await loadData(datasetType);
-
-  // Create the SVG container and other elements
-  const { svg, chartGroup, x, xAxis, y, yAxis } = createSVG();
-
-  // Plot the data
-  plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis);
-}
 function mouseleave(event, d) {
   var element = d3.selectAll(".point.a" + d.class);
   // Hide the tooltip
@@ -505,23 +495,21 @@ function mouseover(event, d) {
   element.attr("r", +currentPointSize + 3).attr("fill", "purple"); // Use global variable
 }
 
+// Initialize SVG container globally
+const { svg, chartGroup, x, xAxis, y, yAxis } = createSVG();
+
 // Main function
 async function main(dataType) {
   try {
     const dataset = await loadData(dataType);
-    const { svg, chartGroup, x, xAxis, y, yAxis } = createSVG();
 
+    // Plot the data in the existing SVG container
     plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis);
-
-    // At event listener to start button
-    document.getElementById('start').addEventListener('click', () => {
-      startDrawing(dataType);
-    })
-    // Set up event listeners and interactions
   } catch (error) {
     console.error("Error loading data:", error);
   }
 }
+
 
 // Initialize the plot with anchor dataset
 main("sh");
