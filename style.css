@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Coiny');
+
 body {
     height: 100vh;
     font-family: "Noto Sans", sans-serif;
@@ -11,41 +12,47 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
 .cloud-text {
-	font-family: 'Coiny', cursive;
-	-webkit-background-clip: text;
+    font-family: 'Coiny', cursive;
+    -webkit-background-clip: text;
     background-clip: text;
-  	-webkit-text-fill-color: transparent;	
-	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/clouds.jpg);
-	background-size: auto;
-	background-attachment: unset;
-	background-position: 0%;
-	font-size: 50px;
-    -webkit-text-stroke:  0.5px black; /* Added line */
-	animation: clouds-moving infinite 110s;
-	animation-fill-mode: forwards;
-	animation-play-state: running;
-	animation-timing-function: linear;
-	text-align: center;
+    -webkit-text-fill-color: transparent;
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/clouds.jpg);
+    background-size: auto;
+    background-attachment: unset;
+    background-position: 0%;
+    font-size: 50px;
+    -webkit-text-stroke: 0.5px black;
+    /* Added line */
+    animation: clouds-moving infinite 110s;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+    animation-timing-function: linear;
+    text-align: center;
     margin: 0em;
 }
+
 @keyframes clouds-moving {
-	0% {
-		background-position: 0%;	
-	}
-	50% {
-		background-position: 100%;	
-	}
-	100% {
-		background-position: 0%;
-	}
+    0% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
 }
+
 #embedding-chart {
     width: auto;
     height: auto;
     margin-left: 3em;
-    position: relative; 
-} 
+    position: relative;
+}
 
 #tooltip {
     position: absolute;
@@ -56,34 +63,45 @@ body {
     border-radius: 10px;
     pointer-events: none;
     z-index: 10;
-    max-width: 400px; /* Set a maximum width for the tooltip */
-    word-wrap: break-word; /* Ensure long words break correctly */
+    max-width: 400px;
+    /* Set a maximum width for the tooltip */
+    word-wrap: break-word;
+    /* Ensure long words break correctly */
     display: none;
 }
-  
-.animate{
+
+.animate {
     margin-left: 2em;
     display: flex;
     flex-direction: column;
     background-color: #f3f4f8;
     height: 100%;
-    width: 300px;    
+    width: 300px;
     padding: 0em 3em;
 }
-#control{
+
+#control {
     font-weight: bold;
-    font-size:1.5em;
+    font-size: 1.5em;
     margin-top: 0.5em;
 }
+
+.pointSize {
+    font-weight: bold;
+    font-size: 1em;
+    margin-top: 0.5em;
+}
+
 .options {
     display: flex;
     padding: 1em 0;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 1em;
+    margin-bottom: 0.25em;
     flex-wrap: wrap;
     align-items: stretch;
 }
+
 button {
     /* Variables */
     --button_radius: 0.75em;
@@ -108,7 +126,8 @@ button {
     color: var(--button_outline_color);
     transform: translateY(-0.2em);
     transition: transform 0.1s ease;
-    outline: none; /* Remove focus outline */
+    outline: none;
+    /* Remove focus outline */
 }
 
 button:hover .button_top {
@@ -120,29 +139,51 @@ button:active .button_top {
     /* Push the button downwards when pressed */
     transform: translateY(0);
 }
-.slideContainer{
+
+.slideContainer {
     width: 100%;
 }
-.slider{
+
+.slider {
     width: 100%;
 }
+
 #legend {
-    position: absolute;
-    top: 10px;
-    left: 10px;
     background-color: white;
     border: 1px solid black;
     padding: 10px;
     border-radius: 5px;
 }
+
 .legend-item {
     display: flex;
     align-items: center;
     margin-bottom: 5px;
 }
+
 .legend-color {
     width: 20px;
     height: 20px;
     margin-right: 5px;
 }
 
+.legend-color-picker {
+    border: none;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+}
+
+.legend-color-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.legend-color-picker::-webkit-color-swatch {
+    border: none;
+    border-radius: 0;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    background-color: inherit;
+}

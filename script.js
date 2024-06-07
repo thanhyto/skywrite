@@ -78,19 +78,34 @@ function createSVG() {
 
   return { svg, chartGroup, x, xAxis, y, yAxis };
 }
-// Create legend
+function colorNameToHex(color) {
+  var colors = {
+      "blue": "#0000ff",
+      "red": "#ff0000",
+      "orange": "#ffa500",
+      "green": "#008000"
+  };
+  return colors[color] || color;
+}
 function createLegend(dataset, chartGroup, x, y) {
-  // Create a set of unique types from the dataset
   const uniqueTypes = Array.from(new Set(dataset.map(d => d.type)));
-  const legend = d3.select("#legend");
+  const legend = d3.select("#legend").html("");
 
   uniqueTypes.forEach(type => {
+      // Find a data point of the current type
+      const sampleElement = dataset.find(d => d.type === type);
+      console.log(sampleElement)
+
+      // Create a legend item
       const item = legend.append("div").attr("class", "legend-item");
-      item.append("div").attr("class", "legend-color").style("background-color", () => {
-          // Get a sample element of the current type to extract its color
-          const sampleElement = dataset.find(d => d.type === type);
-          return sampleElement ? sampleElement.color : "black";
-      });
+
+      // Append the color picker
+      const colorPicker = item.append("input").attr("type", "color").attr("class", "legend-color-picker");
+
+      // Set the initial color of the color picker
+      colorPicker.node().value = sampleElement ? colorNameToHex(sampleElement.color) : "#000000";
+
+      // Append the type label
       item.append("span").text(type);
 
       // Add hover effect to legend items
@@ -100,8 +115,24 @@ function createLegend(dataset, chartGroup, x, y) {
       item.on("mouseleave", () => {
           chartGroup.selectAll("circle").attr("opacity", 1);
       });
+
+      // Add event listener to color picker
+      colorPicker.on("input", function() {
+          const newColor = this.value;
+          // Find all data points of the current type and update their color
+          dataset.filter(d => d.type === type).forEach(d => {
+              d.color = newColor;
+          });
+          // Update the fill color of the circles
+          chartGroup.selectAll("circle")
+              .filter(d => d.type === type)
+              .attr("fill", newColor);
+      });
   });
 }
+
+
+
 // Create plot
 function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
   // Empty container on new draw and resets check boxes
@@ -409,16 +440,6 @@ function resetZoom(svg, zoomHandler) {
 addButtonsDataEvent("quotes");
 addButtonsDataEvent("sh");
 
-async function startDrawing(datasetType){
-  // Load your dataset based on the selected type
-  const dataset = await loadData(datasetType);
-
-  // Create the SVG container and other elements
-  const { svg, chartGroup, x, xAxis, y, yAxis } = createSVG();
-
-  // Plot the data
-  plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis);
-}
 function mouseleave(event, d) {
   var element = d3.selectAll(".point.a" + d.class);
   // Hide the tooltip
@@ -474,23 +495,21 @@ function mouseover(event, d) {
   element.attr("r", +currentPointSize + 3).attr("fill", "purple"); // Use global variable
 }
 
+// Initialize SVG container globally
+const { svg, chartGroup, x, xAxis, y, yAxis } = createSVG();
+
 // Main function
 async function main(dataType) {
   try {
     const dataset = await loadData(dataType);
-    const { svg, chartGroup, x, xAxis, y, yAxis } = createSVG();
 
+    // Plot the data in the existing SVG container
     plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis);
-
-    // At event listener to start button
-    document.getElementById('start').addEventListener('click', () => {
-      startDrawing(dataType);
-    })
-    // Set up event listeners and interactions
   } catch (error) {
     console.error("Error loading data:", error);
   }
 }
+
 
 // Initialize the plot with anchor dataset
 main("sh");

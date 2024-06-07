@@ -6,12 +6,12 @@
 {"x": 5.0966825485, "y": 4.3624281883, "color": "blue", "class": 5, "type": "noise"}
 {"x": 4.4243659973, "y": 2.7754645348, "color": "blue", "class": 6, "type": "noise"}
 {"x": 1.7488106489, "y": 6.2251224518, "color": "blue", "class": 7, "type": "noise"}
-{"x": 6.0735602379, "y": 7.1555967331, "color": "pink", "class": 8, "type": "nearest neighbor"}
+{"x": 6.0735602379, "y": 7.1555967331, "color": "orange", "class": 8, "type": "nearest neighbor"}
 {"x": 6.2167348862, "y": 2.4285745621, "color": "blue", "class": 9, "type": "noise"}
 {"x": 4.932056427, "y": 6.3593468666, "color": "blue", "class": 10, "type": "noise"}
 {"x": 6.1415805817, "y": 6.2147307396, "color": "blue", "class": 11, "type": "noise"}
 {"x": 5.2355389595, "y": 3.783302784, "color": "blue", "class": 12, "type": "noise"}
-{"x": 4.7843828201, "y": 6.6197605133, "color": "pink", "class": 13, "type": "nearest neighbor"}
+{"x": 4.7843828201, "y": 6.6197605133, "color": "orange", "class": 13, "type": "nearest neighbor"}
 {"x": 5.5840473175, "y": 7.0509767532, "color": "blue", "class": 14, "type": "noise"}
 {"x": 3.9580459595, "y": 1.783665061, "color": "blue", "class": 15, "type": "noise"}
 {"x": 5.7976551056, "y": 2.2805194855, "color": "blue", "class": 16, "type": "noise"}
@@ -29,7 +29,7 @@
 {"x": 1.6784622669, "y": 4.4289159775, "color": "blue", "class": 28, "type": "noise"}
 {"x": 3.3742184639, "y": 6.4049911499, "color": "blue", "class": 29, "type": "noise"}
 {"x": 5.7252416611, "y": 3.6649212837, "color": "blue", "class": 30, "type": "noise"}
-{"x": 4.6645307541, "y": 6.2235503197, "color": "pink", "class": 31, "type": "nearest neighbor"}
+{"x": 4.6645307541, "y": 6.2235503197, "color": "orange", "class": 31, "type": "nearest neighbor"}
 {"x": 5.4419240952, "y": 6.1840591431, "color": "blue", "class": 32, "type": "noise"}
 {"x": 3.5963754654, "y": 7.4334836006, "color": "blue", "class": 33, "type": "noise"}
 {"x": 3.1928937435, "y": 5.9101915359, "color": "blue", "class": 34, "type": "noise"}
@@ -44,12 +44,12 @@
 {"x": 3.1291222572, "y": 4.3574957848, "color": "blue", "class": 43, "type": "noise"}
 {"x": 4.9555621147, "y": 6.7495589256, "color": "blue", "class": 44, "type": "noise"}
 {"x": 1.244255662, "y": 3.793399334, "color": "blue", "class": 45, "type": "noise"}
-{"x": 5.4515457153, "y": 6.9231801033, "color": "pink", "class": 46, "type": "nearest neighbor"}
+{"x": 5.4515457153, "y": 6.9231801033, "color": "orange", "class": 46, "type": "nearest neighbor"}
 {"x": 2.870562315, "y": 3.0417685509, "color": "blue", "class": 47, "type": "noise"}
 {"x": 6.3152227402, "y": 4.3861298561, "color": "blue", "class": 48, "type": "noise"}
 {"x": 6.4330339432, "y": 4.9154701233, "color": "blue", "class": 49, "type": "noise"}
 {"x": 7.6825361252, "y": 6.0968794823, "color": "blue", "class": 50, "type": "noise"}
-{"x": 2.3423366547, "y": 6.6881432533, "color": "pink", "class": 51, "type": "nearest neighbor"}
+{"x": 2.3423366547, "y": 6.6881432533, "color": "orange", "class": 51, "type": "nearest neighbor"}
 {"x": 6.1573963165, "y": 3.5436549187, "color": "blue", "class": 52, "type": "noise"}
 {"x": 4.0502662659, "y": 5.1042075157, "color": "blue", "class": 53, "type": "noise"}
 {"x": 5.625395298, "y": 7.9300551414, "color": "blue", "class": 54, "type": "noise"}
@@ -72,7 +72,7 @@
 {"x": 5.4554376602, "y": 2.0385870934, "color": "blue", "class": 71, "type": "noise"}
 {"x": 2.7074131966, "y": 6.1327633858, "color": "blue", "class": 72, "type": "noise"}
 {"x": 6.324441433, "y": 5.6491527557, "color": "blue", "class": 73, "type": "noise"}
-{"x": 2.2338967323, "y": 4.7409338951, "color": "pink", "class": 74, "type": "nearest neighbor"}
+{"x": 2.2338967323, "y": 4.7409338951, "color": "orange", "class": 74, "type": "nearest neighbor"}
 {"x": 4.806344986, "y": 6.1140575409, "color": "blue", "class": 75, "type": "noise"}
 {"x": 5.1714348793, "y": 4.5779004097, "color": "blue", "class": 76, "type": "noise"}
 {"x": 5.8283901215, "y": 4.0547318459, "color": "blue", "class": 77, "type": "noise"}
@@ -87,7 +87,7 @@
 {"x": 4.8419713974, "y": 3.8788766861, "color": "blue", "class": 86, "type": "noise"}
 {"x": 7.6453313828, "y": 4.6264610291, "color": "blue", "class": 87, "type": "noise"}
 {"x": 6.0986719131, "y": 7.7803177834, "color": "blue", "class": 88, "type": "noise"}
-{"x": 4.1044883728, "y": 2.5715556145, "color": "pink", "class": 89, "type": "nearest neighbor"}
+{"x": 4.1044883728, "y": 2.5715556145, "color": "orange", "class": 89, "type": "nearest neighbor"}
 {"x": 4.9108133316, "y": 2.4192380905, "color": "blue", "class": 90, "type": "noise"}
 {"x": 2.8359541893, "y": 6.2655057907, "color": "blue", "class": 91, "type": "noise"}
 {"x": 6.4235696793, "y": 4.482758522, "color": "blue", "class": 92, "type": "noise"}
@@ -101,13 +101,13 @@
 {"x": 5.181848526, "y": 4.6481032372, "color": "blue", "class": 100, "type": "noise"}
 {"x": 4.5965690613, "y": 6.6293373108, "color": "blue", "class": 101, "type": "noise"}
 {"x": 3.6635608673, "y": 5.2230324745, "color": "blue", "class": 102, "type": "noise"}
-{"x": 5.1897187233, "y": 3.1881055832, "color": "pink", "class": 103, "type": "nearest neighbor"}
+{"x": 5.1897187233, "y": 3.1881055832, "color": "orange", "class": 103, "type": "nearest neighbor"}
 {"x": 2.3307602406, "y": 4.7531676292, "color": "blue", "class": 104, "type": "noise"}
 {"x": 6.0809998512, "y": 2.7439312935, "color": "blue", "class": 105, "type": "noise"}
 {"x": 3.6349928379, "y": 2.2541432381, "color": "blue", "class": 106, "type": "noise"}
 {"x": 3.427478075, "y": 2.639316082, "color": "blue", "class": 107, "type": "noise"}
 {"x": 4.1413211823, "y": 7.8052678108, "color": "blue", "class": 108, "type": "noise"}
-{"x": 3.7494859695, "y": 3.2591195107, "color": "pink", "class": 109, "type": "nearest neighbor"}
+{"x": 3.7494859695, "y": 3.2591195107, "color": "orange", "class": 109, "type": "nearest neighbor"}
 {"x": 5.2403373718, "y": 2.9884643555, "color": "blue", "class": 110, "type": "noise"}
 {"x": 2.5786399841, "y": 7.394516468, "color": "blue", "class": 111, "type": "noise"}
 {"x": 4.1466274261, "y": 3.223985672, "color": "blue", "class": 112, "type": "noise"}
@@ -124,13 +124,13 @@
 {"x": 5.3665542603, "y": 4.1007566452, "color": "blue", "class": 123, "type": "noise"}
 {"x": 5.0301218033, "y": 3.3423452377, "color": "blue", "class": 124, "type": "noise"}
 {"x": 5.9567594528, "y": 2.0495500565, "color": "blue", "class": 125, "type": "noise"}
-{"x": 4.2976589203, "y": 6.0954937935, "color": "pink", "class": 126, "type": "nearest neighbor"}
-{"x": 4.1770410538, "y": 6.5148706436, "color": "pink", "class": 127, "type": "nearest neighbor"}
+{"x": 4.2976589203, "y": 6.0954937935, "color": "orange", "class": 126, "type": "nearest neighbor"}
+{"x": 4.1770410538, "y": 6.5148706436, "color": "orange", "class": 127, "type": "nearest neighbor"}
 {"x": 5.1144275665, "y": 4.3051452637, "color": "blue", "class": 128, "type": "noise"}
 {"x": 5.1394958496, "y": 5.9007515907, "color": "blue", "class": 129, "type": "noise"}
 {"x": 2.9118936062, "y": 7.4556155205, "color": "blue", "class": 130, "type": "noise"}
 {"x": 7.9252119064, "y": 5.8001799583, "color": "blue", "class": 131, "type": "noise"}
-{"x": 2.8023040295, "y": 6.9692959785, "color": "pink", "class": 132, "type": "nearest neighbor"}
+{"x": 2.8023040295, "y": 6.9692959785, "color": "orange", "class": 132, "type": "nearest neighbor"}
 {"x": 2.664018631, "y": 4.544459343, "color": "blue", "class": 133, "type": "noise"}
 {"x": 6.1215977669, "y": 4.6834888458, "color": "blue", "class": 134, "type": "noise"}
 {"x": 4.9434742928, "y": 6.092487812, "color": "blue", "class": 135, "type": "noise"}
@@ -151,8 +151,8 @@
 {"x": 5.654419899, "y": 7.1039247513, "color": "blue", "class": 150, "type": "noise"}
 {"x": 3.4202411175, "y": 5.3430719376, "color": "blue", "class": 151, "type": "noise"}
 {"x": 6.3710694313, "y": 4.8800339699, "color": "blue", "class": 152, "type": "noise"}
-{"x": 7.1227216721, "y": 5.6230430603, "color": "pink", "class": 153, "type": "nearest neighbor"}
-{"x": 3.4757454395, "y": 6.8090844154, "color": "pink", "class": 154, "type": "nearest neighbor"}
+{"x": 7.1227216721, "y": 5.6230430603, "color": "orange", "class": 153, "type": "nearest neighbor"}
+{"x": 3.4757454395, "y": 6.8090844154, "color": "orange", "class": 154, "type": "nearest neighbor"}
 {"x": 4.8073234558, "y": 7.4853138924, "color": "blue", "class": 155, "type": "noise"}
 {"x": 1.3120081425, "y": 3.4161982536, "color": "blue", "class": 156, "type": "noise"}
 {"x": 7.2581968307, "y": 5.4270405769, "color": "blue", "class": 157, "type": "noise"}
@@ -203,13 +203,13 @@
 {"x": 2.4186205864, "y": 3.0522928238, "color": "blue", "class": 202, "type": "noise"}
 {"x": 5.3595352173, "y": 5.5217294693, "color": "blue", "class": 203, "type": "noise"}
 {"x": 7.1779956818, "y": 5.5167417526, "color": "blue", "class": 204, "type": "noise"}
-{"x": 6.8137388229, "y": 4.6512637138, "color": "pink", "class": 205, "type": "nearest neighbor"}
+{"x": 6.8137388229, "y": 4.6512637138, "color": "orange", "class": 205, "type": "nearest neighbor"}
 {"x": 4.7537703514, "y": 3.6435461044, "color": "blue", "class": 206, "type": "noise"}
 {"x": 3.7763941288, "y": 6.1527085304, "color": "blue", "class": 207, "type": "noise"}
 {"x": 2.3494255543, "y": 7.6218056679, "color": "blue", "class": 208, "type": "noise"}
-{"x": 4.4387235641, "y": 5.7335796356, "color": "pink", "class": 209, "type": "nearest neighbor"}
-{"x": 1.812938571, "y": 5.4879646301, "color": "pink", "class": 210, "type": "nearest neighbor"}
-{"x": 4.3074631691, "y": 2.2488212585, "color": "pink", "class": 211, "type": "nearest neighbor"}
+{"x": 4.4387235641, "y": 5.7335796356, "color": "orange", "class": 209, "type": "nearest neighbor"}
+{"x": 1.812938571, "y": 5.4879646301, "color": "orange", "class": 210, "type": "nearest neighbor"}
+{"x": 4.3074631691, "y": 2.2488212585, "color": "orange", "class": 211, "type": "nearest neighbor"}
 {"x": 2.8726460934, "y": 1.850204587, "color": "blue", "class": 212, "type": "noise"}
 {"x": 4.7432470322, "y": 5.7641706467, "color": "blue", "class": 213, "type": "noise"}
 {"x": 2.6110439301, "y": 6.64041996, "color": "blue", "class": 214, "type": "noise"}
@@ -268,7 +268,7 @@
 {"x": 8.0, "y": 5.8012833595, "color": "blue", "class": 267, "type": "noise"}
 {"x": 4.5768642426, "y": 4.0859084129, "color": "blue", "class": 268, "type": "noise"}
 {"x": 1.8188869953, "y": 5.089266777, "color": "blue", "class": 269, "type": "noise"}
-{"x": 4.7576489449, "y": 2.5199270248, "color": "pink", "class": 270, "type": "nearest neighbor"}
+{"x": 4.7576489449, "y": 2.5199270248, "color": "orange", "class": 270, "type": "nearest neighbor"}
 {"x": 4.0165433884, "y": 1.1706804037, "color": "blue", "class": 271, "type": "noise"}
 {"x": 7.5575447083, "y": 3.8930821419, "color": "blue", "class": 272, "type": "noise"}
 {"x": 1.9115009308, "y": 2.700551033, "color": "blue", "class": 273, "type": "noise"}
@@ -306,7 +306,7 @@
 {"x": 3.6527562141, "y": 2.1873908043, "color": "blue", "class": 305, "type": "noise"}
 {"x": 5.0374178886, "y": 6.2199921608, "color": "blue", "class": 306, "type": "noise"}
 {"x": 4.2479705811, "y": 5.5114684105, "color": "blue", "class": 307, "type": "noise"}
-{"x": 4.6261334419, "y": 1.9596334696, "color": "pink", "class": 308, "type": "nearest neighbor"}
+{"x": 4.6261334419, "y": 1.9596334696, "color": "orange", "class": 308, "type": "nearest neighbor"}
 {"x": 5.4090662003, "y": 4.450527668, "color": "blue", "class": 309, "type": "noise"}
 {"x": 2.721203804, "y": 7.7726416588, "color": "blue", "class": 310, "type": "noise"}
 {"x": 4.3164372444, "y": 1.8356305361, "color": "blue", "class": 311, "type": "noise"}
@@ -332,12 +332,12 @@
 {"x": 2.8562793732, "y": 5.4313054085, "color": "blue", "class": 331, "type": "noise"}
 {"x": 4.086148262, "y": 5.5709152222, "color": "blue", "class": 332, "type": "noise"}
 {"x": 3.0236794949, "y": 4.9336390495, "color": "blue", "class": 333, "type": "noise"}
-{"x": 2.9773495197, "y": 3.9456820488, "color": "pink", "class": 334, "type": "nearest neighbor"}
+{"x": 2.9773495197, "y": 3.9456820488, "color": "orange", "class": 334, "type": "nearest neighbor"}
 {"x": 1.6184953451, "y": 5.2862548828, "color": "blue", "class": 335, "type": "noise"}
 {"x": 2.3085875511, "y": 7.6966376305, "color": "blue", "class": 336, "type": "noise"}
 {"x": 6.7838592529, "y": 5.2593359947, "color": "blue", "class": 337, "type": "noise"}
 {"x": 1.720102191, "y": 4.3685183525, "color": "blue", "class": 338, "type": "noise"}
-{"x": 6.6464390755, "y": 6.4924874306, "color": "pink", "class": 339, "type": "nearest neighbor"}
+{"x": 6.6464390755, "y": 6.4924874306, "color": "orange", "class": 339, "type": "nearest neighbor"}
 {"x": 4.3203997612, "y": 1.0576964617, "color": "blue", "class": 340, "type": "noise"}
 {"x": 5.1430644989, "y": 3.1713223457, "color": "blue", "class": 341, "type": "noise"}
 {"x": 6.4274120331, "y": 4.3538136482, "color": "blue", "class": 342, "type": "noise"}
@@ -374,7 +374,7 @@
 {"x": 5.0248012543, "y": 4.3128590584, "color": "blue", "class": 373, "type": "noise"}
 {"x": 3.1231722832, "y": 5.1008329391, "color": "blue", "class": 374, "type": "noise"}
 {"x": 1.9762071371, "y": 6.1334033012, "color": "blue", "class": 375, "type": "noise"}
-{"x": 6.2085094452, "y": 3.8372974396, "color": "pink", "class": 376, "type": "nearest neighbor"}
+{"x": 6.2085094452, "y": 3.8372974396, "color": "orange", "class": 376, "type": "nearest neighbor"}
 {"x": 4.2807326317, "y": 4.842502594, "color": "blue", "class": 377, "type": "noise"}
 {"x": 4.2345027924, "y": 5.0426383018, "color": "blue", "class": 378, "type": "noise"}
 {"x": 2.5366439819, "y": 2.8277916908, "color": "blue", "class": 379, "type": "noise"}

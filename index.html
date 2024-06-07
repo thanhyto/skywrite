@@ -20,6 +20,12 @@
             <button id="sh"><span class="button_top">Scaled Heart</span></button>
             <button id="quotes"><span class="button_top">Quotes</span></button>
         </div>
+        <div class="slideContainer">
+            <span class="pointSize">Points Size = </span><span class="pointSize" id="pointSizeValue"></span>
+            <br>
+            <input type="range" min="1" max="10" value="3" class="slider" id="pointSizeSlider">
+        </div>
+        <div id="legend"></div>
         <span id="control">Animate</span>
         <div class="options">
             
@@ -27,11 +33,7 @@
             <button id="end" title="Skip"><span class="button_top"><i class="fa-solid fa-forward"></i></span></button>
             <button id="clear" title="Erase Tracing Line"><span class="button_top"><i class="fa-solid fa-eraser"></i></span></button>
             <button id="reset_zoom" title="Reset Zoom"><span class="button_top"><i class="fa-solid fa-arrow-rotate-left"></i></span></button>
-            <div class="slideContainer">
-                <span id="slider-title">Points Size = </span><span id="pointSizeValue"></span>
-                <br>
-                <input type="range" min="1" max="10" value="3" class="slider" id="pointSizeSlider">
-            </div>
+            
         </div>
         <div>
             <input type="checkbox" id="voronoi_checkbox">Voronoi Diagram</input>
@@ -39,7 +41,6 @@
         <div>
             <input type="checkbox" id="delaunay_checkbox">Delaunay Triangulation</input>
         </div>
-         <div id="legend"></div>
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.js"></script>
