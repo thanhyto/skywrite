@@ -78,7 +78,30 @@ function createSVG() {
 
   return { svg, chartGroup, x, xAxis, y, yAxis };
 }
+// Create legend
+function createLegend(dataset, chartGroup, x, y) {
+  // Create a set of unique types from the dataset
+  const uniqueTypes = Array.from(new Set(dataset.map(d => d.type)));
+  const legend = d3.select("#legend");
 
+  uniqueTypes.forEach(type => {
+      const item = legend.append("div").attr("class", "legend-item");
+      item.append("div").attr("class", "legend-color").style("background-color", () => {
+          // Get a sample element of the current type to extract its color
+          const sampleElement = dataset.find(d => d.type === type);
+          return sampleElement ? sampleElement.color : "black";
+      });
+      item.append("span").text(type);
+
+      // Add hover effect to legend items
+      item.on("mouseover", () => {
+          chartGroup.selectAll("circle").attr("opacity", d => d.type === type ? 1 : 0.1);
+      });
+      item.on("mouseleave", () => {
+          chartGroup.selectAll("circle").attr("opacity", 1);
+      });
+  });
+}
 // Create plot
 function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
   // Empty container on new draw and resets check boxes
@@ -154,6 +177,8 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
     updatePointSizes(chartGroup, this.value);
     updateEventListeners(chartGroup, this.value);
   };
+  // Create the legend
+  createLegend(dataset, chartGroup, x, y);
 }
 
 // Create circle elements for each data point

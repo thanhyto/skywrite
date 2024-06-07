@@ -126,4 +126,23 @@ button:active .button_top {
 .slider{
     width: 100%;
 }
+#legend {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
 
