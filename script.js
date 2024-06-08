@@ -436,19 +436,12 @@ function resetZoom(svg, zoomHandler) {
 addButtonsDataEvent("quotes");
 addButtonsDataEvent("sh");
 
-function mouseleave(event, d) {
-  var element = d3.selectAll(".point.a" + d.class);
-  // Hide the tooltip
-  d3.select("#tooltip").style("display", "none");
-  element.attr("r", currentPointSize).attr("fill", (d) => d.color); // Use global variable
-}
-
 function mouseover(event, d) {
   var element = d3.selectAll(".point.a" + d.class);
   // Get the tooltip element
   var tooltip = d3.select("#tooltip");
 
-  // Set tooltip content and position
+  // Set tooltip content
   var tooltipHTML = "<strong>x: </strong>" + d.x + "<br><strong>y: </strong>" + d.y + "<br><strong>Type: </strong>" + d.type;
   if (d.quote) {
     tooltipHTML += "<br><strong>Sentence: </strong>" + d.quote;
@@ -456,40 +449,36 @@ function mouseover(event, d) {
   if (d.author) {
     tooltipHTML += "<br><strong>Author: </strong>" + d.author;
   }
-  // Get the dimensions of the options column and chart area
-  var optionsColumn = document.querySelector('.animate');
-  var chartArea = document.querySelector('.graph');
+  tooltip.html(tooltipHTML);
 
-  var optionsColumnRect = optionsColumn.getBoundingClientRect();
-  var chartAreaRect = chartArea.getBoundingClientRect();
+  // // Position the tooltip above the graph
+  var graphContainerRect = document.querySelector(".graph").getBoundingClientRect();
+  var tooltipWidth = document.querySelector(".graph").offsetWidth;
+  // var tooltipHeight = tooltip.node().offsetHeight;
+  // var tooltipX = graphContainerRect.left;
+  // var tooltipY = graphContainerRect.top - tooltipHeight - 10; 
 
-  // Calculate the tooltip position
-  var tooltipX = event.pageX + 10;
-  var tooltipY = event.pageY - 10;
-
-  // Adjust the tooltip position if it overlaps with the options column
-  if (tooltipX + tooltip.node().offsetWidth > optionsColumnRect.left) {
-    tooltipX = optionsColumnRect.left - tooltip.node().offsetWidth - 10;
-  }
-
-  // Ensure the tooltip stays within the chart area
-  if (tooltipX < chartAreaRect.left) {
-    tooltipX = chartAreaRect.left + 10;
-  }
-  if (tooltipY < chartAreaRect.top) {
-    tooltipY = chartAreaRect.top + 10;
-  }
-  if (tooltipY + tooltip.node().offsetHeight > chartAreaRect.bottom) {
-    tooltipY = chartAreaRect.bottom - tooltip.node().offsetHeight - 10;
-  }
+  // // Set the position and display the tooltip
+  // tooltip.style("left", tooltipX + "px")
+  //        .style("top", tooltipY + "px")
+  //        
+         
   tooltip
-    .html(tooltipHTML)
-    .style("left", event.pageX + 10 + "px")
-    .style("top", event.pageY - 10 + "px")
-    .style("display", "block"); // Show the tooltip
+  .style("width", tooltipWidth + "px")
+  .style("display", "block");
 
-  element.attr("r", +currentPointSize + 3).attr("fill", "purple"); // Use global variable
+  element.attr("r", +currentPointSize + 3).attr("fill", "purple"); 
 }
+
+function mouseleave(event, d) {
+  var element = d3.selectAll(".point.a" + d.class);
+  // Hide the tooltip
+  d3.select("#tooltip").style("display", "none");
+  element.attr("r", currentPointSize).attr("fill", (d) => d.color); 
+}
+
+
+
 
 // Initialize SVG container globally
 const { svg, chartGroup, x, xAxis, y, yAxis } = createSVG();
