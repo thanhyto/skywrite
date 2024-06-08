@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +8,15 @@
     <script src="https://kit.fontawesome.com/3da02d71d7.js" crossorigin="anonymous"></script>
     <title>Skywrite</title>
 </head>
+
 <body>
     <div class="graph">
         <div id="tooltip-container">
             <div id="tooltip" class="tooltip"></div>
-          </div>
-        <div id="embedding-chart"></div>          
+        </div>
+        <div id="embedding-chart"></div>
     </div>
-    
+
     <div class="animate">
         <p class="cloud-text cloud-title">Skywrite</p>
         <span id="control">Datasets</span>
@@ -27,23 +29,27 @@
             <br>
             <input type="range" min="1" max="10" value="3" class="slider" id="pointSizeSlider">
         </div>
+        <span id="control">Color picker</span>
         <div id="legend"></div>
         <span id="control">Animate</span>
         <div class="options">
             <div id="type-selector">
                 <label for="type">Select Type:</label>
                 <select id="type" name="type">
-                  <option value="anchor" selected>Anchors</option>
-                  <option value="neighbor">Neighbors</option>
-                  <option value="nearest neighbor">Nearest Neighbors</option>
+                    <option value="anchor" selected>Anchors</option>
+                    <option value="neighbor">Neighbors</option>
+                    <option value="nearest neighbor">Nearest Neighbors</option>
                 </select>
-              </div>
-              
-            <button id="start" title="Start Drawing"><span class="button_top"><i class="fa-solid fa-play"></i></span></button>
+            </div>
+
+            <button id="start" title="Start Drawing"><span class="button_top"><i
+                        class="fa-solid fa-play"></i></span></button>
             <button id="end" title="Skip"><span class="button_top"><i class="fa-solid fa-forward"></i></span></button>
-            <button id="clear" title="Erase Tracing Line"><span class="button_top"><i class="fa-solid fa-eraser"></i></span></button>
-            <button id="reset_zoom" title="Reset Zoom"><span class="button_top"><i class="fa-solid fa-arrow-rotate-left"></i></span></button>
-            
+            <button id="clear" title="Erase Tracing Line"><span class="button_top"><i
+                        class="fa-solid fa-eraser"></i></span></button>
+            <button id="reset_zoom" title="Reset Zoom"><span class="button_top"><i
+                        class="fa-solid fa-arrow-rotate-left"></i></span></button>
+
         </div>
         <div>
             <input type="checkbox" id="voronoi_checkbox">Voronoi Diagram</input>
@@ -56,6 +62,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.js"></script>
     <!-- <script src="script.js"></script> -->
     <script src="script.js"></script>
-    
+
 </body>
+
 </html>

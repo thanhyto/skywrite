@@ -116,7 +116,6 @@ body {
 
 .options {
     display: flex;
-    padding: 1em 0;
     flex-direction: row;
     align-items: center;
     margin-bottom: 0.25em;
