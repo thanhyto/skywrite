@@ -28,24 +28,22 @@ var slider = document.getElementById("pointSizeSlider");
 var pointSizeValue = document.getElementById("pointSizeValue");
 pointSizeValue.innerHTML = slider.value;
 
-// Create an empty svg container
+// Create an empty SVG
 function createSVG() {
   const marginTop = 50;
   const marginBottom = 50;
   const marginLeft = 40;
   const marginRight = 20;
-  // Calculate the width of the .animate column
   const animateColumnWidth = document.querySelector('.animate').offsetWidth;
 
   let width = window.innerWidth - marginLeft - marginRight - animateColumnWidth;
-  let height = window.innerHeight - marginTop - marginBottom - (window.innerHeight * .04);
+  let height = window.innerHeight - marginTop - marginBottom - (window.innerHeight * 0.04);
 
   const svg = d3.create("svg").attr("width", width).attr("height", height);
   svg
     .append("g")
     .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
 
-  // Append a clipPath element to the SVG
   svg
     .append("defs")
     .append("clipPath")
@@ -54,30 +52,28 @@ function createSVG() {
     .attr("width", width - marginLeft - marginRight)
     .attr("height", height - marginTop - marginBottom);
 
-  // Append a group element to the SVG and apply the clip path
   const chartGroup = svg
     .append("g")
     .attr("clip-path", "url(#clip)")
     .attr("transform", "translate(" + marginLeft + "," + marginTop + ")");
 
-  // Initialise an X axis:
-  var x = d3.scaleLinear().range([marginLeft, width - marginRight]);
-  var xAxis = d3.axisBottom().scale(x);
+  const x = d3.scaleLinear().range([0, width - marginLeft - marginRight]);
+  const xAxis = d3.axisBottom().scale(x);
   svg
     .append("g")
-    .attr("transform", `translate(0, ${height - marginBottom})`)
+    .attr("transform", `translate(${marginLeft}, ${height - marginBottom})`)
     .attr("class", "myXaxis");
 
-  // Initialize an Y axis
-  var y = d3.scaleLinear().range([height - marginBottom, marginTop]);
-  var yAxis = d3.axisLeft().scale(y);
+  const y = d3.scaleLinear().range([height - marginBottom, 0]);
+  const yAxis = d3.axisLeft().scale(y);
   svg
     .append("g")
     .attr("class", "myYaxis")
-    .attr("transform", `translate(${marginLeft},0)`);
+    .attr("transform", `translate(${marginLeft}, 0)`);
 
   return { svg, chartGroup, x, xAxis, y, yAxis };
 }
+
 function colorNameToHex(color) {
   var colors = {
       "blue": "#0000ff",
@@ -509,7 +505,6 @@ async function main(dataType) {
     console.error("Error loading data:", error);
   }
 }
-
 
 // Initialize the plot with anchor dataset
 main("sh");
