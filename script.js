@@ -3,7 +3,7 @@ var currentPointSize = 5; // Default value
 async function loadData(dataType) {
   dataFilePath = "";
   if (dataType === "sh") {
-    dataFilePath = "data/all_sh_f.jsonl"
+    dataFilePath = "data/final.jsonl"
   } else {
     dataFilePath = "data/all_quotes_scaled_f.jsonl";
   }

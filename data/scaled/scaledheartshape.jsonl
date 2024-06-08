@@ -1,25 +1,24 @@
-{"x": 4.5, "y": 5.8452662461, "color": "red", "class": 0, "type": "anchor"}
-{"x": 4.5433439713, "y": 6.0747054457, "color": "red", "class": 1, "type": "anchor"}
-{"x": 4.8125, "y": 6.5895577721, "color": "red", "class": 2, "type": "anchor"}
-{"x": 5.3838834765, "y": 7.0, "color": "red", "class": 3, "type": "anchor"}
-{"x": 6.1237976321, "y": 6.9813676369, "color": "red", "class": 4, "type": "anchor"}
-{"x": 6.7530526625, "y": 6.4760626271, "color": "red", "class": 5, "type": "anchor"}
-{"x": 7.0, "y": 5.6704814167, "color": "red", "class": 6, "type": "anchor"}
-{"x": 6.7530526625, "y": 4.8055177662, "color": "red", "class": 7, "type": "anchor"}
-{"x": 6.1237976321, "y": 4.0100255377, "color": "red", "class": 8, "type": "anchor"}
-{"x": 5.3838834765, "y": 3.2922538572, "color": "red", "class": 9, "type": "anchor"}
-{"x": 4.8125, "y": 2.6539871089, "color": "red", "class": 10, "type": "anchor"}
-{"x": 4.5433439713, "y": 2.1795128991, "color": "red", "class": 11, "type": "anchor"}
-{"x": 4.5, "y": 2.0, "color": "red", "class": 12, "type": "anchor"}
-{"x": 4.4566560287, "y": 2.1795128991, "color": "red", "class": 13, "type": "anchor"}
-{"x": 4.1875, "y": 2.6539871089, "color": "red", "class": 14, "type": "anchor"}
-{"x": 3.6161165235, "y": 3.2922538572, "color": "red", "class": 15, "type": "anchor"}
-{"x": 2.8762023679, "y": 4.0100255377, "color": "red", "class": 16, "type": "anchor"}
-{"x": 2.2469473375, "y": 4.8055177662, "color": "red", "class": 17, "type": "anchor"}
-{"x": 2.0, "y": 5.6704814167, "color": "red", "class": 18, "type": "anchor"}
-{"x": 2.2469473375, "y": 6.4760626271, "color": "red", "class": 19, "type": "anchor"}
-{"x": 2.8762023679, "y": 6.9813676369, "color": "red", "class": 20, "type": "anchor"}
-{"x": 3.6161165235, "y": 7.0, "color": "red", "class": 21, "type": "anchor"}
-{"x": 4.1875, "y": 6.5895577721, "color": "red", "class": 22, "type": "anchor"}
-{"x": 4.4566560287, "y": 6.0747054457, "color": "red", "class": 23, "type": "anchor"}
-{"x": 4.5, "y": 5.8452662461, "color": "red", "class": 24, "type": "anchor"}
+{"x":4.5,"y":5.8452662461,"color":"red","type":"anchor"}
+{"x":4.5433439713,"y":6.0747054457,"color":"red","type":"anchor"}
+{"x":4.8125,"y":6.5895577721,"color":"red","type":"anchor"}
+{"x":5.3838834765,"y":7.0,"color":"red","type":"anchor"}
+{"x":6.1237976321,"y":6.9813676369,"color":"red","type":"anchor"}
+{"x":6.7530526625,"y":6.4760626271,"color":"red","type":"anchor"}
+{"x":7.0,"y":5.6704814167,"color":"red","type":"anchor"}
+{"x":6.7530526625,"y":4.8055177662,"color":"red","type":"anchor"}
+{"x":6.1237976321,"y":4.0100255377,"color":"red","type":"anchor"}
+{"x":5.3838834765,"y":3.2922538572,"color":"red","type":"anchor"}
+{"x":4.8125,"y":2.6539871089,"color":"red","type":"anchor"}
+{"x":4.5433439713,"y":2.1795128991,"color":"red","type":"anchor"}
+{"x":4.5,"y":2.0,"color":"red","type":"anchor"}
+{"x":4.4566560287,"y":2.1795128991,"color":"red","type":"anchor"}
+{"x":4.1875,"y":2.6539871089,"color":"red","type":"anchor"}
+{"x":3.6161165235,"y":3.2922538572,"color":"red","type":"anchor"}
+{"x":2.8762023679,"y":4.0100255377,"color":"red","type":"anchor"}
+{"x":2.2469473375,"y":4.8055177662,"color":"red","type":"anchor"}
+{"x":2.0,"y":5.6704814167,"color":"red","type":"anchor"}
+{"x":2.2469473375,"y":6.4760626271,"color":"red","type":"anchor"}
+{"x":2.8762023679,"y":6.9813676369,"color":"red","type":"anchor"}
+{"x":3.6161165235,"y":7.0,"color":"red","type":"anchor"}
+{"x":4.1875,"y":6.5895577721,"color":"red","type":"anchor"}
+{"x":4.4566560287,"y":6.0747054457,"color":"red","type":"anchor"}
