@@ -34,10 +34,11 @@ function createSVG() {
   const marginBottom = 50;
   const marginLeft = 40;
   const marginRight = 20;
-  const animateColumnWidth = document.querySelector('.animate').offsetWidth;
+  const animateColumnWidth = document.querySelector(".animate").offsetWidth;
 
   let width = window.innerWidth - marginLeft - marginRight - animateColumnWidth;
-  let height = window.innerHeight - marginTop - marginBottom - (window.innerHeight * 0.04);
+  let height =
+    window.innerHeight - marginTop - marginBottom - window.innerHeight * 0.04;
 
   const svg = d3.create("svg").attr("width", width).attr("height", height);
   svg
@@ -76,58 +77,68 @@ function createSVG() {
 
 function colorNameToHex(color) {
   var colors = {
-      "blue": "#0000ff",
-      "red": "#ff0000",
-      "orange": "#ffa500",
-      "green": "#008000"
+    blue: "#0000ff",
+    red: "#ff0000",
+    orange: "#ffa500",
+    green: "#008000",
   };
   return colors[color] || color;
 }
 function createLegend(dataset, chartGroup, x, y) {
-  const uniqueTypes = Array.from(new Set(dataset.map(d => d.type)));
+  const uniqueTypes = Array.from(new Set(dataset.map((d) => d.type)));
   const legend = d3.select("#legend").html("");
 
-  uniqueTypes.forEach(type => {
-      // Find a data point of the current type
-      const sampleElement = dataset.find(d => d.type === type);
-      console.log(sampleElement)
+  uniqueTypes.forEach((type) => {
+    // Find a data point of the current type
+    const sampleElement = dataset.find((d) => d.type === type);
+    console.log(sampleElement);
 
-      // Create a legend item
-      const item = legend.append("div").attr("class", "legend-item");
+    // Create a legend item
+    const item = legend.append("div").attr("class", "legend-item");
 
-      // Append the color picker
-      const colorPicker = item.append("input").attr("type", "color").attr("class", "legend-color-picker");
+    // Append the color picker
+    const colorPicker = item
+      .append("input")
+      .attr("type", "color")
+      .attr("class", "legend-color-picker");
 
-      // Set the initial color of the color picker
-      colorPicker.node().value = sampleElement ? colorNameToHex(sampleElement.color) : "#000000";
+    // Set the initial color of the color picker
+    colorPicker.node().value = sampleElement
+      ? colorNameToHex(sampleElement.color)
+      : "#000000";
 
-      // Append the type label
-      item.append("span").text(type);
+    // Append the type label
+    item.append("span").text(type);
 
-      // Add hover effect to legend items
-      item.on("mouseover", () => {
-          chartGroup.selectAll("circle").attr("opacity", d => d.type === type ? 1 : 0.1);
-      });
-      item.on("mouseleave", () => {
-          chartGroup.selectAll("circle").attr("opacity", 1);
-      });
+    // Add hover effect to legend items
+    item.on("mouseover", () => {
+      chartGroup
+        .selectAll("circle")
+        .attr("opacity", (d) => (d.type === type ? 1 : 0.1));
+    });
+    item.on("mouseleave", () => {
+      chartGroup.selectAll("circle").attr("opacity", 1);
+    });
 
-      // Add event listener to color picker
-      colorPicker.on("input", function() {
-          const newColor = this.value;
-          // Find all data points of the current type and update their color
-          dataset.filter(d => d.type === type).forEach(d => {
-              d.color = newColor;
-          });
-          // Update the fill color of the circles
-          chartGroup.selectAll("circle")
-              .filter(d => d.type === type)
-              .attr("fill", newColor);
-      });
+    // Add event listener to color picker
+    colorPicker.on("input", function () {
+      const newColor = this.value;
+      // Find all data points of the current type and update their color
+      dataset
+        .filter((d) => d.type === type)
+        .forEach((d) => {
+          d.color = newColor;
+        });
+      // Update the fill color of the circles
+      chartGroup
+        .selectAll("circle")
+        .filter((d) => d.type === type)
+        .attr("fill", newColor);
+    });
   });
 }
 
-
+let linePath;
 
 // Create plot
 function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
@@ -160,8 +171,34 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
   y.domain([yMin - 1, yMax + 1]);
   svg.selectAll(".myYaxis").transition().duration(3000).call(yAxis);
   plotPoints(dataset, x, y, chartGroup, pointSize);
-  const redPoints = dataset.filter((d) => d.color == "red"); // Filter the dataset for red points
-  const linePath = plotLine(redPoints, x, y, chartGroup); // Pass the filtered dataset to plotLine
+
+  // Add event listener to type selector dropdown
+  const typeSelector = document.getElementById("type");
+  typeSelector.addEventListener("change", function () {
+    const selectedType = this.value;
+    // Store selectedType in a global variable for later use
+    window.selectedType = selectedType;
+  });
+
+  // Trigger change event on type selector to ensure initial value is read
+  typeSelector.dispatchEvent(new Event("change"));
+
+  // Add event listener to start button
+  document.getElementById("start").addEventListener("click", function () {
+    // Check if selectedType is defined
+    if (typeof window.selectedType !== "undefined") {
+      // Filter dataset based on selectedType
+      const connectPoints = dataset.filter(
+        (d) =>  d.type === window.selectedType
+      );
+      svg.select(".curve-line").remove(); // Remove existing line
+      linePath = plotLine(connectPoints, x, y, chartGroup); // Plot new line
+      createRepeatingAnimation(linePath, 2000); // Add animation
+    } else {
+      console.error("Please select a type before starting.");
+    }
+  });
+
   // Clear button
   document.getElementById("clear").addEventListener("click", function () {
     svg.select(".curve-line").remove();
@@ -179,7 +216,6 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
   ]);
   createDelaunayTriangles(chartGroup, delaunay);
   createVoronoiCells(dataset, chartGroup, voronoi);
-  createRepeatingAnimation(linePath, 2000);
   // Apply zoom handler to SVG container
   const zoomHandler = d3
     .zoom()
@@ -188,12 +224,10 @@ function plotData(dataset, svg, chartGroup, x, xAxis, y, yAxis) {
       zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath)
     ); // call zoomed function on zoom event
   // Function to reset zoom
-  document
-    .getElementById("reset_zoom")
-    .addEventListener("click", () => {
-      const svg = d3.select("svg")
-      resetZoom(svg, zoomHandler)
-    });
+  document.getElementById("reset_zoom").addEventListener("click", () => {
+    const svg = d3.select("svg");
+    resetZoom(svg, zoomHandler);
+  });
   // Apply zoom handler to SVG container
   svg.call(zoomHandler);
   container.appendChild(svg.node());
@@ -232,6 +266,7 @@ function updatePointSizes(chartGroup, pointSize) {
 
 // Create a line that goes through red points
 function plotLine(dataset, x, y, chartGroup) {
+  svg.select(".curve-line").remove();
   const path = chartGroup
     .append("path")
     .attr("class", "curve-line")
@@ -376,7 +411,6 @@ function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath) {
     return "M" + transformedPoints.join("L") + "Z";
   });
 
-  
   // Update Voronoi cells based on current transform
   svg.selectAll(".voronoi-cells path").attr("d", function (d, i) {
     const cell = voronoi.cellPolygon(i);
@@ -394,7 +428,8 @@ function zoomed(event, svg, x, xAxis, y, yAxis, dataset, voronoi, linePath) {
 
 // Update event listeners for mouseover and mouseleave
 function updateEventListeners(chartGroup, pointSize) {
-  chartGroup.selectAll("circle")
+  chartGroup
+    .selectAll("circle")
     .on("mouseover", function (event, d) {
       mouseover(event, d);
     })
@@ -442,7 +477,13 @@ function mouseover(event, d) {
   var tooltip = d3.select("#tooltip");
 
   // Set tooltip content
-  var tooltipHTML = "<strong>x: </strong>" + d.x + "<br><strong>y: </strong>" + d.y + "<br><strong>Type: </strong>" + d.type;
+  var tooltipHTML =
+    "<strong>x: </strong>" +
+    d.x +
+    "<br><strong>y: </strong>" +
+    d.y +
+    "<br><strong>Type: </strong>" +
+    d.type;
   if (d.quote) {
     tooltipHTML += "<br><strong>Sentence: </strong>" + d.quote;
   }
@@ -452,33 +493,30 @@ function mouseover(event, d) {
   tooltip.html(tooltipHTML);
 
   // // Position the tooltip above the graph
-  var graphContainerRect = document.querySelector(".graph").getBoundingClientRect();
+  var graphContainerRect = document
+    .querySelector(".graph")
+    .getBoundingClientRect();
   var tooltipWidth = document.querySelector(".graph").offsetWidth;
   // var tooltipHeight = tooltip.node().offsetHeight;
   // var tooltipX = graphContainerRect.left;
-  // var tooltipY = graphContainerRect.top - tooltipHeight - 10; 
+  // var tooltipY = graphContainerRect.top - tooltipHeight - 10;
 
   // // Set the position and display the tooltip
   // tooltip.style("left", tooltipX + "px")
   //        .style("top", tooltipY + "px")
-  //        
-         
-  tooltip
-  .style("width", tooltipWidth + "px")
-  .style("display", "block");
+  //
 
-  element.attr("r", +currentPointSize + 3).attr("fill", "purple"); 
+  tooltip.style("width", tooltipWidth + "px").style("display", "block");
+
+  element.attr("r", +currentPointSize + 3).attr("fill", "purple");
 }
 
 function mouseleave(event, d) {
   var element = d3.selectAll(".point.a" + d.class);
   // Hide the tooltip
   d3.select("#tooltip").style("display", "none");
-  element.attr("r", currentPointSize).attr("fill", (d) => d.color); 
+  element.attr("r", currentPointSize).attr("fill", (d) => d.color);
 }
-
-
-
 
 // Initialize SVG container globally
 const { svg, chartGroup, x, xAxis, y, yAxis } = createSVG();
