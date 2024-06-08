@@ -30,7 +30,15 @@
         <div id="legend"></div>
         <span id="control">Animate</span>
         <div class="options">
-            
+            <div id="type-selector">
+                <label for="type">Select Type:</label>
+                <select id="type" name="type">
+                  <option value="anchor" selected>Anchors</option>
+                  <option value="neighbor">Neighbors</option>
+                  <option value="nearest neighbor">Nearest Neighbors</option>
+                </select>
+              </div>
+              
             <button id="start" title="Start Drawing"><span class="button_top"><i class="fa-solid fa-play"></i></span></button>
             <button id="end" title="Skip"><span class="button_top"><i class="fa-solid fa-forward"></i></span></button>
             <button id="clear" title="Erase Tracing Line"><span class="button_top"><i class="fa-solid fa-eraser"></i></span></button>
