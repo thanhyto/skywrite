@@ -5,6 +5,8 @@
 #Brody's env file for OPENAI
 .env
 
+#Plandex
+.plandex
 
 ### VisualStudioCode ###
 .vscode/*
